@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Golden Glory — Premium Coworking"
+version = "1.0.0"
+id = "artifacts/golden-glory"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21555
+
+[services.development]
+run = "pnpm --filter @workspace/golden-glory run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/golden-glory", "run", "build" ]
+publicDir = "artifacts/golden-glory/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21555"
+BASE_PATH = "/"
