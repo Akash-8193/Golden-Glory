@@ -73,30 +73,30 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-[1400px]">
           <div className="max-w-4xl space-y-8">
-            
+
             {/* Top Badge */}
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 fade-up">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-white text-sm font-bold tracking-[0.2em] uppercase">Premium Coworking in Noida</span>
             </div>
-            
+
             {/* Main Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3">
-              Comfort Meets <br/>
+              Comfort Meets <br />
               <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
                 Productivity
               </span>
             </h1>
-            
+
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl leading-relaxed typewriter">
               A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.
             </p>
-            
+
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5 pt-6 fade-up">
               <Button asChild size="lg" className="w-full sm:w-auto h-16 px-10 text-lg bg-[#ffa602] text-[#111] hover:bg-[#e09612] rounded-full shadow-[0_0_40px_rgba(245,166,35,0.3)] hover:shadow-[0_0_60px_rgba(245,166,35,0.5)] transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
-                <a href="https://wa.me/919958849645" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
                   <span className="relative z-10">Book A Tour</span>
                 </a>
               </Button>
@@ -106,10 +106,10 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-            
+
           </div>
         </div>
-        
+
         {/* Bottom Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
           <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
@@ -131,7 +131,7 @@ export default function Home() {
       {/* Why Choose Us Redesign 3 (Exact Match to Reference Image) */}
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-          
+
           {/* Top Row: Title and Description */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-16 mb-24 relative z-20">
             {/* Left Title */}
@@ -141,11 +141,11 @@ export default function Home() {
                 <span className="font-bold text-[#111] tracking-wider text-lg">Why Choose Us</span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-bold font-sans uppercase leading-[1.0] tracking-tight text-[#111]">
-                PREMIUM COWORKING FOR <br className="hidden md:block"/>
+                PREMIUM COWORKING FOR <br className="hidden md:block" />
                 <span className="text-[#ffa602]">PRODUCTIVE PROFESSIONALS</span>
               </h2>
             </div>
-            
+
             {/* Right Description & Button */}
             <div className="lg:w-2/5 pt-4">
               <p className="text-gray-500 text-xl leading-relaxed mb-8 font-medium">
@@ -167,15 +167,15 @@ export default function Home() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-y-20 lg:gap-y-32 relative z-20">
-              
+
               {/* Left Column Features */}
               <div className="space-y-20 lg:pr-[350px]">
                 {/* Feature 1 */}
                 <div className="flex gap-6">
                   <div className="shrink-0 mt-1">
-                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
-                       <UserCheck className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
-                     </div>
+                    <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                      <UserCheck className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Flexible Workspaces</h3>
@@ -188,9 +188,9 @@ export default function Home() {
                 {/* Feature 2 */}
                 <div className="flex gap-6">
                   <div className="shrink-0 mt-1">
-                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
-                       <Wifi className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
-                     </div>
+                    <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                      <Wifi className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">High-Speed Internet</h3>
@@ -203,12 +203,12 @@ export default function Home() {
 
               {/* Right Column Features */}
               <div className="space-y-20 lg:pl-[350px]">
-                 {/* Feature 3 */}
-                 <div className="flex gap-6">
+                {/* Feature 3 */}
+                <div className="flex gap-6">
                   <div className="shrink-0 mt-1">
-                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
-                       <MapPin className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
-                     </div>
+                    <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                      <MapPin className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Strategic Location</h3>
@@ -221,9 +221,9 @@ export default function Home() {
                 {/* Feature 4 */}
                 <div className="flex gap-6">
                   <div className="shrink-0 mt-1">
-                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
-                       <HandCoins className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
-                     </div>
+                    <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                      <HandCoins className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Affordable Pricing</h3>
@@ -233,9 +233,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
             </div>
-            
+
             {/* Mobile Fallback Image */}
             <div className="lg:hidden mt-16 flex justify-center">
               <img src="/images/indian_professional_coworking.png" alt="Indian Professional in Coworking Space Noida" className="h-[400px] w-auto object-cover object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]" />
@@ -279,7 +279,7 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* FAQ Redesign */}
-      <FAQSection 
+      <FAQSection
         faqs={[
           { q: "What coworking plans are available at Golden Glory?", a: "Golden Glory offers Hot/Flexible Desk, Dedicated Desk, Private Cabins, Day Pass, Virtual Office, Meeting Rooms, and Conference Rooms for individuals and teams in Noida Sector-8." },
           { q: "Can I book a workspace for a single day?", a: "Yes, our Day Pass allows access to all basic amenities at Golden Glory coworking space for one day." },

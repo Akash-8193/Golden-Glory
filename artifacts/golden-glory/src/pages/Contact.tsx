@@ -30,7 +30,7 @@ export default function Contact() {
 
       <section className="py-24 bg-[#FAF9F6]">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          
+
           {/* Section 1: Send Message & Form */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
             {/* Left Content */}
@@ -45,7 +45,7 @@ export default function Contact() {
               <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
                 Golden Glory is always ready to assist you. Whether you need workspace details, pricing, or a quick tour, our team is here to guide you and answer every question.
               </p>
-              
+
               <button className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-2">
                 <span className="font-bold text-sm uppercase tracking-wide">Book Now</span>
                 <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602] text-black transition-transform">
@@ -69,7 +69,7 @@ export default function Contact() {
                 <div>
                   <input type="text" placeholder="Write a Message" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
                 </div>
-                
+
                 <button type="submit" className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-8">
                   <span className="font-bold text-sm uppercase tracking-wide">Submit Now</span>
                   <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602] text-black transition-transform">
@@ -94,13 +94,13 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             {/* Map */}
             <div className="rounded-[2rem] overflow-hidden h-[480px]">
-              <iframe 
-                src="https://maps.google.com/maps?q=111,+F-Block,+Sector-8,+Noida-201301,+India&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={false} 
-                loading="lazy" 
+              <iframe
+                src="https://maps.google.com/maps?q=111,+F-Block,+Sector-8,+Noida-201301,+India&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
@@ -108,7 +108,7 @@ export default function Contact() {
             {/* Contact Details Card */}
             <div className="bg-white rounded-[2rem] p-10 md:p-14 shadow-[0_10px_50px_rgba(0,0,0,0.03)] h-[480px] flex flex-col justify-center">
               <h3 className="text-[1.75rem] font-serif text-[#111] mb-12 font-bold">Contact Details</h3>
-              
+
               <div className="space-y-10">
                 <div className="flex gap-6 items-start">
                   <div className="text-[#ffa602] mt-1">
@@ -116,7 +116,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-gray-500 text-[1.1rem] leading-relaxed">
-                      111, F-Block, Sector-8<br/>
+                      111, F-Block, Sector-8<br />
                       Noida-201301, India
                     </p>
                   </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-gray-500 text-[1.1rem]">
-                      <a href="tel:+919958849645" className="hover:text-[#ffa602] transition-colors">+91-99-588-49-645</a>
+                      <a href="tel:+919311076106" className="hover:text-[#ffa602] transition-colors">+91-99-588-49-645</a>
                     </p>
                   </div>
                 </div>

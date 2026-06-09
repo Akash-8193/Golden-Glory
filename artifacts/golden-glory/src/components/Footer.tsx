@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        
+
         {/* Top CTA Section */}
         <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-16 mb-16 gap-8">
           <div className="max-w-2xl">
@@ -28,7 +28,7 @@ export default function Footer() {
               Join a vibrant community of professionals, startups, and growing teams today.
             </p>
           </div>
-          <Link 
+          <Link
             href="/contact-us"
             className="group inline-flex items-center gap-4 bg-[#ffa602] text-[#111] rounded-full pl-8 pr-2 py-2 hover:bg-white transition-all duration-300 shadow-[0_8px_30px_rgba(245,166,35,0.3)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
           >
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          
+
           {/* Column 1: Brand Info (Spans 4 columns) */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-2 mb-6 group">
@@ -82,8 +82,8 @@ export default function Footer() {
             <ul className="space-y-4">
               {['Flexible Seat', 'Fixed Desk', 'Private Cabins', 'Meeting Rooms', 'Virtual Office'].map((item) => (
                 <li key={item}>
-                  <Link 
-                    href="/our-offerings" 
+                  <Link
+                    href="/our-offerings"
                     className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group"
                   >
                     {item}
@@ -102,7 +102,7 @@ export default function Footer() {
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
                   <MapPin className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
                 </div>
-                <span className="pt-1">111, F-Block, Sector-8, <br/>Noida-201301, India</span>
+                <span className="pt-1">111, F-Block, Sector-8, <br />Noida-201301, India</span>
               </li>
               <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
@@ -114,7 +114,7 @@ export default function Footer() {
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
                   <Phone className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
                 </div>
-                <a href="tel:+919958849645" className="pt-1">+91-99-588-49-645</a>
+                <a href="tel:+919311076106" className="pt-1">+91-99-588-49-645</a>
               </li>
             </ul>
           </div>

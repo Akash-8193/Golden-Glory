@@ -3,7 +3,7 @@ import React from 'react';
 export default function WhatsAppWidget() {
   return (
     <a
-      href="https://wa.me/919958849645"
+      href="https://wa.me/919311076106"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-[100] group flex items-center justify-center animate-bounce hover:scale-110 transition-transform"

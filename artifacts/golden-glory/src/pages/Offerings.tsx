@@ -22,7 +22,7 @@ export default function Offerings() {
           <div className="absolute inset-0 bg-[#432c1c]/80 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/90 via-[#432c1c]/60 to-[#432c1c]/90"></div>
         </div>
-        
+
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
@@ -30,24 +30,24 @@ export default function Offerings() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Professional Services</span>
             </div>
-            
+
             {/* Headline */}
             <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Choose What <span className="text-[#ffa602]">Fits You</span>
             </h1>
-            
+
             {/* Subtext */}
             <p className="text-xl md:text-2xl text-gray-300 font-light mb-6">
               Workspace for Success & Growth | Productivity | Excellence
             </p>
-            
+
             <p className="text-base md:text-lg text-gray-400 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
               Golden Glory offers flexible and affordable coworking solutions tailored for individuals, startups, and growing teams. Choose from flexible desks, dedicated desks, private cabins, meeting rooms, and more—each designed to boost productivity with premium amenities.
             </p>
-            
+
             {/* Action */}
             <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] shadow-[0_0_30px_rgba(245,166,35,0.3)] hover:shadow-[0_0_50px_rgba(245,166,35,0.5)] hover:-translate-y-1 transition-all duration-300 font-bold uppercase tracking-wider group">
-              <a href="https://wa.me/919958849645" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
                 Book a Tour <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -61,9 +61,9 @@ export default function Offerings() {
       {/* Premium Features Redesigned Bento Grid */}
       <section className="py-16 md:py-20 bg-[#f4f9fd]">
         <div className="container mx-auto px-4 lg:px-8 max-w-[1400px]">
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:auto-rows-[300px]">
-            
+
             {/* Main Header Card (Span 3 cols) */}
             <div className="lg:col-span-3 bg-[#432c1c] rounded-[2rem] p-10 lg:p-14 relative overflow-hidden flex flex-col justify-center group shadow-xl">
               {/* Decorative SVG background */}
@@ -78,7 +78,7 @@ export default function Offerings() {
                 </svg>
               </div>
               <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 leading-[1.1] z-10 relative text-white">
-                Premium Workspace Features<br/>
+                Premium Workspace Features<br />
                 <span className="text-[#ffa602]">Built for Productivity</span>
               </h2>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl z-10 relative leading-relaxed font-light">
@@ -88,9 +88,9 @@ export default function Offerings() {
 
             {/* Why Golden Glory Card (Tall, Span 1 col, 2 rows) */}
             <div className="lg:row-span-2 lg:col-span-1 relative rounded-[2rem] overflow-hidden group shadow-xl h-full min-h-[400px]">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 alt="Coworking space"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
@@ -157,7 +157,7 @@ export default function Offerings() {
       <PricingSection />
 
       {/* FAQ */}
-      <FAQSection 
+      <FAQSection
         title="FAQ — Our Offerings"
         faqs={[
           { q: "What plans are available at Golden Glory?", a: "We offer hot desks, dedicated desks, private cabins, meeting rooms, day passes, virtual offices, and training rooms to suit different professional needs." },
@@ -181,7 +181,7 @@ export default function Offerings() {
                 <circle cx="50" cy="50" r="40" fill="currentColor" />
               </svg>
             </div>
-            
+
             <div className="relative z-10">
               <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Start Your Workspace Journey

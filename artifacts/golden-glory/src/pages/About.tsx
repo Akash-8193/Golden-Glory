@@ -17,7 +17,7 @@ export default function About() {
           <div className="absolute inset-0 bg-[#432c1c]/80 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/90 via-[#432c1c]/60 to-[#432c1c]/90"></div>
         </div>
-        
+
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
@@ -25,12 +25,12 @@ export default function About() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
             </div>
-            
+
             {/* Headline */}
             <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               About <span className="text-[#ffa602]">Golden Glory</span>
             </h1>
-            
+
             {/* Subtext */}
             <p className="text-xl md:text-2xl text-gray-300 font-light mb-6">
               A premium coworking space in Noida offering flexible workstations, private cabins, and modern amenities.
@@ -44,7 +44,7 @@ export default function About() {
 
       {/* 2. Original Shared About Section */}
       <AboutSection />
-          
+
       {/* 2. Why Golden Glory - Redesigned to look premium */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
@@ -52,9 +52,9 @@ export default function About() {
             {/* Left Image Side */}
             <div className="relative">
               <div className="absolute -inset-4 bg-[#f4f9fd] rounded-[3rem] transform -rotate-3 z-0"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-                alt="Why Golden Glory" 
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                alt="Why Golden Glory"
                 className="relative z-10 w-full h-[500px] object-cover rounded-[2rem] shadow-2xl"
               />
               <div className="absolute -bottom-8 -right-8 bg-[#432c1c] text-white p-8 rounded-[2rem] shadow-xl z-20 max-w-[250px]">
@@ -88,7 +88,7 @@ export default function About() {
           </div>
         </div>
       </section>
-          
+
       {/* 3. How We Work - Redesigned Grid */}
       <section className="py-16 md:py-20 bg-[#432c1c] relative">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
@@ -120,7 +120,7 @@ export default function About() {
           </div>
         </div>
       </section>
-          
+
       {/* 4. Shared Testimonials Section from Home */}
       <TestimonialsSection />
 
@@ -129,7 +129,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#111] mb-8">Ready to move in?</h2>
           <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
-            <a href="https://wa.me/919958849645" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
               Connect With Us
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
