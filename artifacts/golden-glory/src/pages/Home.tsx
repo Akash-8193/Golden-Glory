@@ -16,6 +16,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import AboutSection from '@/components/AboutSection';
+import ServicesSection from '@/components/ServicesSection';
+import OurSolutionsSection from '@/components/OurSolutionsSection';
+import PricingSection from '@/components/PricingSection';
+import LatestBlogsSection from '@/components/LatestBlogsSection';
+import ContactUsSection from '@/components/ContactUsSection';
+import FAQSection from '@/components/FAQSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,23 +33,8 @@ export default function Home() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Horizontal scroll
-    if (horizontalScrollRef.current && containerRef.current) {
-      const pinWrap = horizontalScrollRef.current;
-      const pinWrapWidth = pinWrap.scrollWidth;
+    // Removed complex horizontal scroll logic to fix layout bugs
 
-      gsap.to(pinWrap, {
-        x: () => -(pinWrapWidth - window.innerWidth + 100),
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          pin: true,
-          scrub: 1,
-          end: () => "+=" + pinWrapWidth,
-          invalidateOnRefresh: true,
-        }
-      });
-    }
 
     // Number counters
     if (statsRef.current) {
@@ -56,7 +49,7 @@ export default function Home() {
             start: "top 80%",
           },
           snap: { innerHTML: 1 },
-          onUpdate: function() {
+          onUpdate: function () {
             if (num.innerHTML.includes('.')) {
               num.innerHTML = parseFloat(num.innerHTML).toFixed(1);
             }
@@ -68,50 +61,59 @@ export default function Home() {
 
   return (
     <PageTransition>
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-20">
-        <div className="absolute inset-0 z-0 hidden md:block">
-          <WebGLCanvas
-            camera={{ position: [0, 0, 8], fov: 45 }}
-            fallback={
-              <div className="hero-css-fallback" aria-hidden="true">
-                <div className="hero-grid" />
-                <div className="hero-ring-1" />
-                <div className="hero-ring-2" />
-                <div className="hero-ring-3" />
-                <div className="hero-glow" />
-              </div>
-            }
-          >
-            <HeroScene />
-          </WebGLCanvas>
+      {/* Premium Hero Section */}
+      <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/luxury_home_hero_1780746689676.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Premium Coworking Space" />
+          <div className="absolute inset-0 bg-[#432c1c]/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#432c1c] via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#432c1c]/90 via-[#432c1c]/40 to-transparent"></div>
         </div>
-        <div className="absolute inset-0 z-0 bg-background/80 md:bg-background/40" />
-        
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.1]">
-              <SplitText>Comfort Meets Productivity</SplitText>
+
+        <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-[1400px]">
+          <div className="max-w-4xl space-y-8">
+            
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 fade-up">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ffa602] animate-pulse"></span>
+              <span className="text-white text-sm font-bold tracking-[0.2em] uppercase">Premium Coworking in Noida</span>
+            </div>
+            
+            {/* Main Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3">
+              Comfort Meets <br/>
+              <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
+                Productivity
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">
-              Premium Coworking Space in Noida for Professionals
+            
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl leading-relaxed typewriter">
+              A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.
             </p>
-            <p className="text-base md:text-lg text-muted-foreground/80 max-w-3xl mx-auto">
-              A vibrant coworking space in Noida that fuels focus, collaboration, and constant progress. Designed for those who hustle, dream big, and build brands that leave a mark.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-              <Button asChild size="lg" className="w-full sm:w-auto h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-accent rounded-none" data-cursor="hover">
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-5 pt-6 fade-up">
+              <Button asChild size="lg" className="w-full sm:w-auto h-16 px-10 text-lg bg-[#ffa602] text-[#111] hover:bg-[#e09612] rounded-full shadow-[0_0_40px_rgba(245,166,35,0.3)] hover:shadow-[0_0_60px_rgba(245,166,35,0.5)] transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
                 <a href="https://wa.me/919958849645" target="_blank" rel="noopener noreferrer">
-                  Connect on WhatsApp
+                  <span className="relative z-10">Book A Tour</span>
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-base border-primary/20 hover:bg-primary/10 rounded-none" data-cursor="hover">
-                <Link href="/contact">
-                  Schedule Your Tour
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-16 px-10 text-lg border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-[#111] rounded-full shadow-lg transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
+                <Link href="/our-offerings">
+                  <span className="relative z-10">Explore Plans</span>
                 </Link>
               </Button>
             </div>
+            
           </div>
+        </div>
+        
+        {/* Bottom Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+          <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
       </section>
 
@@ -124,88 +126,131 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features Grid */}
-      <section className="py-32 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <WebGLCanvas camera={{ position: [0, 0, 15] }}>
-            <ParticleField />
-          </WebGLCanvas>
-        </div>
-        <div className="container relative z-10 mx-auto px-4 md:px-8">
-          <div className="text-center mb-20">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-              <SplitText>The Space That Elevates</SplitText>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to work smarter, grow faster, and achieve more.
-            </p>
-          </div>
+      <AboutSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Building2, title: "Flexible Plans", desc: "Customize seating for individuals, startups, remote teams." },
-              { icon: HandCoins, title: "Luxury Interior", desc: "Spacious, modern, beautifully designed workspaces." },
-              { icon: Wifi, title: "Stable Connectivity", desc: "High-speed fiber internet with uninterrupted performance." },
-              { icon: Zap, title: "Power Backup", desc: "Full generator backup ensuring seamless operations." },
-              { icon: UserCheck, title: "Professional Support", desc: "Front-desk assistance and on-ground support." },
-              { icon: ShieldCheck, title: "Clean & Hygienic", desc: "Well-maintained, regularly cleaned workspace." },
-              { icon: MapPin, title: "Prime Location", desc: "Noida Sector 8, close to metro and key landmarks." },
-              { icon: HandCoins, title: "Affordable Pricing", desc: "Premium coworking at competitive pricing." }
-            ].map((feat, i) => (
-              <Card key={i} className="bg-card border-border/50 rounded-none overflow-hidden group hover:border-primary/50 transition-colors" data-cursor="hover">
-                <CardContent className="p-8">
-                  <feat.icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-3">{feat.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Horizontal Scroll Plans */}
-      <section ref={containerRef} className="bg-secondary h-screen flex items-center overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8">
-          <h2 className="font-serif text-4xl md:text-6xl font-bold mb-12 shrink-0 w-full max-w-sm absolute left-4 md:left-8 z-10 top-1/2 -translate-y-1/2 hidden lg:block">
-            <SplitText>Workspace</SplitText><br/>
-            <span className="text-primary italic">Plans</span>
-          </h2>
-          <div className="lg:pl-[400px]">
-            <div ref={horizontalScrollRef} className="flex gap-8 w-max px-4">
-              {[
-                { title: "Flexible Desk", price: "5,500", for: "Freelancers, remote workers", feats: ["Flexible seating", "High-speed internet", "Pantry + tea & coffee"] },
-                { title: "Dedicated Desk", price: "6,500", for: "Regular professionals", feats: ["Personal fixed desk", "Secure setup", "Meeting room (limited)"] },
-                { title: "Enclosed Cabin", price: "8,000", suffix: "/seat", for: "Small teams", feats: ["Private lockable cabin", "Noise-free", "Branding options"] },
-                { title: "Executive Cabin", price: "30,000", for: "Founders, executives", feats: ["Premium private cabin", "Ergonomic seating", "Meeting room credits"] },
-              ].map((plan, i) => (
-                <Card key={i} className="w-[350px] shrink-0 bg-background border-border rounded-none p-8 flex flex-col h-[500px]" data-cursor="hover">
-                  <h3 className="font-serif text-2xl font-bold text-foreground mb-2">{plan.title}</h3>
-                  <div className="mb-6">
-                    <span className="text-3xl font-bold text-primary">Rs. {plan.price}</span>
-                    <span className="text-sm text-muted-foreground">/Mo{plan.suffix}</span>
-                  </div>
-                  <p className="text-sm text-foreground/80 font-medium mb-6 pb-6 border-b border-border">
-                    Best for: {plan.for}
-                  </p>
-                  <ul className="space-y-4 mb-auto">
-                    {plan.feats.map((feat, j) => (
-                      <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full rounded-none mt-6" variant="outline" data-cursor="hover">Get a Quote</Button>
-                </Card>
-              ))}
+      {/* Why Choose Us Redesign 3 (Exact Match to Reference Image) */}
+      <section className="py-24 bg-white relative">
+        <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
+          
+          {/* Top Row: Title and Description */}
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-16 mb-24 relative z-20">
+            {/* Left Title */}
+            <div className="lg:w-3/5">
+              <div className="flex items-center gap-2 mb-4">
+                <Building2 className="w-6 h-6 text-[#ffa602]" />
+                <span className="font-bold text-[#111] tracking-wider text-lg">Why Choose Us</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-bold font-sans uppercase leading-[1.0] tracking-tight text-[#111]">
+                PREMIUM COWORKING FOR <br className="hidden md:block"/>
+                <span className="text-[#ffa602]">PRODUCTIVE PROFESSIONALS</span>
+              </h2>
+            </div>
+            
+            {/* Right Description & Button */}
+            <div className="lg:w-2/5 pt-4">
+              <p className="text-gray-500 text-xl leading-relaxed mb-8 font-medium">
+                Our premium coworking space in Noida provides personalized seating, modern amenities, and an environment designed to help you focus, collaborate, and grow your business with confidence.
+              </p>
+              <Button asChild size="lg" className="h-14 px-8 bg-[#ffa602] hover:bg-[#E09612] text-[#111] font-bold text-base rounded-none transition-transform hover:-translate-y-1">
+                <Link href="/contact">
+                  Contact Us <ArrowRight className="w-5 h-5 ml-2 -rotate-45" />
+                </Link>
+              </Button>
             </div>
           </div>
+
+          {/* Bottom Row: Features around Central Image */}
+          <div className="relative pt-10 pb-20">
+            {/* Central Image (Always positioned at the bottom center of the section) */}
+            <div className="hidden lg:block absolute left-1/2 bottom-[-80px] -translate-x-1/2 w-[550px] h-[750px] z-10 pointer-events-none">
+              <img src="/images/indian_professional_coworking.png" alt="Indian Professional in Coworking Space in Noida" className="w-full h-full object-cover object-bottom" />
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-y-20 lg:gap-y-32 relative z-20">
+              
+              {/* Left Column Features */}
+              <div className="space-y-20 lg:pr-[350px]">
+                {/* Feature 1 */}
+                <div className="flex gap-6">
+                  <div className="shrink-0 mt-1">
+                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                       <UserCheck className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                     </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Flexible Workspaces</h3>
+                    <p className="text-gray-500 text-[1.15rem] leading-relaxed">
+                      We offer a wide variety of seating that caters to freelancers, startups, and remote teams perfectly.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 2 */}
+                <div className="flex gap-6">
+                  <div className="shrink-0 mt-1">
+                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                       <Wifi className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                     </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">High-Speed Internet</h3>
+                    <p className="text-gray-500 text-[1.15rem] leading-relaxed">
+                      Experience uninterrupted high-speed fiber internet designed for seamless meetings and deep focus work.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column Features */}
+              <div className="space-y-20 lg:pl-[350px]">
+                 {/* Feature 3 */}
+                 <div className="flex gap-6">
+                  <div className="shrink-0 mt-1">
+                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                       <MapPin className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                     </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Strategic Location</h3>
+                    <p className="text-gray-500 text-[1.15rem] leading-relaxed">
+                      Located in Noida Sector 8, our coworking space offers unbeatable access to metro and major hubs.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 4 */}
+                <div className="flex gap-6">
+                  <div className="shrink-0 mt-1">
+                     <div className="w-16 h-16 rounded-full border-2 border-[#ffa602] flex items-center justify-center">
+                       <HandCoins className="w-8 h-8 text-[#ffa602]" strokeWidth={2} />
+                     </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.7rem] font-bold text-[#111] mb-3 leading-none">Affordable Pricing</h3>
+                    <p className="text-gray-500 text-[1.15rem] leading-relaxed">
+                      Enjoy a luxury coworking experience with premium amenities at highly competitive and flexible rates.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+            {/* Mobile Fallback Image */}
+            <div className="lg:hidden mt-16 flex justify-center">
+              <img src="/images/indian_professional_coworking.png" alt="Indian Professional in Coworking Space Noida" className="h-[400px] w-auto object-cover object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]" />
+            </div>
+
+          </div>
         </div>
       </section>
 
+      <OurSolutionsSection limit={3} />
+      <ServicesSection />
+      <PricingSection />
+
       {/* Stats */}
-      <section ref={statsRef} className="py-24 bg-primary text-primary-foreground">
+      <section ref={statsRef} className="py-24 bg-primary text-white shadow-inner">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -228,102 +273,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Steps */}
-      <section className="py-32 bg-background">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-              <SplitText>How We Work</SplitText>
-            </h2>
-          </div>
-          <div className="space-y-12">
-            {[
-              { num: "01", title: "Enquiry & Consultation", desc: "We understand your workspace needs, team size, budget." },
-              { num: "02", title: "Visit & Explore", desc: "Guided walkthrough of cabins, desks, meeting rooms." },
-              { num: "03", title: "Choose Your Plan", desc: "From day passes and hot desks to dedicated cabins." },
-              { num: "04", title: "Move In & Start Working", desc: "Quick onboarding, stable internet, all services ready." }
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center">
-                <div className="font-serif text-5xl md:text-7xl font-bold text-primary/20 shrink-0">{step.num}</div>
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Testimonials */}
-      <section className="py-32 bg-secondary border-t border-border">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-16">
-            <SplitText>Member Experiences</SplitText>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 text-left">
-            {[
-              { quote: "Golden Glory combines comfort and professionalism, making it one of the best coworking spaces in Noida for daily productivity.", author: "Vansh Jain", title: "Founder, Fovestta" },
-              { quote: "As a digital agency, we need focus, consistency, and fast internet. Golden Glory delivers all of it with a premium coworking experience.", author: "Nancy Jain", title: "Director, Sprint Digitech" },
-              { quote: "A productive environment with flexible seating, friendly staff, and a genuinely professional vibe. One of the best choices.", author: "Rohan Mehta", title: "Freelancer" },
-              { quote: "The cabins are quiet, the amenities are excellent, and the location is perfect. A dependable coworking space in Noida.", author: "Shruti Verma", title: "Freelancer" }
-            ].map((test, i) => (
-              <Card key={i} className="bg-background border-border rounded-none" data-cursor="hover">
-                <CardContent className="p-8">
-                  <div className="text-4xl text-primary font-serif leading-none mb-4">"</div>
-                  <p className="text-foreground/90 italic mb-6">{test.quote}</p>
-                  <div>
-                    <div className="font-bold text-foreground">{test.author}</div>
-                    <div className="text-sm text-muted-foreground">{test.title}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* FAQ */}
-      <section className="py-32 bg-background">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-              <SplitText>Frequently Asked Questions</SplitText>
-            </h2>
-          </div>
-          <Accordion type="single" collapsible className="w-full">
-            {[
-              { q: "What types of workspaces do you offer?", a: "Hot desks, dedicated desks, private cabins, meeting rooms, conference rooms, day passes, virtual offices, and customized solutions." },
-              { q: "Is high-speed internet included in all plans?", a: "Yes. Every plan includes stable, high-speed fiber internet for smooth work, meetings, and daily operations." },
-              { q: "Do you provide private cabins for teams?", a: "Absolutely. Private cabins for individuals, small teams, and growing businesses with options for additional seating." },
-              { q: "Are meeting rooms and conference rooms available?", a: "Yes. Meeting and conference rooms can be booked as part of your plan or on request." },
-              { q: "What amenities are included in the workspace?", a: "AC, power backup, tea/coffee, pantry access, housekeeping, CCTV, gaming area, reception support, printer/scanner, and more." },
-              { q: "Is parking available for members?", a: "Yes. Both 2-wheeler and 4-wheeler parking for members, subject to availability." },
-            ].map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border-border">
-                <AccordionTrigger className="text-left font-serif text-lg hover:text-primary transition-colors data-[state=open]:text-primary" data-cursor="hover">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+      {/* Testimonials Redesign */}
+      <TestimonialsSection />
+
+      {/* FAQ Redesign */}
+      <FAQSection 
+        faqs={[
+          { q: "What coworking plans are available at Golden Glory?", a: "Golden Glory offers Hot/Flexible Desk, Dedicated Desk, Private Cabins, Day Pass, Virtual Office, Meeting Rooms, and Conference Rooms for individuals and teams in Noida Sector-8." },
+          { q: "Can I book a workspace for a single day?", a: "Yes, our Day Pass allows access to all basic amenities at Golden Glory coworking space for one day." },
+          { q: "What is the difference between Hot/Flexible Desk and Dedicated Desk?", a: "Hot/Flexible Desk offers flexible seating, while Dedicated Desk provides a fixed workstation for consistent use at Golden Glory." },
+          { q: "Can teams book private cabins at Golden Glory?", a: "Yes, private cabins are available for small teams or startups, offering privacy, comfort, and ergonomic seating." },
+          { q: "Do you offer virtual office services?", a: "Yes, Golden Glory provides a virtual office in Noida Sector-8, including business address, mail handling, and meeting room credits." },
+          { q: "How do I book a workspace or plan?", a: "You can book online through our website, via WhatsApp, or by visiting Golden Glory coworking space in Noida Sector-8." }
+        ]}
+      />
 
       {/* CTA Banner */}
-      <section className="py-32 bg-secondary border-t border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent pointer-events-none" />
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="font-serif text-4xl md:text-6xl font-bold mb-8">Ready to Elevate Your Work?</h2>
-          <Button asChild size="lg" className="h-16 px-10 text-lg bg-primary text-primary-foreground hover:bg-accent rounded-none" data-cursor="hover">
-            <Link href="/contact">Book Your Tour Today</Link>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold mb-4">Move Into a Better Work Environment</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Discover a workspace designed for productivity, comfort, and community. Book your visit today and see the difference.
+          </p>
+          <Button asChild size="lg" className="h-16 px-10 text-lg bg-primary text-white hover:bg-foreground hover:text-white rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300" data-cursor="hover">
+            <Link href="/contact">Connect Now</Link>
           </Button>
         </div>
       </section>
-      
+
+      <LatestBlogsSection />
+
+      <ContactUsSection />
+
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }

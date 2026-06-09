@@ -1,0 +1,144 @@
+/* src/styles/animations.css */
+
+/* 3.5 Image Hover — Diagonal Shine (.image-anime) */
+.image-anime {
+  position: relative;
+  overflow: hidden;
+}
+.image-anime::after,
+figure.image-anime::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 0%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  pointer-events: none;
+  z-index: 10;
+}
+.image-anime:hover::after {
+  height: 250%;
+  transition: all 600ms linear;
+  background-color: transparent;
+}
+
+/* 3.9 Button Hover — Skew + Color Wipe (.btn-anime) */
+.btn-anime {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.btn-anime:hover {
+  transform: skew(-10deg);
+}
+.btn-anime::before,
+.btn-anime::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  transition: all 0.4s ease-in-out;
+  background-color: #432c1c; /* Hover color */
+  z-index: -1;
+}
+.btn-anime::before { left: 0; }
+.btn-anime::after { right: 0; }
+.btn-anime:hover::before,
+.btn-anime:hover::after {
+  width: 51%; /* Fills from both sides to meet in middle */
+}
+/* Ensure text stays visible on hover */
+.btn-anime:hover {
+  color: white !important;
+}
+.btn-anime:hover * {
+  color: white !important;
+}
+
+/* 3.10 Counter Box Stagger (.excellence-counter-boxes) */
+.excellence-counter-boxes .excellence-counter-item {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.excellence-counter-boxes:hover .excellence-counter-item:nth-child(odd) {
+  transform: translateY(-20px);
+}
+.excellence-counter-boxes:hover .excellence-counter-item:nth-child(even) {
+  transform: translateY(0px);
+}
+
+/* 3.12 Floating Decorative Objects */
+@keyframes floatX {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(30px); }
+}
+.animate-float-x {
+  animation: floatX 8s ease-in-out infinite;
+}
+.animate-float-y {
+  animation: floatY 8s ease-in-out infinite;
+}
+
+/* 3.13 Pulsing Ring / Border Zoom (.border-zooming) */
+@keyframes border-zooming {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.border-zooming {
+  position: relative;
+}
+.border-zooming::before,
+.border-zooming::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 166, 35, 0.5); /* Yellow */
+  pointer-events: none;
+  z-index: -1;
+}
+.border-zooming::before {
+  animation: border-zooming 1.5s infinite linear;
+}
+.border-zooming::after {
+  animation: border-zooming 1.5s infinite linear;
+  animation-delay: 0.75s;
+}
+
+/* 3.14 Navigation Dropdown Animation (.nav-dropdown-anime) */
+.nav-dropdown-anime {
+  transform: scaleY(0.8);
+  transform-origin: top;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-parent:hover .nav-dropdown-anime {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Base state for GSAP text reveals (prevents flash of unstyled text) */
+/* Removed visibility hidden to ensure text shows even if JS is slow */
+.at-animation-heading-style-1,
+.at-animation-heading-style-2,
+.at-animation-heading-style-3 {
+  /* visibility: hidden; */
+}
+
+/* GSAP image container */
+.at-animation-image-style-1 {
+  visibility: hidden;
+  overflow: hidden;
+}
