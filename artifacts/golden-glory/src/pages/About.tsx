@@ -76,17 +76,17 @@ export default function About() {
                 Why Golden Glory
               </h2>
               <p className="text-gray-500 text-lg mb-10 leading-relaxed">
-                Golden Glory delivers a seamless coworking experience built for productivity, comfort, and growth, giving professionals and teams the right environment to focus, collaborate, and scale effortlessly.
+                Why rent an empty room and waste your time on furniture, Wi-Fi, and electricity bills? At Golden Glory, we give you a fully ready premium office. You just come in, open your laptop, and start working. We will take care of the rest.
               </p>
               <ul className="space-y-6">
                 {[
-                  "Enjoy ergonomic seating, calming interiors, and balanced lighting that create a stress-free workspace designed to support long working hours with ease.",
-                  "Choose from multiple workspace options tailored for individuals, startups, and teams, ensuring your setup grows as your business needs evolve.",
-                  "Connect with driven professionals through collaborative zones and networking opportunities that help you build meaningful relationships and expand your business reach."
-                ].map((text, i) => (
+                  { title: "Focus Only on Work", desc: "No tension of office maintenance, power cuts, or cleaning staff. We manage everything 100% so you can focus on your business." },
+                  { title: "Flexible & Pocket-Friendly", desc: "Do not lock your money in heavy office deposits. Start with one seat and upgrade to a private cabin anytime." },
+                  { title: "Great Vibe & Free Coffee", desc: "Work in a beautiful environment with unlimited tea and coffee. Meet other smart business owners and maybe find your next client here." }
+                ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-[#ffa602]/30 hover:bg-[#ffa602]/5 transition-colors">
                     <CheckCircle2 className="w-6 h-6 text-[#ffa602] shrink-0 mt-0.5" />
-                    <p className="text-[#111]/80 font-medium">{text}</p>
+                    <p className="text-[#111]/80 font-medium"><strong className="text-[#111] font-bold">{item.title}:</strong> {item.desc}</p>
                   </li>
                 ))}
               </ul>

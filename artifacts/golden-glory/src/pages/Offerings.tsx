@@ -85,7 +85,7 @@ export default function Offerings() {
                 <span className="text-[#ffa602]">Built for Productivity</span>
               </h2>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl z-10 relative leading-relaxed font-light">
-                We've built a workspace where you can actually get things done. Everything is taken care of—from fast Wi-Fi to comfortable seats—so you can just focus on your work without any distractions.
+                A perfect workspace where you can actually get things done. Everything is taken care of—from fast Wi-Fi to comfortable seats—so you can just focus on your business.
               </p>
             </div>
 
@@ -100,26 +100,26 @@ export default function Offerings() {
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-white z-10">
                 <h3 className="font-sans text-3xl font-bold mb-4 text-[#ffa602]">Why Golden Glory</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-6">
-                  Let's be honest, setting up your own office is a headache. You have to deal with heavy deposits, electricity bills, and slow internet. At Golden Glory, we take care of all the boring stuff. You just bring your laptop, find a spot you like, and start working immediately.
+                  Setting up your own office means paying heavy deposits, electricity bills, and internet charges. At Golden Glory, we take care of all these tensions. Just bring your laptop and start working from day one.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
                       <Check className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Move in today, no heavy deposits
+                    Zero Setup Cost & Low Deposits
                   </li>
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
                       <Check className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Meeting rooms ready when you need them
+                    Free access to Meeting Rooms
                   </li>
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
                       <MapPin className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Super easy to reach (10 mins from Metro)
+                    Prime Location (Very close to Metro)
                   </li>
                 </ul>
               </div>
@@ -130,8 +130,8 @@ export default function Offerings() {
               <div className="w-16 h-16 rounded-2xl bg-[#f4f9fd] text-[#ffa602] flex items-center justify-center mb-6 group-hover:bg-[#ffa602] group-hover:text-white transition-colors duration-300">
                 <Rocket className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Great Crowd to Work With</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">You won't just be renting a desk. You'll be working alongside other serious founders and teams. It's a great place to make connections or just grab a coffee together.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Good Networking</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">Work alongside other startups and professionals. It is a great place to make new business connections while having a cup of coffee.</p>
             </div>
 
             {/* Feature 2: Cafe */}
@@ -139,8 +139,8 @@ export default function Offerings() {
               <div className="w-16 h-16 rounded-2xl bg-[#f4f9fd] text-[#432c1c] flex items-center justify-center mb-6 group-hover:bg-[#432c1c] group-hover:text-white transition-colors duration-300">
                 <Coffee className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Good Coffee & Chill Zones</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">We know long hours can get tiring. Whenever you need a break, just grab a hot cup of coffee and step into our lounge area to relax and clear your head.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Cafeteria & Lounge</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">Take a break from continuous work. Enjoy tea or coffee in our cafeteria and relax in the lounge area before your next meeting.</p>
             </div>
 
             {/* Feature 3: Smart Access */}
@@ -148,8 +148,8 @@ export default function Offerings() {
               <div className="w-16 h-16 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 backdrop-blur-sm">
                 <Clock className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Work On Your Schedule</h4>
-              <p className="text-[#111]/80 text-sm leading-relaxed font-medium">Not everyone works a standard 9-to-5. You can come in late at night or on weekends. Plus, we've got really comfortable chairs so your back won't hurt.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Flexible Timings</h4>
+              <p className="text-[#111]/80 text-sm leading-relaxed font-medium">Work according to your own routine. We provide premium seating so you can work comfortably for long hours without any back pain.</p>
             </div>
 
           </div>

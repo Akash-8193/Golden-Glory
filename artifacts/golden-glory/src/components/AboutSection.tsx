@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Star, Building2, Wifi, Shield, Coffee } from 'lucide-react';
+import { ArrowRight, Star, Building2, IndianRupee, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -20,11 +20,11 @@ export default function AboutSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans text-[#432c1c] font-bold leading-[1.15] mb-6 at-animation-heading-style-3">
-              Building success through work and community
+              Our Vision: A Space Where Great Ideas Grow
             </h2>
             
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed max-w-lg typewriter">
-              We are more than a coworking space—we are a community. Built on the foundation of productivity and guided by excellence, we welcome professionals to join our workspace designed to help you manage work, build networks, and grow effectively.
+              Golden Glory started with a simple belief: a great working environment can completely change how a business performs. We didn't just want to rent out desks; we wanted to build a strong community. Our mission is to provide a premium, peaceful space in Noida where startups, freelancers, and businesses can come together and grow without limits.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-10 mb-12">
@@ -32,21 +32,21 @@ export default function AboutSection() {
               <div className="space-y-6 flex-1 excellence-counter-boxes fade-up">
                 <div className="flex items-center gap-4 excellence-counter-item">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
-                    <Wifi className="w-6 h-6 text-[#432c1c]" />
+                    <Building2 className="w-6 h-6 text-[#432c1c]" />
                   </div>
-                  <span className="font-bold text-[#432c1c] text-lg">High-Speed Internet</span>
+                  <span className="font-bold text-[#432c1c] text-lg">Fully Managed Office</span>
                 </div>
                 <div className="flex items-center gap-4 excellence-counter-item">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
-                    <Shield className="w-6 h-6 text-[#432c1c]" />
+                    <IndianRupee className="w-6 h-6 text-[#432c1c]" />
                   </div>
-                  <span className="font-bold text-[#432c1c] text-lg">Secure Workspaces</span>
+                  <span className="font-bold text-[#432c1c] text-lg">Zero Hidden Costs</span>
                 </div>
                 <div className="flex items-center gap-4 excellence-counter-item">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
-                    <Coffee className="w-6 h-6 text-[#432c1c]" />
+                    <MapPin className="w-6 h-6 text-[#432c1c]" />
                   </div>
-                  <span className="font-bold text-[#432c1c] text-lg">Premium Amenities</span>
+                  <span className="font-bold text-[#432c1c] text-lg">Prime Metro Location</span>
                 </div>
               </div>
 

@@ -51,16 +51,16 @@ export default function WhoWeAreSection() {
             
             {/* Title */}
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-sans text-[#432c1c] font-bold leading-[1.1] tracking-tight at-animation-heading-style-3">
-              A Workspace Built for Focus & Community
+              The Best Place to Grow Your Business
             </h2>
             
             {/* Paragraphs */}
             <div className="space-y-4 text-gray-600 text-[1.05rem] leading-relaxed typewriter">
               <p>
-                Golden Glory is a modern coworking space crafted to help professionals, startups, and businesses work smarter and grow faster. We combine comfort, community, and productivity to create an environment where work feels effortless.
+                Golden Glory is designed for freelancers, startups, and small businesses who want a premium office feel without the heavy costs. You just focus on your work, and leave the office management to us.
               </p>
               <p>
-                By blending premium amenities with a purpose-driven design, we ensure every member experiences a workspace that enhances focus, collaboration, and well-being.
+                Forget about electricity bills, slow Wi-Fi, or cleaning staff issues. We provide everything ready-to-use so your daily work goes smoothly.
               </p>
             </div>
 
@@ -75,10 +75,10 @@ export default function WhoWeAreSection() {
                   <div className="w-10 h-10 rounded-full bg-[#ffa602] flex items-center justify-center shadow-md mb-3 border-zooming">
                     <ShieldCheck className="w-5 h-5 text-[#111]" strokeWidth={2} />
                   </div>
-                  <h4 className="text-lg font-bold text-[#111] mb-2">Stability & Comfort</h4>
+                  <h4 className="text-lg font-bold text-[#111] mb-2">No Distractions</h4>
                   <div className="flex items-start gap-2 text-gray-600">
                     <CheckCircle2 className="w-5 h-5 text-[#ffa602] shrink-0 mt-0.5" />
-                    <p className="text-sm leading-relaxed">Enjoy uninterrupted workflow with high-speed internet, reliable power, and a peaceful environment.</p>
+                    <p className="text-sm leading-relaxed">High-speed Wi-Fi and 100% power backup, so your work and zoom calls never stop.</p>
                   </div>
                 </div>
 
@@ -87,10 +87,10 @@ export default function WhoWeAreSection() {
                   <div className="w-10 h-10 rounded-full bg-[#ffa602] flex items-center justify-center shadow-md mb-3 border-zooming">
                     <Expand className="w-5 h-5 text-[#111]" strokeWidth={2} />
                   </div>
-                  <h4 className="text-lg font-bold text-[#111] mb-2">Total Flexibility</h4>
+                  <h4 className="text-lg font-bold text-[#111] mb-2">Customized Office Space</h4>
                   <div className="flex items-start gap-2 text-gray-600">
                     <CheckCircle2 className="w-5 h-5 text-[#ffa602] shrink-0 mt-0.5" />
-                    <p className="text-sm leading-relaxed">Choose from multiple workspace options—from hot desks to private cabins tailored to your needs.</p>
+                    <p className="text-sm leading-relaxed">Get an office that fits your exact needs. Choose from open hot desks, dedicated seats, or fully furnished private cabins for your entire team.</p>
                   </div>
                 </div>
 
