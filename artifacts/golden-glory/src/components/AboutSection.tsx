@@ -76,7 +76,7 @@ export default function AboutSection() {
           </div>
           
           {/* Right Column: Circular Images Grid */}
-          <div className="relative w-full max-w-[400px] md:max-w-[500px] lg:max-w-[550px] aspect-square mx-auto mt-10 lg:mt-0">
+          <div className="relative w-full max-w-[450px] md:max-w-[600px] lg:max-w-[650px] aspect-square mx-auto mt-2 lg:-mt-12 xl:-mt-16">
             <div className="grid grid-cols-2 grid-rows-2 gap-3 md:gap-4 h-full">
               {/* Top Left */}
               <div className="overflow-hidden rounded-tl-full bg-gray-200 image-anime at-animation-image-style-1">
@@ -97,9 +97,8 @@ export default function AboutSection() {
             </div>
             
             {/* Center Overlapping Logo Circle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-2xl border-[8px] md:border-[12px] border-[#F8F9FA] z-20">
-              <Building2 className="w-8 h-8 md:w-12 md:h-12 text-[#432c1c] mb-2" />
-              <span className="font-serif font-bold text-sm md:text-lg text-[#432c1c] tracking-tight">Golden Glory</span>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-2xl border-[8px] md:border-[12px] border-[#F8F9FA] z-20 overflow-hidden">
+              <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-[85%] h-[85%] object-contain mix-blend-multiply contrast-125 brightness-110" />
             </div>
           </div>
           

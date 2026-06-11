@@ -44,11 +44,8 @@ export default function Footer() {
 
           {/* Column 1: Brand Info (Spans 4 columns) */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 mb-6 group">
-              <div className="font-sans font-black tracking-tight text-3xl flex gap-1.5 uppercase transition-transform group-hover:scale-105">
-                <span className="text-[#ffa602]">Golden</span>
-                <span className="text-white">Glory</span>
-              </div>
+            <Link href="/" className="flex items-center gap-2 mb-6 group bg-white p-3 rounded-xl border border-white/20 hover:scale-105 transition-all inline-block w-fit shadow-xl">
+              <img src="/logo.jpeg" alt="Golden Glory Logo" className="h-10 md:h-12 object-contain mix-blend-multiply contrast-125 brightness-110" />
             </Link>
             <p className="text-gray-400 leading-relaxed mb-8 max-w-sm font-light">
               A premium coworking space in Noida designed to inspire creativity, foster collaboration, and drive your business forward.

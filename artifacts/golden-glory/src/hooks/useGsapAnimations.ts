@@ -107,7 +107,7 @@ export function useGsapAnimations(dependencies: any[] = []) {
           // 3.10 Typewriter Effect for Small Texts (.typewriter)
           const typewriterElements = document.querySelectorAll('.typewriter');
           typewriterElements.forEach((el) => {
-            const split = new SplitType(el as HTMLElement, { types: 'chars' });
+            const split = new SplitType(el as HTMLElement, { types: 'words,chars' });
             splits.push(split);
             gsap.from(split.chars, {
               opacity: 0,
@@ -142,6 +142,26 @@ export function useGsapAnimations(dependencies: any[] = []) {
             
             container.addEventListener('mouseleave', () => {
               gsap.to([oddBoxes, evenBoxes], { y: 0, duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
+            });
+          });
+
+          // 3.11b Number Counters (.stat-num)
+          const statNumbers = document.querySelectorAll('.stat-num');
+          statNumbers.forEach((num) => {
+            const target = parseFloat(num.getAttribute('data-target') || '0');
+            gsap.to(num, {
+              innerHTML: target,
+              duration: 2,
+              scrollTrigger: {
+                trigger: num,
+                start: "top 95%",
+              },
+              snap: { innerHTML: 1 },
+              onUpdate: function () {
+                if (num.innerHTML.includes('.')) {
+                  num.innerHTML = parseFloat(num.innerHTML).toFixed(1);
+                }
+              }
             });
           });
 

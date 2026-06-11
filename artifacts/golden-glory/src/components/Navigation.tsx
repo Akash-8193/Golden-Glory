@@ -43,7 +43,7 @@ export default function Navigation() {
             <img 
               src="/logo.jpeg" 
               alt="Golden Glory Logo" 
-              className={`object-contain transition-all duration-500 mix-blend-multiply ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
+              className={`object-contain transition-all duration-500 mix-blend-multiply contrast-125 brightness-110 ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
               onError={(e) => {
                 // Fallback to text if logo image is not found
                 e.currentTarget.style.display = 'none';

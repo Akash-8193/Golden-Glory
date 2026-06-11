@@ -8,11 +8,11 @@ export default function Blog() {
   return (
     <PageTransition>
       {/* Premium Hero Section */}
-      <section className="relative min-h-[60vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-16">
+      <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         <div className="absolute inset-0 z-0">
           <img src="/images/luxury_hotdesk_1780746713216.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Blog" />
-          <div className="absolute inset-0 bg-[#432c1c]/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/90 via-[#432c1c]/60 to-[#432c1c]/90"></div>
+          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/60 via-[#432c1c]/30 to-[#432c1c]/60"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
@@ -20,13 +20,19 @@ export default function Blog() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Latest Insights</span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Our <span className="text-[#ffa602]">Blog</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
               Insights, tips, and news from the Golden Glory community.
             </p>
           </div>
+        </div>
+
+        {/* Bottom Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+          <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
       </section>
 

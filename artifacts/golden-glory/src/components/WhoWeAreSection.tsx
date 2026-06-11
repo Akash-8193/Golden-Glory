@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 
 export default function WhoWeAreSection() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="pt-10 pb-24 bg-white relative overflow-hidden">
       {/* Faint Background Elements (like the hands in reference) */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlN2U3ZTciIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTggMTFsLTUgNW0wIDBsLTUgLWVtNSA1VjZtMCAwaC0yIi8+PC9zdmc+')] opacity-10 z-0 gsap-float pointer-events-none"></div>
 
@@ -12,7 +12,7 @@ export default function WhoWeAreSection() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           
           {/* Left Column: Image Collage */}
-          <div className="relative w-full h-[600px] md:h-[700px] flex items-center justify-center lg:justify-start">
+          <div className="relative w-full h-[700px] md:h-[850px] lg:h-[900px] flex items-center justify-center lg:justify-start mt-4 lg:-mt-12 xl:-mt-16">
             
             {/* Main Tall Image (Pill Shape) */}
             <div className="absolute left-0 top-0 w-[80%] h-[90%] rounded-full z-10 shadow-[0_10px_40px_rgba(0,0,0,0.1)] image-anime at-animation-image-style-1">

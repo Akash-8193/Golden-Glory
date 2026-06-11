@@ -33,30 +33,7 @@ export default function Home() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Removed complex horizontal scroll logic to fix layout bugs
-
-
-    // Number counters
-    if (statsRef.current) {
-      const numbers = statsRef.current.querySelectorAll('.stat-num');
-      numbers.forEach((num) => {
-        const target = parseFloat(num.getAttribute('data-target') || '0');
-        gsap.to(num, {
-          innerHTML: target,
-          duration: 2,
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: "top 80%",
-          },
-          snap: { innerHTML: 1 },
-          onUpdate: function () {
-            if (num.innerHTML.includes('.')) {
-              num.innerHTML = parseFloat(num.innerHTML).toFixed(1);
-            }
-          }
-        });
-      });
-    }
+    // Number counters logic has been moved to useGsapAnimations for global access
   }, []);
 
   return (
@@ -66,9 +43,9 @@ export default function Home() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <img src="/images/luxury_home_hero_1780746689676.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Premium Coworking Space" />
-          <div className="absolute inset-0 bg-[#432c1c]/70 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#432c1c] via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#432c1c]/90 via-[#432c1c]/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#432c1c]/60 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#432c1c]/50 via-[#432c1c]/20 to-transparent"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-[1400px]">
@@ -81,7 +58,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
               Comfort Meets <br />
               <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
                 Productivity
@@ -89,7 +66,7 @@ export default function Home() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl leading-relaxed typewriter">
+            <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl leading-relaxed typewriter" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
               A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.
             </p>
 
