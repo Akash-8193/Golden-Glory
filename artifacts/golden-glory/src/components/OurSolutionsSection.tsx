@@ -91,7 +91,7 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
               className="group bg-white rounded-[2rem] p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#ffa602]/20 flex flex-col h-full fade-up"
             >
               {/* Large Watermark Number */}
-              <div className="absolute -right-4 -bottom-6 text-[8rem] font-serif font-bold text-gray-50 group-hover:text-[#ffa602]/5 transition-colors duration-500 pointer-events-none leading-none">
+              <div className="absolute -right-4 -bottom-6 text-[8rem] font-sans font-bold text-gray-50 group-hover:text-[#ffa602]/5 transition-colors duration-500 pointer-events-none leading-none">
                 {solution.id}
               </div>
 

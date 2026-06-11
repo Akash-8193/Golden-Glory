@@ -18,7 +18,7 @@ export default function Footer() {
         {/* Top CTA Section */}
         <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-16 mb-16 gap-8">
           <div className="max-w-2xl">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h2 className="font-sans text-4xl md:text-5xl font-bold mb-4 leading-tight">
               Ready to elevate your <span className="text-[#ffa602] relative inline-block">
                 workspace?
                 <span className="absolute bottom-1 left-0 w-full h-2 bg-[#ffa602]/20 -z-10 blur-sm"></span>
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links (Spans 2 columns) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xl font-serif font-bold mb-6 text-white tracking-wide">Quick Links</h4>
+            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Quick Links</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Home<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
               <li><Link href="/about-coworking-space-in-noida" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">About Us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* Column 3: Workspaces (Spans 3 columns) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xl font-serif font-bold mb-6 text-white tracking-wide">Workspaces</h4>
+            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Workspaces</h4>
             <ul className="space-y-4">
               {['Flexible Seat', 'Fixed Desk', 'Private Cabins', 'Meeting Rooms', 'Virtual Office'].map((item) => (
                 <li key={item}>
@@ -95,7 +95,7 @@ export default function Footer() {
 
           {/* Column 4: Contact Info (Spans 3 columns) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xl font-serif font-bold mb-6 text-white tracking-wide">Get in Touch</h4>
+            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Get in Touch</h4>
             <ul className="space-y-6">
               <li className="flex items-start gap-4 text-gray-400 hover:text-white transition-colors group">
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">

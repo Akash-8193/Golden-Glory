@@ -18,7 +18,7 @@ export default function Contact() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Reach Our Team</span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Get In <span className="text-[#ffa602]">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
@@ -45,7 +45,7 @@ export default function Contact() {
                 <span className="text-sm font-bold tracking-widest text-gray-500 uppercase">Send Message</span>
                 <span className="w-2 h-2 rounded-full bg-[#ffa602]"></span>
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-[4rem] font-serif text-[#111] leading-[1.1]">
+              <h2 className="text-5xl md:text-6xl lg:text-[4rem] font-sans text-[#111] leading-[1.1]">
                 Find Us Here. Make Real Results Happen.
               </h2>
               <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
@@ -92,7 +92,7 @@ export default function Contact() {
               <span className="text-sm font-bold tracking-widest text-gray-500 uppercase">Contact Us</span>
               <span className="w-2 h-2 rounded-full bg-[#ffa602]"></span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-serif text-[#111]">
+            <h2 className="text-5xl md:text-6xl font-sans text-[#111]">
               Get In Touch
             </h2>
           </div>
@@ -113,7 +113,7 @@ export default function Contact() {
 
             {/* Contact Details Card */}
             <div className="bg-white rounded-[2rem] p-10 md:p-14 shadow-[0_10px_50px_rgba(0,0,0,0.03)] h-[480px] flex flex-col justify-center">
-              <h3 className="text-[1.75rem] font-serif text-[#111] mb-12 font-bold">Contact Details</h3>
+              <h3 className="text-[1.75rem] font-sans text-[#111] mb-12 font-bold">Contact Details</h3>
 
               <div className="space-y-10">
                 <div className="flex gap-6 items-start">

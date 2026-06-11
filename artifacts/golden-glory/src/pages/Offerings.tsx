@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SplitText from '@/components/SplitText';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, Wifi, Zap, Users } from 'lucide-react';
+import { ArrowRight, Check, Coffee, Rocket, Clock, MapPin } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "wouter";
 import OurSolutionsSection from '@/components/OurSolutionsSection';
@@ -32,13 +32,13 @@ export default function Offerings() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Choose What <span className="text-[#ffa602]">Fits You</span>
             </h1>
 
             {/* Subtext */}
             <p className="text-xl md:text-2xl text-gray-100 font-light mb-6" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              Workspace for Success & Growth | Productivity | Excellence
+              Where ambition meets the right environment.
             </p>
 
 
@@ -80,12 +80,12 @@ export default function Offerings() {
                   <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"></rect>
                 </svg>
               </div>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 leading-[1.1] z-10 relative text-white">
+              <h2 className="font-sans text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 leading-[1.1] z-10 relative text-white">
                 Premium Workspace Features<br />
                 <span className="text-[#ffa602]">Built for Productivity</span>
               </h2>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl z-10 relative leading-relaxed font-light">
-                Golden Glory offers essential amenities designed to boost focus, comfort, and efficiency so you can work smarter every single day.
+                We've built a workspace where you can actually get things done. Everything is taken care of—from fast Wi-Fi to comfortable seats—so you can just focus on your work without any distractions.
               </p>
             </div>
 
@@ -98,58 +98,58 @@ export default function Offerings() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-white z-10">
-                <h3 className="font-serif text-3xl font-bold mb-4 text-[#ffa602]">Why Golden Glory</h3>
+                <h3 className="font-sans text-3xl font-bold mb-4 text-[#ffa602]">Why Golden Glory</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-6">
-                  Golden Glory offers a seamless coworking experience designed for comfort, productivity, and flexibility. Our modern facilities, supportive staff, and central Noida location ensure an effortless workday for every professional.
+                  Let's be honest, setting up your own office is a headache. You have to deal with heavy deposits, electricity bills, and slow internet. At Golden Glory, we take care of all the boring stuff. You just bring your laptop, find a spot you like, and start working immediately.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
                       <Check className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Premium Workspace
+                    Move in today, no heavy deposits
                   </li>
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
                       <Check className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Flexible Plans
+                    Meeting rooms ready when you need them
                   </li>
                   <li className="flex items-center gap-3 font-medium text-sm">
                     <div className="w-6 h-6 rounded-full bg-[#ffa602]/20 flex items-center justify-center shrink-0">
-                      <Check className="text-[#ffa602] w-4 h-4" />
+                      <MapPin className="text-[#ffa602] w-4 h-4" />
                     </div>
-                    Reliable Infrastructure
+                    Super easy to reach (10 mins from Metro)
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Feature 1: Internet */}
+            {/* Feature 1: Community */}
             <div className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 flex flex-col justify-center group hover:-translate-y-2 transition-all duration-300">
               <div className="w-16 h-16 rounded-2xl bg-[#f4f9fd] text-[#ffa602] flex items-center justify-center mb-6 group-hover:bg-[#ffa602] group-hover:text-white transition-colors duration-300">
-                <Wifi className="w-8 h-8" />
+                <Rocket className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-bold text-2xl mb-3">High-Speed Internet</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">Fast, stable fiber connectivity for uninterrupted workflows.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Great Crowd to Work With</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">You won't just be renting a desk. You'll be working alongside other serious founders and teams. It's a great place to make connections or just grab a coffee together.</p>
             </div>
 
-            {/* Feature 2: Power */}
+            {/* Feature 2: Cafe */}
             <div className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 flex flex-col justify-center group hover:-translate-y-2 transition-all duration-300">
               <div className="w-16 h-16 rounded-2xl bg-[#f4f9fd] text-[#432c1c] flex items-center justify-center mb-6 group-hover:bg-[#432c1c] group-hover:text-white transition-colors duration-300">
-                <Zap className="w-8 h-8" />
+                <Coffee className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-bold text-2xl mb-3">Power Backup</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">100% power backup ensuring you never lose a minute of work.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Good Coffee & Chill Zones</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">We know long hours can get tiring. Whenever you need a break, just grab a hot cup of coffee and step into our lounge area to relax and clear your head.</p>
             </div>
 
-            {/* Feature 3: Staff */}
+            {/* Feature 3: Smart Access */}
             <div className="bg-[#ffa602] rounded-[2rem] p-8 shadow-[0_8px_30px_rgba(245,166,35,0.2)] flex flex-col justify-center group hover:-translate-y-2 transition-all duration-300">
               <div className="w-16 h-16 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 backdrop-blur-sm">
-                <Users className="w-8 h-8" />
+                <Clock className="w-8 h-8" />
               </div>
-              <h4 className="text-[#111] font-bold text-2xl mb-3">Supportive Staff</h4>
-              <p className="text-[#111]/80 text-sm leading-relaxed font-medium">Quick, reliable, and friendly assistance whenever needed.</p>
+              <h4 className="text-[#111] font-sans font-bold text-2xl mb-3">Work On Your Schedule</h4>
+              <p className="text-[#111]/80 text-sm leading-relaxed font-medium">Not everyone works a standard 9-to-5. You can come in late at night or on weekends. Plus, we've got really comfortable chairs so your back won't hurt.</p>
             </div>
 
           </div>
@@ -186,11 +186,11 @@ export default function Offerings() {
             </div>
 
             <div className="relative z-10">
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Start Your Workspace Journey
+              <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Ready to Find Your Perfect Desk?
               </h2>
               <p className="text-lg md:text-xl font-light text-white/80 mb-10 max-w-2xl mx-auto">
-                Experience a modern, comfortable, and productivity-driven coworking environment designed to support your growth every single day.
+                Come over, take a tour, and see why professionals in Noida choose Golden Glory as their second home.
               </p>
               <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
                 <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">

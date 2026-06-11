@@ -51,7 +51,7 @@ export default function PricingSection() {
               </div>
               
               <div className="p-4 xl:p-5 flex flex-col flex-1">
-                <h3 className={`font-serif text-2xl font-bold mb-4 ${plan.isPremium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
+                <h3 className={`font-sans text-2xl font-bold mb-4 ${plan.isPremium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
                 
                 <div className={`mb-6 pb-6 border-b ${plan.isPremium ? 'border-white/10' : 'border-gray-100'}`}>
                   <div className="flex flex-wrap items-baseline gap-1 mb-1">

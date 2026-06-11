@@ -113,7 +113,7 @@ export default function Navigation() {
             className="fixed inset-0 z-[100] bg-background flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <span className="font-serif text-xl font-bold tracking-wider text-foreground">
+              <span className="font-sans text-xl font-bold tracking-wider text-foreground">
                 GOLDEN <span className="text-primary">GLORY</span>
               </span>
               <button 
@@ -137,7 +137,7 @@ export default function Navigation() {
                     <Link 
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`font-serif text-3xl md:text-4xl transition-colors ${
+                      className={`font-sans text-3xl md:text-4xl transition-colors ${
                         location === link.href ? 'text-primary' : 'text-foreground hover:text-primary'
                       }`}
                     >

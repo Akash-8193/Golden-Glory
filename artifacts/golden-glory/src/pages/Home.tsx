@@ -58,7 +58,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
               Comfort Meets <br />
               <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
                 Productivity
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* Marquee Ticker */}
       <div className="w-full overflow-hidden bg-primary py-4 whitespace-nowrap border-y border-border">
-        <div className="flex gap-4 animate-marquee inline-block text-primary-foreground font-serif text-xl tracking-widest uppercase">
+        <div className="flex gap-4 animate-marquee inline-block text-primary-foreground font-sans text-xl tracking-widest uppercase">
           {Array(4).fill("PREMIUM COWORKING · NOIDA SECTOR 8 · FLEXIBLE PLANS · LUXURY INTERIOR · ").map((text, i) => (
             <span key={i} className="mx-4">{text}</span>
           ))}
@@ -231,19 +231,19 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-serif mb-2"><span className="stat-num" data-target="200">0</span>+</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="200">0</span>+</div>
               <div className="text-sm uppercase tracking-wider opacity-80">Happy Members</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-serif mb-2"><span className="stat-num" data-target="8">0</span>+</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="8">0</span>+</div>
               <div className="text-sm uppercase tracking-wider opacity-80">Workspace Options</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-serif mb-2"><span className="stat-num" data-target="99.9">0</span>%</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="99.9">0</span>%</div>
               <div className="text-sm uppercase tracking-wider opacity-80">Uptime Internet</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-serif mb-2"><span className="stat-num" data-target="5">0</span></div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="5">0</span></div>
               <div className="text-sm uppercase tracking-wider opacity-80">Average Rating</div>
             </div>
           </div>
@@ -271,7 +271,7 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="font-serif text-4xl md:text-6xl font-bold mb-4">Move Into a Better Work Environment</h2>
+          <h2 className="font-sans text-4xl md:text-6xl font-bold mb-4">Move Into a Better Work Environment</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Discover a workspace designed for productivity, comfort, and community. Book your visit today and see the difference.
           </p>

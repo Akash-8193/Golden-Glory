@@ -25,7 +25,7 @@ export default function BlogPost() {
             <img src="/images/luxury_about_1780746701861.png" className="w-full h-full object-cover" alt="Not Found" />
           </div>
           <div className="container relative z-10 mx-auto text-center">
-            <h1 className="text-4xl font-serif font-bold mb-4">Blog Post Not Found</h1>
+            <h1 className="text-4xl font-sans font-bold mb-4">Blog Post Not Found</h1>
             <p className="text-muted-foreground mb-8">The blog post you are looking for does not exist.</p>
             <Link href="/blogs" className="text-primary hover:underline">
               &larr; Back to Blogs
@@ -57,11 +57,11 @@ export default function BlogPost() {
               <span className="w-1.5 h-1.5 rounded-full bg-border" />
               <span className="text-muted-foreground">{blog.readTime}</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold mb-8 leading-tight">
+            <h1 className="font-sans text-4xl md:text-6xl font-bold mb-8 leading-tight">
               <SplitText>{blog.title}</SplitText>
             </h1>
             <div className="flex items-center gap-3 border-t border-border pt-6">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-serif font-bold">
+              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-sans font-bold">
                 {blog.author.charAt(0)}
               </div>
               <div>

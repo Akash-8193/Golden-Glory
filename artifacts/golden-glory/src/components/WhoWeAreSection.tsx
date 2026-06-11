@@ -50,7 +50,7 @@ export default function WhoWeAreSection() {
             </div>
             
             {/* Title */}
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif text-[#432c1c] font-bold leading-[1.1] tracking-tight at-animation-heading-style-3">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-sans text-[#432c1c] font-bold leading-[1.1] tracking-tight at-animation-heading-style-3">
               A Workspace Built for Focus & Community
             </h2>
             

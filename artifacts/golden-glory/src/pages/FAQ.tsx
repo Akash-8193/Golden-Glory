@@ -70,7 +70,7 @@ export default function FAQ() {
         <div className="container relative z-10 mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
             <h3 className="text-primary font-bold tracking-widest uppercase mb-4 text-sm">Golden Glory Coworking Space Noida</h3>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="font-sans text-5xl md:text-7xl font-bold mb-6">
               <SplitText>Frequently Asked Questions</SplitText>
             </h1>
             <p className="text-muted-foreground text-lg">
@@ -81,13 +81,13 @@ export default function FAQ() {
           <div className="space-y-16">
             {faqSections.map((section, sIdx) => (
               <div key={sIdx}>
-                <h2 className="font-serif text-2xl font-bold text-primary mb-6 pb-2 border-b border-border/50">
+                <h2 className="font-sans text-2xl font-bold text-primary mb-6 pb-2 border-b border-border/50">
                   {section.category}
                 </h2>
                 <Accordion type="single" collapsible className="w-full">
                   {section.faqs.map((faq, i) => (
                     <AccordionItem key={i} value={`faq-${sIdx}-${i}`} className="border-border/50 bg-white px-6 rounded-xl mb-4 shadow-sm">
-                      <AccordionTrigger className="text-left font-serif text-xl py-6 hover:text-primary transition-colors data-[state=open]:text-primary" data-cursor="hover">
+                      <AccordionTrigger className="text-left font-sans text-xl py-6 hover:text-primary transition-colors data-[state=open]:text-primary" data-cursor="hover">
                         {faq.q}
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-8">

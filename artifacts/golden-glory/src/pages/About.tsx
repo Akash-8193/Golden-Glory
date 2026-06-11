@@ -27,7 +27,7 @@ export default function About() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               About <span className="text-[#ffa602]">Golden Glory</span>
             </h1>
 
@@ -64,7 +64,7 @@ export default function About() {
                 className="relative z-10 w-full h-[500px] object-cover rounded-[2rem] shadow-2xl"
               />
               <div className="absolute -bottom-8 -right-8 bg-[#432c1c] text-white p-8 rounded-[2rem] shadow-xl z-20 max-w-[250px]">
-                <div className="text-[#ffa602] text-4xl font-serif font-bold mb-2">100%</div>
+                <div className="text-[#ffa602] text-4xl font-sans font-bold mb-2">100%</div>
                 <div className="font-medium text-sm">Commitment to your productivity and growth.</div>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function About() {
               { num: "04", title: "Move In & Start Working", desc: "Get instant access to your workspace with quick onboarding, stable internet, and all essential services ready from day one." }
             ].map((step, i) => (
               <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-colors relative group overflow-hidden">
-                <div className="absolute -right-6 -top-10 text-[8rem] font-serif font-bold text-white/5 group-hover:text-[#ffa602]/10 transition-colors pointer-events-none">
+                <div className="absolute -right-6 -top-10 text-[8rem] font-sans font-bold text-white/5 group-hover:text-[#ffa602]/10 transition-colors pointer-events-none">
                   {step.num}
                 </div>
                 <div className="w-16 h-16 rounded-2xl bg-[#ffa602] flex items-center justify-center text-[#111] font-bold text-2xl mb-8 shadow-lg">
@@ -133,7 +133,7 @@ export default function About() {
       {/* 5. Bottom CTA */}
       <section className="py-24 bg-white text-center">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#111] mb-8">Ready to move in?</h2>
+          <h2 className="font-sans text-4xl md:text-5xl font-bold text-[#111] mb-8">Ready to move in?</h2>
           <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
             <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
               Connect With Us

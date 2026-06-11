@@ -28,7 +28,7 @@ export default function Gallery() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Visual Tour</span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Our <span className="text-[#ffa602]">Gallery</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
@@ -53,7 +53,7 @@ export default function Gallery() {
                 <img src={img.url} alt={img.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-6 left-6 right-6 z-20 text-left">
-                  <span className="font-serif text-2xl text-white group-hover:text-[#ffa602] transition-colors block mb-1 font-bold">{img.title}</span>
+                  <span className="font-sans text-2xl text-white group-hover:text-[#ffa602] transition-colors block mb-1 font-bold">{img.title}</span>
                 </div>
               </div>
             ))}

@@ -19,7 +19,7 @@ export default function AboutSection() {
               <span className="text-muted-foreground font-medium text-lg">About Us</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#432c1c] font-bold leading-[1.15] mb-6 at-animation-heading-style-3">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans text-[#432c1c] font-bold leading-[1.15] mb-6 at-animation-heading-style-3">
               Building success through work and community
             </h2>
             

@@ -20,7 +20,7 @@ export default function Blog() {
               <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
               <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Latest Insights</span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Our <span className="text-[#ffa602]">Blog</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
@@ -46,7 +46,7 @@ export default function Blog() {
                   <div className="text-sm text-primary font-medium tracking-wider uppercase">{blog.date}</div>
                   <div className="text-xs text-muted-foreground bg-secondary px-2 py-1 rounded">{blog.category}</div>
                 </div>
-                <h3 className="font-serif text-2xl font-bold mb-4 group-hover:text-primary transition-colors text-foreground">{blog.title}</h3>
+                <h3 className="font-sans text-2xl font-bold mb-4 group-hover:text-primary transition-colors text-foreground">{blog.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">{blog.excerpt}</p>
                 <div className="text-sm font-medium text-primary mt-auto">Read More →</div>
               </Link>
