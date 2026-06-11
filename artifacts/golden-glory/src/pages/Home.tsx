@@ -129,7 +129,7 @@ export default function Home() {
                 Our premium coworking space in Noida provides personalized seating, modern amenities, and an environment designed to help you focus, collaborate, and grow your business with confidence.
               </p>
               <Button asChild size="lg" className="h-14 px-8 bg-[#ffa602] hover:bg-[#E09612] text-[#111] font-bold text-base rounded-none transition-transform hover:-translate-y-1">
-                <Link href="/contact">
+                <Link href="/contact-us">
                   Contact Us <ArrowRight className="w-5 h-5 ml-2 -rotate-45" />
                 </Link>
               </Button>
@@ -276,7 +276,7 @@ export default function Home() {
             Discover a workspace designed for productivity, comfort, and community. Book your visit today and see the difference.
           </p>
           <Button asChild size="lg" className="h-16 px-10 text-lg bg-primary text-white hover:bg-foreground hover:text-white rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300" data-cursor="hover">
-            <Link href="/contact">Connect Now</Link>
+            <Link href="/contact-us">Connect Now</Link>
           </Button>
         </div>
       </section>

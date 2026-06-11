@@ -81,7 +81,7 @@ export default function ServicesSection() {
                 Empowering you to find the perfect workspace with our streamlined and personalized onboarding process.
               </p>
               <Button asChild className="bg-[#ffa602] hover:bg-[#e3be4f] text-[#111] font-bold px-10 h-14 rounded-full text-base transition-transform hover:-translate-y-1 shadow-none btn-anime">
-                <Link href="/contact">
+                <Link href="/contact-us">
                   <span className="relative z-10">Contact Us</span>
                 </Link>
               </Button>

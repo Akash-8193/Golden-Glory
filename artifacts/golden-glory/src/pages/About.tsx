@@ -1,5 +1,6 @@
 import React from 'react';
 import PageTransition from '@/components/PageTransition';
+import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import WhoWeAreSection from '@/components/WhoWeAreSection';
@@ -135,10 +136,10 @@ export default function About() {
         <div className="container mx-auto px-4">
           <h2 className="font-sans text-4xl md:text-5xl font-bold text-[#111] mb-8">Ready to move in?</h2>
           <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
-            <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
+            <Link href="/contact-us">
               Connect With Us
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </Button>
         </div>
       </section>
