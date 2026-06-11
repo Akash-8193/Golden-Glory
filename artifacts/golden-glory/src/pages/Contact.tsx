@@ -52,12 +52,12 @@ export default function Contact() {
                 Golden Glory is always ready to assist you. Whether you need workspace details, pricing, or a quick tour, our team is here to guide you and answer every question.
               </p>
 
-              <button className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-2">
+              <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-2">
                 <span className="font-bold text-sm uppercase tracking-wide">Book Now</span>
                 <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602] text-black transition-transform">
                   <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-all duration-300" />
                 </span>
-              </button>
+              </a>
             </div>
 
             {/* Right Form Card */}

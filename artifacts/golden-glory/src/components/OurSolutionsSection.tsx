@@ -109,10 +109,7 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
                   {solution.desc}
                 </p>
                 
-                {/* Subtle Arrow */}
-                <div className="mt-auto flex items-center text-[#ffa602] font-bold text-sm tracking-wide group-hover:text-[#432c1c] transition-colors duration-300">
-                  Explore <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </div>
+
               </div>
             </div>
           ))}

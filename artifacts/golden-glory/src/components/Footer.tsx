@@ -28,15 +28,17 @@ export default function Footer() {
               Join a vibrant community of professionals, startups, and growing teams today.
             </p>
           </div>
-          <Link
-            href="/contact-us"
+          <a
+            href="https://wa.me/919311076106"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 bg-[#ffa602] text-[#111] rounded-full pl-8 pr-2 py-2 hover:bg-white transition-all duration-300 shadow-[0_8px_30px_rgba(245,166,35,0.3)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
           >
             <span className="font-bold tracking-wide uppercase text-sm">Book a Tour</span>
             <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#111] text-[#ffa602] group-hover:bg-[#432c1c] group-hover:text-white transition-colors duration-300">
               <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
             </span>
-          </Link>
+          </a>
         </div>
 
         {/* Main Footer Content */}

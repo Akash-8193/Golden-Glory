@@ -41,9 +41,6 @@ export default function Offerings() {
               Workspace for Success & Growth | Productivity | Excellence
             </p>
 
-            <p className="text-base md:text-lg text-gray-200 font-light max-w-3xl mx-auto mb-10 leading-relaxed" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.85)" }}>
-              Golden Glory offers flexible and affordable coworking solutions tailored for individuals, startups, and growing teams. Choose from flexible desks, dedicated desks, private cabins, meeting rooms, and more—each designed to boost productivity with premium amenities.
-            </p>
 
             {/* Action */}
             <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] shadow-[0_0_30px_rgba(245,166,35,0.3)] hover:shadow-[0_0_50px_rgba(245,166,35,0.5)] hover:-translate-y-1 transition-all duration-300 font-bold uppercase tracking-wider group">
@@ -196,10 +193,10 @@ export default function Offerings() {
                 Experience a modern, comfortable, and productivity-driven coworking environment designed to support your growth every single day.
               </p>
               <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
-                <Link href="/contact-us">
+                <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
                   Book Now
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
