@@ -48,12 +48,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
         </div>
 
-        {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
-          <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
-        </div>
-
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
           <div className="max-w-6xl w-full mx-auto bg-black/20 backdrop-blur-md border border-white/20 px-6 py-6 lg:px-16 lg:py-8 rounded-[2rem] shadow-2xl space-y-3 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
@@ -92,7 +86,7 @@ export default function Home() {
         </div>
 
         {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
           <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
