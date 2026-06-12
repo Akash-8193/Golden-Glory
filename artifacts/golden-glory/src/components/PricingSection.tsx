@@ -14,7 +14,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-[#f4f9fd]">
+    <section id="pricing" className="py-16 md:py-20 bg-[#f4f9fd]">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         <div className="text-center mb-20 max-w-3xl mx-auto flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4 text-[#ffa602] fade-up">

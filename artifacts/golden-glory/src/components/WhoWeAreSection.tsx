@@ -23,8 +23,8 @@ export default function WhoWeAreSection() {
               />
             </div>
 
-            {/* Secondary Circular Image (Overlapping bottom right) */}
-            <div className="absolute right-0 bottom-0 w-[55%] aspect-square rounded-full z-20 shadow-[0_10px_40px_rgba(0,0,0,0.15)] image-anime at-animation-image-style-1">
+            {/* Secondary Circular Image (Overlapping bottom right) - Made Bigger */}
+            <div className="absolute right-0 bottom-0 w-[65%] aspect-square rounded-full z-20 shadow-[0_10px_40px_rgba(0,0,0,0.15)] border-8 border-white image-anime at-animation-image-style-1">
               <img 
                 src="/images/gallery/fixed%20desks%20golden%20glory.png" 
                 alt="Coworking Community" 

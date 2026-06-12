@@ -57,7 +57,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
+            <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tight text-white leading-[1.05] fade-up" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
               Comfort Meets <br />
               <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
                 Productivity
@@ -77,9 +77,9 @@ export default function Home() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-16 px-10 text-lg border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-[#111] rounded-full shadow-lg transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
-                <Link href="/our-offerings">
+                <a href="#pricing">
                   <span className="relative z-10">Explore Plans</span>
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function Home() {
       <PricingSection />
 
       {/* Stats */}
-      <section ref={statsRef} className="py-24 bg-primary text-white shadow-inner">
+      <section ref={statsRef} className="py-24 bg-primary text-[#432c1c] shadow-inner">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
