@@ -17,6 +17,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import Preloader from "@/components/Preloader";
 
 import { useEffect } from "react";
 import Lenis from "lenis";
@@ -88,6 +89,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Preloader />
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <ScrollToTop />

@@ -18,17 +18,17 @@ export default function Offerings() {
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/luxury_hotdesk_1780746713216.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Coworking Offerings" />
-          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/60 via-[#432c1c]/30 to-[#432c1c]/60"></div>
+          <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Coworking Offerings" />
+          <div className="absolute inset-0 bg-[#432c1c]/10 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/30 via-transparent to-[#432c1c]/10"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
-          <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="max-w-5xl mx-auto bg-black/20 backdrop-blur-md border border-white/20 p-8 md:p-16 rounded-[2rem] shadow-2xl space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
-              <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Professional Services</span>
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-6 shadow-lg">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
+              <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Workspace Solutions</span>
             </div>
 
             {/* Headline */}
@@ -52,7 +52,7 @@ export default function Offerings() {
         </div>
 
         {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
           <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
@@ -92,7 +92,7 @@ export default function Offerings() {
             {/* Why Golden Glory Card (Tall, Span 1 col, 2 rows) */}
             <div className="lg:row-span-2 lg:col-span-1 relative rounded-[2rem] overflow-hidden group shadow-xl h-full min-h-[400px]">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                src="/images/gallery/private%20cabin%20golden%20glory%201.png"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 alt="Coworking space"
               />

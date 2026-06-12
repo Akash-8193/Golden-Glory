@@ -31,8 +31,8 @@ export default function AboutSection() {
               {/* Features List */}
               <div className="space-y-6 flex-1 excellence-counter-boxes fade-up">
                 <div className="flex items-center gap-4 excellence-counter-item">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
-                    <Building2 className="w-6 h-6 text-[#432c1c]" />
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming overflow-hidden">
+                    <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-1.5 mix-blend-multiply contrast-125 brightness-110" />
                   </div>
                   <span className="font-bold text-[#432c1c] text-lg">Fully Managed Office</span>
                 </div>
@@ -80,19 +80,19 @@ export default function AboutSection() {
             <div className="grid grid-cols-2 grid-rows-2 gap-3 md:gap-4 h-full">
               {/* Top Left */}
               <div className="overflow-hidden rounded-tl-full bg-gray-200 image-anime at-animation-image-style-1">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-700" alt="Coworking space" />
+                <img src="/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" className="w-full h-full object-cover transition-transform duration-700" alt="Coworking space" />
               </div>
               {/* Top Right */}
               <div className="overflow-hidden rounded-tr-full bg-gray-200 image-anime at-animation-image-style-1">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-700" alt="Meeting room" />
+                <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-full object-cover transition-transform duration-700" alt="Meeting room" />
               </div>
               {/* Bottom Left */}
               <div className="overflow-hidden rounded-bl-full bg-gray-200 image-anime at-animation-image-style-1">
-                <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-700" alt="Hot desk" />
+                <img src="/images/gallery/private%20cabin%20golden%20glory%201.png" className="w-full h-full object-cover transition-transform duration-700" alt="Private cabin" />
               </div>
               {/* Bottom Right */}
               <div className="overflow-hidden rounded-br-full bg-gray-200 image-anime at-animation-image-style-1">
-                <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-700" alt="Community" />
+                <img src="/images/gallery/private%20cabin%20golden%20glory%202.png" className="w-full h-full object-cover transition-transform duration-700" alt="Workspace" />
               </div>
             </div>
             

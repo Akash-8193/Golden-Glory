@@ -73,17 +73,17 @@ export default function TestimonialsSection() {
           {/* Right Column - Images Collage */}
           <div className="lg:col-span-5 relative h-[700px] hidden lg:block">
             {/* Image 1: Tall Left */}
-            <div className="absolute top-10 left-0 w-[270px] h-[370px] rounded-[2rem] overflow-hidden rotate-[3deg] shadow-xl border-[6px] border-white z-20 hover:z-50 hover:rotate-0 transition-all duration-500 image-anime at-animation-image-style-1">
+            <div className="absolute top-10 left-0 w-[270px] h-[370px] rounded-[2rem] overflow-hidden rotate-[3deg] shadow-xl border-[6px] border-white z-20 hover:z-50 hover:rotate-0 transition-all duration-500">
               <img src="/images/testimonial_1.png" className="w-full h-full object-cover" alt="Coworking Member 1" />
             </div>
             
             {/* Image 2: Tall Right */}
-            <div className="absolute top-0 right-4 w-[250px] h-[350px] rounded-[2rem] overflow-hidden rotate-[-4deg] shadow-xl border-[6px] border-white z-10 hover:z-50 hover:rotate-0 transition-all duration-500 image-anime at-animation-image-style-1">
+            <div className="absolute top-0 right-4 w-[250px] h-[350px] rounded-[2rem] overflow-hidden rotate-[-4deg] shadow-xl border-[6px] border-white z-10 hover:z-50 hover:rotate-0 transition-all duration-500">
               <img src="/images/testimonial_2.png" className="w-full h-full object-cover" alt="Coworking Member 2" />
             </div>
 
             {/* Image 3: Bottom Left Horizontal */}
-            <div className="absolute bottom-20 left-10 w-[330px] h-[220px] rounded-[2rem] overflow-hidden rotate-[-2deg] shadow-xl border-[6px] border-white z-30 hover:z-50 hover:rotate-0 transition-all duration-500 image-anime at-animation-image-style-1">
+            <div className="absolute bottom-20 left-10 w-[330px] h-[220px] rounded-[2rem] overflow-hidden rotate-[-2deg] shadow-xl border-[6px] border-white z-30 hover:z-50 hover:rotate-0 transition-all duration-500">
               <img src="/images/testimonial_3.png" className="w-full h-full object-cover object-top" alt="Coworking Team" />
             </div>
 

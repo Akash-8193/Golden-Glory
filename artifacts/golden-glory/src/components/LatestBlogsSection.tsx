@@ -9,10 +9,10 @@ export default function LatestBlogsSection() {
   
   // Custom images mapped to the generated thumbnails
   const uiAssets = [
-    "/images/blog_thumb_1.png",
-    "/images/blog_thumb_2.png",
-    "/images/blog_thumb_3.png",
-    "/images/blog_thumb_4.png"
+    "/images/gallery/ending%20image%20golden%20glory.png",
+    "/images/gallery/cover%20image%20of%20golden%20glory.png",
+    "/images/gallery/private%20cabin%20golden%20glory%201.png",
+    "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png"
   ];
 
   const featuredBlog = displayBlogs[0];
@@ -36,9 +36,8 @@ export default function LatestBlogsSection() {
         {/* Blogs Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Featured Blog (Left) */}
           <div className="lg:col-span-6 h-[500px] lg:h-auto min-h-[500px] relative group cursor-pointer rounded-[2rem] overflow-hidden image-anime at-animation-image-style-1">
-            <Link href={`/blog/${featuredBlog.slug}`}>
+            <Link href={`/coworking-space-in-noida-blog/${featuredBlog.slug}`}>
               <div className="absolute inset-0">
                 <img 
                   src={uiAssets[0]} 
@@ -68,7 +67,7 @@ export default function LatestBlogsSection() {
           <div className="lg:col-span-6 flex flex-col gap-8">
             {sidebarBlogs.map((blog, idx) => (
               <div key={blog.id} className="group cursor-pointer bg-white rounded-[2rem] overflow-hidden flex flex-col sm:flex-row h-full transition-transform hover:-translate-y-1 hover:shadow-lg fade-up">
-                <Link href={`/blog/${blog.slug}`} className="flex flex-col sm:flex-row w-full h-full">
+                <Link href={`/coworking-space-in-noida-blog/${blog.slug}`} className="flex flex-col sm:flex-row w-full h-full">
                   
                   {/* Image Block */}
                   <div className="sm:w-[260px] shrink-0 h-[220px] sm:h-auto overflow-hidden sm:rounded-[1.5rem] rounded-t-[1.5rem] image-anime at-animation-image-style-1">

@@ -1,101 +1,141 @@
 import React from 'react';
-import { Sparkles, MessageSquareText, Eye, Layers, Key } from 'lucide-react';
-import { Link } from 'wouter';
-import { Button } from '@/components/ui/button';
+import { Sparkles } from 'lucide-react';
 
 export default function ServicesSection() {
   const steps = [
     {
-      icon: MessageSquareText,
-      title: "Step 1 — Enquiry & Consultation",
-      desc: "We understand your workspace needs, team size, budget, and preferred environment to recommend the best coworking solution."
+      number: "01",
+      subtitle: "UNDERSTANDING YOUR NEEDS",
+      title: "Enquiry & Consultation",
+      desc: "We understand your workspace needs, team size, budget, and preferred environment to recommend the best coworking solution.",
+      quote: "Finding the perfect workspace starts with a simple conversation.",
+      image: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png"
     },
     {
-      icon: Eye,
-      title: "Step 2 — Visit & Explore",
-      desc: "Visit our coworking space for a guided walkthrough to explore cabins, dedicated desks, meeting rooms, and shared amenities."
+      number: "02",
+      subtitle: "SEEING IS BELIEVING",
+      title: "Visit & Explore",
+      desc: "Visit our coworking space for a guided walkthrough to explore cabins, dedicated desks, meeting rooms, and shared amenities.",
+      quote: "Experience the vibe, feel the energy, and envision your team thriving here.",
+      image: "/images/gallery/fixed%20desks%20golden%20glory.png"
     },
     {
-      icon: Layers,
-      title: "Step 3 — Choose Your Plan",
-      desc: "Choose a flexible plan that fits your workflow — from day passes and hot desks to dedicated cabins and team offices."
+      number: "03",
+      subtitle: "TAILORED FOR YOU",
+      title: "Choose Your Plan",
+      desc: "Choose a flexible plan that fits your workflow — from day passes and hot desks to dedicated cabins and team offices.",
+      quote: "Flexibility meets productivity in a plan designed around your business.",
+      image: "/images/gallery/private%20cabin%20golden%20glory%201.png"
     },
     {
-      icon: Key,
-      title: "Step 4 — Move In & Start Working",
-      desc: "Get instant access to your workspace with quick onboarding, stable internet, and all essential services ready from day one."
+      number: "04",
+      subtitle: "SEAMLESS ONBOARDING",
+      title: "Move In & Start Working",
+      desc: "Get instant access to your workspace with quick onboarding, stable internet, and all essential services ready from day one.",
+      quote: "Plug in, connect, and start doing your best work immediately.",
+      image: "/images/gallery/ending%20image%20golden%20glory.png"
     }
   ];
 
   return (
-    <section className="py-24 bg-white relative">
-      <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-stretch">
-          
-          {/* Left Column - Image 1 */}
-          <div className="lg:col-span-4 h-full">
-            <div className="w-full h-[600px] lg:h-full min-h-[650px] rounded-[2rem] overflow-hidden image-anime at-animation-image-style-1">
-              <img 
-                src="/images/how_we_work_1.png" 
-                alt="Indian Professional in Coworking Cafe" 
-                className="w-full h-full object-cover"
-              />
-            </div>
+    <section className="py-24 bg-[#fafafa] relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative">
+        
+        {/* Section Heading */}
+        <div className="text-center mb-20 fade-up relative z-20">
+          <div className="inline-flex items-center justify-center gap-2 mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#ffa602]"></span>
+            <span className="font-bold tracking-[0.2em] text-[#ffa602] uppercase text-sm">
+              Our Process
+            </span>
           </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-sans tracking-tight text-[#432c1c] leading-[1.1]">
+            How We Work
+          </h2>
+        </div>
 
-          {/* Middle Column - Steps */}
-          <div className="lg:col-span-5 flex flex-col justify-center py-4 lg:px-6">
-            <div className="mb-12">
-              <div className="flex items-center gap-2 mb-4 fade-up">
-                <Sparkles className="w-5 h-5 text-[#ffa602]" />
-                <span className="font-bold text-[#432c1c] tracking-wide text-sm">How We Work</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold font-sans tracking-tight text-[#111] leading-[1.1] at-animation-heading-style-3">
-                Step-by-Step Process
-              </h2>
-            </div>
+        {/* Center Vertical Line (Hidden on small screens) */}
+        <div className="hidden lg:block absolute left-1/2 top-48 bottom-10 w-[2px] bg-[#dca646] -translate-x-1/2 opacity-50 z-0" />
 
-            <div className="space-y-8 excellence-counter-boxes fade-up">
-              {steps.map((step, idx) => (
-                <div key={idx} className="flex gap-6 excellence-counter-item">
-                  <div className="shrink-0 mt-1">
-                    <div className="w-14 h-14 rounded-full border-[1.5px] border-[#432c1c]/30 flex items-center justify-center border-zooming">
-                      <step.icon className="w-6 h-6 text-[#432c1c]" strokeWidth={1.5} />
+        <div className="space-y-20 lg:space-y-32">
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 1; // index 1, 3 are visually "Even" layout (Image Left, Text Right)
+
+            return (
+              <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                
+                {/* Node on Center Line */}
+                <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full border-[4px] border-[#ffa602] bg-[#fafafa] z-20 shadow-[0_0_15px_rgba(255,166,2,0.3)]" />
+
+                {/* Left Side Content */}
+                <div className={`${isEven ? 'lg:order-1' : 'lg:order-1'} w-full flex justify-center lg:justify-end relative z-10`}>
+                  {isEven ? (
+                    /* Image Block (Left Side) */
+                    <div className="w-full max-w-[600px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-[8px] border-white">
+                      <img 
+                        src={step.image} 
+                        alt={step.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#111] mb-2">{step.title}</h3>
-                    <p className="text-gray-500 leading-relaxed text-[1rem]">
-                      {step.desc}
-                    </p>
-                  </div>
+                  ) : (
+                    /* Text Block (Left Side) */
+                    <div className="max-w-[500px] text-center lg:text-right flex flex-col lg:items-end">
+                      <div className="text-7xl md:text-[100px] font-bold text-[#432c1c]/10 leading-none mb-4 font-sans tracking-tighter">
+                        {step.number}
+                      </div>
+                      <div className="text-xs font-bold tracking-[0.2em] text-[#ffa602] uppercase mb-4">
+                        {step.subtitle}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-[#111] mb-6">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                        {step.desc}
+                      </p>
+                      <div className="italic text-[1.05rem] font-medium text-[#432c1c] border-l-[3px] lg:border-l-0 lg:border-r-[3px] border-[#ffa602] pl-6 lg:pl-0 lg:pr-6 py-1">
+                        "{step.quote}"
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Right Column - Text, Button, Image 2 */}
-          <div className="lg:col-span-3 flex flex-col">
-            <div className="mb-12 pt-8 fade-up">
-              <p className="text-gray-500 leading-relaxed mb-10 text-[1.1rem] typewriter">
-                Empowering you to find the perfect workspace with our streamlined and personalized onboarding process.
-              </p>
-              <Button asChild className="bg-[#ffa602] hover:bg-[#e3be4f] text-[#111] font-bold px-10 h-14 rounded-full text-base transition-transform hover:-translate-y-1 shadow-none btn-anime">
-                <Link href="/contact-us">
-                  <span className="relative z-10">Contact Us</span>
-                </Link>
-              </Button>
-            </div>
-            
-            <div className="w-full h-[400px] mt-auto rounded-[2rem] overflow-hidden image-anime at-animation-image-style-1">
-              <img 
-                src="/images/how_we_work_2.png" 
-                alt="Indian Professional using tablet" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+                {/* Right Side Content */}
+                <div className={`${isEven ? 'lg:order-2' : 'lg:order-2'} w-full flex justify-center lg:justify-start relative z-10`}>
+                  {isEven ? (
+                    /* Text Block (Right Side) */
+                    <div className="max-w-[500px] text-center lg:text-left flex flex-col lg:items-start">
+                      <div className="text-7xl md:text-[100px] font-bold text-[#432c1c]/10 leading-none mb-4 font-sans tracking-tighter">
+                        {step.number}
+                      </div>
+                      <div className="text-xs font-bold tracking-[0.2em] text-[#ffa602] uppercase mb-4">
+                        {step.subtitle}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-[#111] mb-6">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                        {step.desc}
+                      </p>
+                      <div className="italic text-[1.05rem] font-medium text-[#432c1c] border-l-[3px] border-[#ffa602] pl-6 py-1">
+                        "{step.quote}"
+                      </div>
+                    </div>
+                  ) : (
+                    /* Image Block (Right Side) */
+                    <div className="w-full max-w-[600px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-[8px] border-white">
+                      <img 
+                        src={step.image} 
+                        alt={step.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                    </div>
+                  )}
+                </div>
 
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

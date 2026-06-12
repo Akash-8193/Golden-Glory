@@ -39,26 +39,31 @@ export default function Home() {
   return (
     <PageTransition>
       {/* Premium Hero Section */}
-      <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
+      <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-32 lg:pt-36 pb-16">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/luxury_home_hero_1780746689676.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Premium Coworking Space" />
-          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#432c1c]/60 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#432c1c]/50 via-[#432c1c]/20 to-transparent"></div>
+          <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Premium Coworking Space" />
+          <div className="absolute inset-0 bg-black/10 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-[1400px]">
-          <div className="max-w-4xl space-y-8">
+        {/* Bottom Scroll Indicator */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
+          <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
 
+        <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
+          <div className="max-w-6xl w-full mx-auto bg-black/20 backdrop-blur-md border border-white/20 px-6 py-6 lg:px-16 lg:py-8 rounded-[2rem] shadow-2xl space-y-3 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 fade-up">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-1 shadow-lg fade-up">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffa602] animate-pulse"></span>
-              <span className="text-white text-sm font-bold tracking-[0.2em] uppercase">Premium Coworking in Noida</span>
+              <span className="text-[#ffa602] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Premium Coworking Space</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
+            <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tight text-white leading-[1.05] at-animation-heading-style-3" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
               Comfort Meets <br />
               <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
                 Productivity
@@ -66,12 +71,12 @@ export default function Home() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl leading-relaxed typewriter" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
+            <p className="text-xl md:text-2xl text-gray-100 font-light max-w-4xl mx-auto leading-relaxed typewriter" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
               A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-5 pt-6 fade-up">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-1 fade-up">
               <Button asChild size="lg" className="w-full sm:w-auto h-16 px-10 text-lg bg-[#ffa602] text-[#111] hover:bg-[#e09612] rounded-full shadow-[0_0_40px_rgba(245,166,35,0.3)] hover:shadow-[0_0_60px_rgba(245,166,35,0.5)] transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
                 <a href="https://wa.me/919311076106" target="_blank" rel="noopener noreferrer">
                   <span className="relative z-10">Book A Tour</span>
@@ -83,7 +88,6 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-
           </div>
         </div>
 
@@ -140,7 +144,7 @@ export default function Home() {
           <div className="relative pt-10 pb-20">
             {/* Central Image (Always positioned at the bottom center of the section) */}
             <div className="hidden lg:block absolute left-1/2 bottom-[-80px] -translate-x-1/2 w-[550px] h-[750px] z-10 pointer-events-none">
-              <img src="/images/indian_professional_coworking.png" alt="Indian Professional in Coworking Space in Noida" className="w-full h-full object-cover object-bottom" />
+              <img src="/images/gallery/ending%20image%20golden%20glory.png" alt="Indian Professional in Coworking Space in Noida" className="w-full h-full object-cover object-bottom" />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-y-20 lg:gap-y-32 relative z-20">
@@ -215,7 +219,7 @@ export default function Home() {
 
             {/* Mobile Fallback Image */}
             <div className="lg:hidden mt-16 flex justify-center">
-              <img src="/images/indian_professional_coworking.png" alt="Indian Professional in Coworking Space Noida" className="h-[400px] w-auto object-cover object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]" />
+              <img src="/images/gallery/ending%20image%20golden%20glory.png" alt="Indian Professional in Coworking Space Noida" className="h-[400px] w-auto object-cover object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]" />
             </div>
 
           </div>

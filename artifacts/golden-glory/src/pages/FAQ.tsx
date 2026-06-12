@@ -64,8 +64,9 @@ export default function FAQ() {
     <PageTransition>
       <section className="relative pt-32 pb-20 min-h-[calc(100vh-200px)]">
         <div className="absolute inset-0 z-0 bg-white/40 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 z-[-1]">
-          <img src="/images/gallery_conference_3d_1780745185727.png" className="w-full h-full object-cover" alt="FAQ" />
+        <div className="absolute inset-0 z-0">
+          <img src="/images/gallery/private%20cabin%20golden%20glory%201.png" className="w-full h-full object-cover" alt="FAQ" />
+          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">

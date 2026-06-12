@@ -33,19 +33,19 @@ export default function FAQSection({
               {/* Left Image Column */}
               <div className="flex flex-col gap-4 md:gap-8 w-1/2">
                 <div className="image-anime at-animation-image-style-1 rounded-[2.5rem] overflow-hidden shadow-md h-[300px] md:h-[420px]">
-                  <img src="/images/faq_coworking_1.png" className="w-full h-full object-cover" alt="Coworking Space 1" />
+                  <img src="/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" className="w-full h-full object-cover" alt="Coworking Space 1" />
                 </div>
                 <div className="image-anime at-animation-image-style-1 rounded-[2.5rem] overflow-hidden shadow-md h-[300px] md:h-[420px]">
-                  <img src="/images/faq_coworking_3.png" className="w-full h-full object-cover" alt="Coworking Space 3" />
+                  <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-full object-cover" alt="Coworking Space 3" />
                 </div>
               </div>
               {/* Right Image Column (Staggered down) */}
               <div className="flex flex-col gap-4 md:gap-8 w-1/2 mt-16 md:mt-24">
                 <div className="image-anime at-animation-image-style-1 rounded-[2.5rem] overflow-hidden shadow-md h-[250px] md:h-[360px]">
-                  <img src="/images/faq_coworking_2.png" className="w-full h-full object-cover" alt="Coworking Space 2" />
+                  <img src="/images/gallery/private%20cabin%20golden%20glory%201.png" className="w-full h-full object-cover" alt="Coworking Space 2" />
                 </div>
                 <div className="image-anime at-animation-image-style-1 rounded-[2.5rem] overflow-hidden shadow-md h-[250px] md:h-[360px]">
-                  <img src="/images/faq_coworking_4.png" className="w-full h-full object-cover" alt="Coworking Space 4" />
+                  <img src="/images/gallery/ending%20image%20golden%20glory.png" className="w-full h-full object-cover" alt="Coworking Space 4" />
                 </div>
               </div>
               
@@ -53,16 +53,7 @@ export default function FAQSection({
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                 {/* Animated Badge */}
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-xl border-8 border-[#f4f9fd] border-zooming gsap-float">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffa602" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 md:w-14 md:h-14">
-                    <path d="M3 21h18" />
-                    <path d="M9 8h1" />
-                    <path d="M9 12h1" />
-                    <path d="M9 16h1" />
-                    <path d="M14 8h1" />
-                    <path d="M14 12h1" />
-                    <path d="M14 16h1" />
-                    <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
-                  </svg>
+                  <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-2 mix-blend-multiply contrast-125 brightness-110 rounded-full" />
                 </div>
               </div>
             </div>

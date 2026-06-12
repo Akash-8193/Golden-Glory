@@ -20,15 +20,15 @@ export default function Contact() {
       {/* Premium Hero Section */}
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src="/images/luxury_private_1780746747118.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Contact Us" />
-          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/60 via-[#432c1c]/30 to-[#432c1c]/60"></div>
+          <img src="/images/gallery/private%20cabin%20golden%20glory%202.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Contact Us" />
+          <div className="absolute inset-0 bg-[#432c1c]/10 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/30 via-transparent to-[#432c1c]/10"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
-          <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
-              <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Reach Our Team</span>
+          <div className="max-w-5xl mx-auto bg-black/20 backdrop-blur-md border border-white/20 p-8 md:p-16 rounded-[2rem] shadow-2xl space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-6 shadow-lg">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
+              <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Reach Our Team</span>
             </div>
             <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
               Get In <span className="text-[#ffa602]">Touch</span>
@@ -40,7 +40,7 @@ export default function Contact() {
         </div>
 
         {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
           <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>

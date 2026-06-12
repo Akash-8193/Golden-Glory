@@ -6,6 +6,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import WhoWeAreSection from '@/components/WhoWeAreSection';
 import AboutSection from '@/components/AboutSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import ServicesSection from '@/components/ServicesSection';
 
 export default function About() {
   return (
@@ -14,17 +15,17 @@ export default function About() {
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/luxury_about_1780746701861.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="About Golden Glory" />
-          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/60 via-[#432c1c]/30 to-[#432c1c]/60"></div>
+          <img src="/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="About Golden Glory" />
+          <div className="absolute inset-0 bg-black/5"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
-          <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="max-w-5xl mx-auto bg-black/20 backdrop-blur-md border border-white/20 p-8 md:p-16 rounded-[2rem] shadow-2xl space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#ffa602] animate-pulse"></span>
-              <span className="text-[#ffa602] text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-6 shadow-lg">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
+              <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Who We Are</span>
             </div>
 
             {/* Headline */}
@@ -40,7 +41,7 @@ export default function About() {
         </div>
 
         {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
           <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
@@ -60,7 +61,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#f4f9fd] rounded-[3rem] transform -rotate-3 z-0"></div>
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                src="/images/gallery/cover%20image%20of%20golden%20glory.png"
                 alt="Why Golden Glory"
                 className="relative z-10 w-full h-[500px] object-cover rounded-[2rem] shadow-2xl"
               />
@@ -96,37 +97,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. How We Work - Redesigned Grid */}
-      <section className="py-16 md:py-20 bg-[#432c1c] relative">
-        <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-          <div className="text-center mb-20">
-            <div className="text-[#ffa602] font-bold tracking-wider uppercase text-sm mb-4">Our Process</div>
-            <h2 className="text-4xl md:text-5xl font-bold font-sans text-white leading-[1.1]">
-              How We Work
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { num: "01", title: "Enquiry & Consultation", desc: "We understand your workspace needs, team size, budget, and preferred environment to recommend the best coworking solution." },
-              { num: "02", title: "Visit & Explore", desc: "Visit our coworking space for a guided walkthrough to explore cabins, dedicated desks, meeting rooms, and shared amenities." },
-              { num: "03", title: "Choose Your Plan", desc: "Choose a flexible plan that fits your workflow — from day passes and hot desks to dedicated cabins and team offices." },
-              { num: "04", title: "Move In & Start Working", desc: "Get instant access to your workspace with quick onboarding, stable internet, and all essential services ready from day one." }
-            ].map((step, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-colors relative group overflow-hidden">
-                <div className="absolute -right-6 -top-10 text-[8rem] font-sans font-bold text-white/5 group-hover:text-[#ffa602]/10 transition-colors pointer-events-none">
-                  {step.num}
-                </div>
-                <div className="w-16 h-16 rounded-2xl bg-[#ffa602] flex items-center justify-center text-[#111] font-bold text-2xl mb-8 shadow-lg">
-                  {step.num}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 3. How We Work - Timeline */}
+      <ServicesSection />
 
       {/* 4. Shared Testimonials Section from Home */}
       <TestimonialsSection />

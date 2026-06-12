@@ -17,7 +17,7 @@ export default function WhoWeAreSection() {
             {/* Main Tall Image (Pill Shape) */}
             <div className="absolute left-0 top-0 w-[80%] h-[90%] rounded-full z-10 shadow-[0_10px_40px_rgba(0,0,0,0.1)] image-anime at-animation-image-style-1">
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
+                src="/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" 
                 alt="Golden Glory Main Workspace" 
                 className="w-full h-full object-cover rounded-full"
               />
@@ -26,7 +26,7 @@ export default function WhoWeAreSection() {
             {/* Secondary Circular Image (Overlapping bottom right) */}
             <div className="absolute right-0 bottom-0 w-[55%] aspect-square rounded-full z-20 shadow-[0_10px_40px_rgba(0,0,0,0.15)] image-anime at-animation-image-style-1">
               <img 
-                src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&q=80&w=800" 
+                src="/images/gallery/fixed%20desks%20golden%20glory.png" 
                 alt="Coworking Community" 
                 className="w-full h-full object-cover rounded-full"
               />
@@ -99,7 +99,7 @@ export default function WhoWeAreSection() {
               {/* Side Image inside the block */}
               <div className="w-full md:w-[220px] shrink-0 image-anime at-animation-image-style-1 rounded-[1.5rem] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" 
+                  src="/images/gallery/ending%20image%20golden%20glory.png" 
                   alt="Team collaboration" 
                   className="w-full h-full object-cover"
                 />
