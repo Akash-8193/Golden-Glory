@@ -174,9 +174,9 @@ export default function Offerings() {
       />
 
       {/* Bottom CTA */}
-      <section className="py-16 md:py-20 bg-white text-center">
+      <section className="py-10 md:py-12 bg-white text-center">
         <div className="container mx-auto px-4">
-          <div className="bg-[#432c1c] rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl max-w-5xl mx-auto">
+          <div className="bg-[#432c1c] rounded-[2rem] p-8 md:p-12 relative overflow-hidden shadow-2xl max-w-5xl mx-auto">
             {/* Decorative BG */}
             <div className="absolute inset-0 opacity-10">
               <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -186,10 +186,10 @@ export default function Offerings() {
             </div>
 
             <div className="relative z-10">
-              <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                 Ready to Find Your Perfect Desk?
               </h2>
-              <p className="text-lg md:text-xl font-light text-white/80 mb-10 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg font-light text-white/80 mb-8 max-w-2xl mx-auto">
                 Come over, take a tour, and see why professionals in Noida choose Golden Glory as their second home.
               </p>
               <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">

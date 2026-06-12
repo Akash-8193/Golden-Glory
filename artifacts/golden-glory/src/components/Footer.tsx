@@ -126,7 +126,7 @@ export default function Footer() {
           <div className="flex items-center flex-wrap justify-center gap-4">
             <span>Designed By: <a href="https://sprintdigitech.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-gray-300">Sprint Digitech</a></span>
             <span className="w-1 h-1 rounded-full bg-gray-600 hidden sm:block"></span>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span className="w-1 h-1 rounded-full bg-gray-600 hidden sm:block"></span>
             <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
           </div>

@@ -72,6 +72,9 @@ function App() {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    
+    // Expose lenis globally for scroll resets
+    (window as any).lenis = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
 

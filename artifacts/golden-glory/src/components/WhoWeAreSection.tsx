@@ -32,11 +32,6 @@ export default function WhoWeAreSection() {
               />
             </div>
 
-            {/* Floating Experience Badge */}
-            <div className="absolute left-[15%] bottom-[15%] bg-[#ffa602] text-[#111] rounded-[1rem] p-6 shadow-xl z-30 min-w-[160px] text-center border-4 border-white gsap-float pointer-events-none">
-              <div className="text-4xl font-bold mb-1"><span className="stat-num" data-target="5">0</span>+</div>
-              <div className="font-semibold text-xs uppercase tracking-wider text-[#111]/80">Years Of<br/>Experience</div>
-            </div>
 
           </div>
 

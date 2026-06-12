@@ -59,7 +59,6 @@ export default function TestimonialsSection() {
                     "{test.quote}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <img src={`https://i.pravatar.cc/150?u=${test.name}`} alt={test.name} className="w-10 h-10 rounded-full border border-gray-200" />
                     <div>
                       <div className="font-bold text-[#111] text-[15px]">{test.name}</div>
                       <div className={`text-[13px] ${test.bg === 'bg-[#ffa602]' ? 'text-[#111]/70' : 'text-gray-400'}`}>{test.title}</div>
@@ -74,17 +73,17 @@ export default function TestimonialsSection() {
           <div className="lg:col-span-5 relative h-[700px] hidden lg:block">
             {/* Image 1: Tall Left */}
             <div className="absolute top-10 left-0 w-[270px] h-[370px] rounded-[2rem] overflow-hidden rotate-[3deg] shadow-xl border-[6px] border-white z-20 hover:z-50 hover:rotate-0 transition-all duration-500">
-              <img src="/images/testimonial_1.png" className="w-full h-full object-cover" alt="Coworking Member 1" />
+              <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-full object-cover" alt="Coworking Member 1" />
             </div>
             
             {/* Image 2: Tall Right */}
             <div className="absolute top-0 right-4 w-[250px] h-[350px] rounded-[2rem] overflow-hidden rotate-[-4deg] shadow-xl border-[6px] border-white z-10 hover:z-50 hover:rotate-0 transition-all duration-500">
-              <img src="/images/testimonial_2.png" className="w-full h-full object-cover" alt="Coworking Member 2" />
+              <img src="/images/gallery/ending%20image%20golden%20glory.png" className="w-full h-full object-cover" alt="Coworking Member 2" />
             </div>
 
             {/* Image 3: Bottom Left Horizontal */}
             <div className="absolute bottom-20 left-10 w-[330px] h-[220px] rounded-[2rem] overflow-hidden rotate-[-2deg] shadow-xl border-[6px] border-white z-30 hover:z-50 hover:rotate-0 transition-all duration-500">
-              <img src="/images/testimonial_3.png" className="w-full h-full object-cover object-top" alt="Coworking Team" />
+              <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-full object-cover object-center" alt="Coworking Team" />
             </div>
 
             {/* Decorative Dashed Line SVG */}
@@ -94,19 +93,16 @@ export default function TestimonialsSection() {
             </svg>
 
             {/* Green Badge */}
-            <div className="absolute bottom-12 right-0 bg-[#432c1c] text-white px-6 py-5 rounded-[1.5rem] w-[220px] shadow-2xl z-40">
-              <div className="flex items-center gap-[-10px] mb-4">
-                <img src="https://i.pravatar.cc/150?img=1" className="w-10 h-10 rounded-full border-[3px] border-[#432c1c] -mr-3 relative z-30" alt="avatar 1" />
-                <img src="https://i.pravatar.cc/150?img=2" className="w-10 h-10 rounded-full border-[3px] border-[#432c1c] -mr-3 relative z-20" alt="avatar 2" />
-                <img src="https://i.pravatar.cc/150?img=3" className="w-10 h-10 rounded-full border-[3px] border-[#432c1c] relative z-10" alt="avatar 3" />
-                <div className="ml-3 bg-[#ffa602] text-[#111] text-sm font-bold px-3 py-1.5 rounded-full shadow-sm">15K</div>
+            <div className="absolute bottom-12 right-0 bg-[#432c1c] text-white px-6 py-5 rounded-[1.5rem] shadow-2xl z-40">
+              <div className="flex items-center mb-2">
+                <div className="bg-[#ffa602] text-[#111] text-sm font-bold px-3 py-1.5 rounded-full shadow-sm">Top Rated Workspace</div>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-bold text-xl">5.0</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffa602" className="w-4 h-4">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
-                <span className="text-white/80 text-sm">(15.5k review)</span>
+                <span className="text-white/80 text-sm">(Google Reviews)</span>
               </div>
             </div>
 
@@ -114,10 +110,10 @@ export default function TestimonialsSection() {
 
           {/* Mobile Fallback Images */}
           <div className="lg:hidden mt-12 grid grid-cols-2 gap-4">
-             <img src="/images/testimonial_1.png" className="w-full h-48 object-cover rounded-[1.5rem]" alt="Coworking Member 1" />
-             <img src="/images/testimonial_2.png" className="w-full h-48 object-cover rounded-[1.5rem]" alt="Coworking Member 2" />
+             <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-48 object-cover rounded-[1.5rem]" alt="Coworking Member 1" />
+             <img src="/images/gallery/ending%20image%20golden%20glory.png" className="w-full h-48 object-cover rounded-[1.5rem]" alt="Coworking Member 2" />
              <div className="col-span-2">
-                <img src="/images/testimonial_3.png" className="w-full h-48 object-cover object-top rounded-[1.5rem]" alt="Coworking Team" />
+                <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-48 object-cover object-center rounded-[1.5rem]" alt="Coworking Team" />
              </div>
           </div>
 

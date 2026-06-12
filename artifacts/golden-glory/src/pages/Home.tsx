@@ -229,20 +229,20 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="200">0</span>+</div>
-              <div className="text-sm uppercase tracking-wider opacity-80">Happy Members</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="300">0</span>+</div>
+              <div className="text-[13px] md:text-sm uppercase font-semibold tracking-[0.15em] opacity-90">Dedicated Seats</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="8">0</span>+</div>
-              <div className="text-sm uppercase tracking-wider opacity-80">Workspace Options</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="10">0</span>+</div>
+              <div className="text-[13px] md:text-sm uppercase font-semibold tracking-[0.15em] opacity-90">Premium Amenities</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="99.9">0</span>%</div>
-              <div className="text-sm uppercase tracking-wider opacity-80">Uptime Internet</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="24">0</span>/7</div>
+              <div className="text-[13px] md:text-sm uppercase font-semibold tracking-[0.15em] opacity-90">Dedicated Access</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="5">0</span></div>
-              <div className="text-sm uppercase tracking-wider opacity-80">Average Rating</div>
+              <div className="text-4xl md:text-6xl font-bold font-sans mb-2"><span className="stat-num" data-target="100">0</span>%</div>
+              <div className="text-[13px] md:text-sm uppercase font-semibold tracking-[0.15em] opacity-90">Client Satisfaction</div>
             </div>
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function Home() {
             Discover a workspace designed for productivity, comfort, and community. Book your visit today and see the difference.
           </p>
           <Button asChild size="lg" className="h-16 px-10 text-lg bg-primary text-white hover:bg-foreground hover:text-white rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300" data-cursor="hover">
-            <Link href="/contact-us">Connect Now</Link>
+            <a href="#contact-us-section">Connect Now</a>
           </Button>
         </div>
       </section>

@@ -62,46 +62,73 @@ export default function FAQ() {
 
   return (
     <PageTransition>
-      <section className="relative pt-32 pb-20 min-h-[calc(100vh-200px)]">
-        <div className="absolute inset-0 z-0 bg-white/40 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 z-0">
-          <img src="/images/gallery/private%20cabin%20golden%20glory%201.png" className="w-full h-full object-cover" alt="FAQ" />
-          <div className="absolute inset-0 bg-[#432c1c]/40 mix-blend-multiply"></div>
-        </div>
-        <div className="container relative z-10 mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h3 className="text-primary font-bold tracking-widest uppercase mb-4 text-sm">Golden Glory Coworking Space Noida</h3>
-            <h1 className="font-sans text-5xl md:text-7xl font-bold mb-6">
-              <SplitText>Frequently Asked Questions</SplitText>
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Explore our FAQ for everything you need to know about coworking space in Noida. Get fast, clear answers to common queries.
-            </p>
+      <div className="bg-[#FAF9F6] min-h-screen">
+        {/* Premium Hero Section */}
+        <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
+          {/* Background Image with Dark Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img src="/images/gallery/private%20cabin%20golden%20glory%201.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="FAQ" />
+            <div className="absolute inset-0 bg-[#432c1c]/30 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/60 via-[#432c1c]/20 to-transparent"></div>
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
+            <div className="max-w-4xl mx-auto bg-black/30 backdrop-blur-md border border-white/20 p-8 md:p-14 rounded-[2rem] shadow-2xl space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+              {/* Top Badge */}
+              <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-2 shadow-lg">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
+                <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Golden Glory Coworking Space Noida</span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="font-sans text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white mb-4 leading-[1.1]" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
+                Frequently Asked <span className="text-[#ffa602]">Questions</span>
+              </h1>
+
+              {/* Subtext */}
+              <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
+                Explore our FAQ for everything you need to know about coworking space in Noida. Get fast, clear answers to common queries.
+              </p>
+            </div>
           </div>
           
-          <div className="space-y-16">
-            {faqSections.map((section, sIdx) => (
-              <div key={sIdx}>
-                <h2 className="font-sans text-2xl font-bold text-primary mb-6 pb-2 border-b border-border/50">
-                  {section.category}
-                </h2>
-                <Accordion type="single" collapsible className="w-full">
-                  {section.faqs.map((faq, i) => (
-                    <AccordionItem key={i} value={`faq-${sIdx}-${i}`} className="border-border/50 bg-white px-6 rounded-xl mb-4 shadow-sm">
-                      <AccordionTrigger className="text-left font-sans text-xl py-6 hover:text-primary transition-colors data-[state=open]:text-primary" data-cursor="hover">
-                        {faq.q}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-8">
-                        {faq.a}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            ))}
+          {/* Bottom Scroll Indicator */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
+            <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">Scroll to read</span>
+            <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Content Section */}
+        <section className="py-20 lg:py-24 relative z-20 bg-[#FAF9F6]">
+          <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
+            <div className="space-y-16">
+              {faqSections.map((section, sIdx) => (
+                <div key={sIdx} className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100">
+                  <h2 className="font-sans text-2xl md:text-3xl font-bold text-[#111] mb-8 pb-4 border-b border-gray-100 flex items-center gap-4">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602]/10 text-[#c08d3e] text-sm border border-[#ffa602]/20 shrink-0">
+                      {String.fromCharCode(65 + sIdx)}
+                    </span>
+                    {section.category.split('—')[1]?.trim() || section.category}
+                  </h2>
+                  <Accordion type="single" collapsible className="w-full">
+                    {section.faqs.map((faq, i) => (
+                      <AccordionItem key={i} value={`faq-${sIdx}-${i}`} className="border-b border-gray-100 last:border-0 mb-2">
+                        <AccordionTrigger className="text-left font-sans text-lg md:text-xl py-5 hover:text-[#ffa602] transition-colors data-[state=open]:text-[#ffa602] text-gray-800 hover:no-underline" data-cursor="hover">
+                          {faq.q}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6 pr-8">
+                          {faq.a}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
     </PageTransition>
   );
 }

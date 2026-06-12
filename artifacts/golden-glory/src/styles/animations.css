@@ -66,12 +66,6 @@ figure.image-anime::after {
 .excellence-counter-boxes .excellence-counter-item {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.excellence-counter-boxes:hover .excellence-counter-item:nth-child(odd) {
-  transform: translateY(-20px);
-}
-.excellence-counter-boxes:hover .excellence-counter-item:nth-child(even) {
-  transform: translateY(0px);
-}
 
 /* 3.12 Floating Decorative Objects */
 @keyframes floatX {

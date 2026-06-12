@@ -16,7 +16,7 @@ export default function ContactUsSection() {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section id="contact-us-section" className="py-24 bg-white">
       <div className="container mx-auto px-4 lg:px-8 max-w-[1400px]">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           

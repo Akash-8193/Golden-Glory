@@ -4,7 +4,7 @@ import SplitText from '@/components/SplitText';
 
 export default function Gallery() {
   const media = [
-    { type: 'image', title: "Golden Glory Reception", url: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" },
+    { type: 'image', title: "Golden Glory Workspace", url: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" },
     { type: 'image', title: "Cover Image", url: "/images/gallery/cover%20image%20of%20golden%20glory.png" },
     { type: 'image', title: "Workspace Vibe", url: "/images/gallery/ending%20image%20golden%20glory.png" },
     { type: 'image', title: "Fixed Desks", url: "/images/gallery/fixed%20desks%20golden%20glory.png" },

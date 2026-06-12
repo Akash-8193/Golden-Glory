@@ -31,19 +31,19 @@ export default function AboutSection() {
               {/* Features List */}
               <div className="space-y-6 flex-1 excellence-counter-boxes fade-up">
                 <div className="flex items-center gap-4 excellence-counter-item">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming overflow-hidden">
-                    <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-1.5 mix-blend-multiply contrast-125 brightness-110" />
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md border border-border/50 overflow-hidden shrink-0">
+                    <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-2 mix-blend-multiply contrast-125 brightness-110" />
                   </div>
                   <span className="font-bold text-[#432c1c] text-lg">Fully Managed Office</span>
                 </div>
                 <div className="flex items-center gap-4 excellence-counter-item">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md border border-border/50 shrink-0">
                     <IndianRupee className="w-6 h-6 text-[#432c1c]" />
                   </div>
                   <span className="font-bold text-[#432c1c] text-lg">Zero Hidden Costs</span>
                 </div>
                 <div className="flex items-center gap-4 excellence-counter-item">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-border/50 border-zooming">
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md border border-border/50 shrink-0">
                     <MapPin className="w-6 h-6 text-[#432c1c]" />
                   </div>
                   <span className="font-bold text-[#432c1c] text-lg">Prime Metro Location</span>
@@ -53,10 +53,10 @@ export default function AboutSection() {
               {/* Floating Card - Positioned relative to the flex container on desktop */}
               <div className="bg-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-border/30 h-fit max-w-[280px] lg:absolute lg:top-[60%] lg:-right-16 xl:-right-24 z-20 gsap-float pointer-events-none">
                 <div className="flex -space-x-3 mb-4">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
-                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
+                  <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
+                  <img src="https://images.unsplash.com/photo-1581456495146-65a71b2c8e52?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=100&h=100" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Member" />
                 </div>
                 <div className="flex gap-1 text-[#F59E0B] mb-2">
                   {[...Array(5)].map((_, i) => (

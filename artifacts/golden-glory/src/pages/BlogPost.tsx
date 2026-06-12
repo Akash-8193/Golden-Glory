@@ -42,7 +42,7 @@ export default function BlogPost() {
       <div className="bg-white min-h-screen">
         
         {/* Article Hero Header */}
-        <section className="relative h-[65vh] min-h-[500px] w-full flex items-end justify-center pb-20 pt-40 overflow-hidden">
+        <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center pt-28 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img src={headerImage} className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt={blog.title} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
