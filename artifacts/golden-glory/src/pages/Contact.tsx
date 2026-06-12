@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageTransition from '@/components/PageTransition';
-import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
+import { ArrowRight, MapPin, Mail, Phone, CheckCircle2 } from 'lucide-react';
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1000);
+  };
+
   return (
     <PageTransition>
       {/* Premium Hero Section */}
@@ -61,28 +73,50 @@ export default function Contact() {
             </div>
 
             {/* Right Form Card */}
-            <div className="bg-[#F6F2EB] rounded-[2.5rem] p-10 md:p-14 lg:p-16">
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <input type="text" placeholder="Name" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+            <div className="bg-[#F6F2EB] rounded-[2.5rem] p-10 md:p-14 lg:p-16 min-h-[500px] flex flex-col justify-center">
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center text-center space-y-6 fade-up">
+                  <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2 shadow-inner">
+                    <CheckCircle2 className="w-12 h-12" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-[#111]">Message Sent Successfully!</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed max-w-[320px]">
+                    Thank you for reaching out. Our team will get back to you shortly.
+                  </p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-6 px-8 py-3 rounded-full border border-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-all"
+                  >
+                    Send Another Message
+                  </button>
                 </div>
-                <div>
-                  <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
-                </div>
-                <div>
-                  <input type="tel" placeholder="Phone" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
-                </div>
-                <div>
-                  <input type="text" placeholder="Write a Message" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
-                </div>
-
-                <button type="submit" className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-8">
-                  <span className="font-bold text-sm uppercase tracking-wide">Submit Now</span>
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602] text-black transition-transform">
-                    <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-all duration-300" />
-                  </span>
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-8 fade-up" onSubmit={handleSubmit}>
+                  <div>
+                    <input type="text" required placeholder="Name" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                  </div>
+                  <div>
+                    <input type="email" required placeholder="Email" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                  </div>
+                  <div>
+                    <input type="tel" required placeholder="Phone" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                  </div>
+                  <div>
+                    <input type="text" required placeholder="Write a Message" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                  </div>
+  
+                  <button disabled={isSubmitting} type="submit" className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-8 disabled:opacity-70 disabled:cursor-not-allowed">
+                    <span className="font-bold text-sm uppercase tracking-wide">
+                      {isSubmitting ? 'Sending...' : 'Submit Now'}
+                    </span>
+                    {!isSubmitting && (
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ffa602] text-black transition-transform group-hover:bg-white">
+                        <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-all duration-300 group-hover:text-black" />
+                      </span>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 

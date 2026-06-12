@@ -28,42 +28,41 @@ export default function PricingSection() {
             Choose a workspace plan that suits your workflow. Whether you need a dedicated desk or a private office, we have the perfect space for you.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 xl:gap-5">
           {plans.map((plan, i) => (
-            <div 
-              key={i} 
-              className={`rounded-[2rem] p-6 lg:p-8 relative transition-all duration-500 hover:-translate-y-2 flex flex-col fade-up ${
-                plan.highlighted 
-                  ? 'bg-[#432c1c] text-white shadow-2xl scale-[1.02] lg:scale-105 z-10' 
-                  : 'bg-white text-[#111] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 hover:border-[#ffa602]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]'
-              }`}
+            <div
+              key={i}
+              className={`rounded-[2rem] p-6 lg:p-8 relative transition-all duration-500 hover:-translate-y-2 flex flex-col fade-up ${plan.highlighted
+                ? 'bg-[#432c1c] text-white shadow-2xl scale-[1.02] lg:scale-105 z-10'
+                : 'bg-white text-[#111] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 hover:border-[#ffa602]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]'
+                }`}
             >
               {plan.isPremium && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#ffa602] text-[#111] font-bold text-xs uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg flex items-center gap-1 z-20">
                   <Star className="w-3 h-3 fill-current" /> Premium
                 </div>
               )}
-              
+
               <div className="h-56 w-full rounded-[2rem] overflow-hidden relative group image-anime at-animation-image-style-1">
                 <img src={plan.image} alt={plan.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              
+
               <div className="p-4 xl:p-5 flex flex-col flex-1">
-                <h3 className={`font-sans text-2xl font-bold mb-4 ${plan.isPremium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
-                
+                <h3 className={`font-sans text-2xl font-bold mb-4 min-h-[64px] ${plan.isPremium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
+
                 <div className={`mb-6 pb-6 border-b ${plan.isPremium ? 'border-white/10' : 'border-gray-100'}`}>
                   <div className="flex flex-wrap items-baseline gap-1 mb-1">
                     <span className="text-2xl lg:text-3xl font-bold text-[#ffa602] tracking-tight">₹{plan.price}</span>
                     <span className={`text-xs xl:text-sm font-medium ${plan.isPremium ? 'text-gray-400' : 'text-gray-500'}`}>{plan.suffix}</span>
                   </div>
                 </div>
-                
+
                 <p className={`text-sm font-medium mb-6 min-h-[60px] leading-relaxed ${plan.isPremium ? 'text-gray-300' : 'text-[#111]/80'}`}>
                   <span className={plan.isPremium ? 'text-[#ffa602]' : 'text-[#ffa602]'}>Best for: </span>{plan.for}
                 </p>
-                
+
                 <ul className="space-y-4 mb-8 flex-1">
                   {plan.feats.map((feat, j) => (
                     <li key={j} className={`flex items-start gap-3 text-sm ${plan.isPremium ? 'text-gray-300' : 'text-gray-500'}`}>
@@ -74,12 +73,11 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                
-                <Button asChild className={`w-full h-14 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 mt-auto shadow-md btn-anime ${
-                  plan.isPremium 
-                    ? 'bg-[#ffa602] text-[#111] hover:bg-[#e09612]' 
-                    : 'bg-gray-50 text-[#111] hover:bg-[#ffa602] hover:text-[#111] border border-gray-200 hover:border-[#ffa602]'
-                }`}>
+
+                <Button asChild className={`w-full h-14 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 mt-auto shadow-md btn-anime ${plan.isPremium
+                  ? 'bg-[#ffa602] text-[#111] hover:bg-[#e09612]'
+                  : 'bg-gray-50 text-[#111] hover:bg-[#ffa602] hover:text-[#111] border border-gray-200 hover:border-[#ffa602]'
+                  }`}>
                   <Link href="/contact-us"><span className="relative z-10">Select Plan</span></Link>
                 </Button>
               </div>
