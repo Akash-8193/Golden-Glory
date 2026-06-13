@@ -1,12 +1,4 @@
--- 1. Create the table
-CREATE TABLE IF NOT EXISTS public.site_content (
-  key text PRIMARY KEY,
-  section text NOT NULL,
-  content_type text NOT NULL DEFAULT 'text',
-  value text
-);
-
--- 2. Insert initial mock data (Major Sections)
+-- 2. Insert new data (Major Sections)
 INSERT INTO public.site_content (key, section, content_type, value) VALUES
   -- Home Page Hero
   ('home_hero_title', 'Home Page', 'text', 'Empower Your Future with the Best Mutual Funds'),
@@ -37,19 +29,3 @@ INSERT INTO public.site_content (key, section, content_type, value) VALUES
   ('blog_hero_title', 'Blog Page', 'text', 'Our <span class="text-[#ffa602]">Blog</span>'),
   ('blog_hero_subtitle', 'Blog Page', 'textarea', 'Insights, tips, and news from the Golden Glory community.')
 ON CONFLICT (key) DO NOTHING;
-
--- 3. Set up Row Level Security (RLS)
-ALTER TABLE public.site_content ENABLE ROW LEVEL SECURITY;
-
--- Allow anyone to READ the content (for the public website)
-CREATE POLICY "Allow public read access on site_content"
-  ON public.site_content FOR SELECT USING (true);
-
--- Allow anyone to UPDATE the content (for the admin panel)
--- Note: In a production app, this should be restricted to authenticated users.
-CREATE POLICY "Allow public update access on site_content"
-  ON public.site_content FOR UPDATE USING (true);
-
--- Allow anyone to INSERT content
-CREATE POLICY "Allow public insert access on site_content"
-  ON public.site_content FOR INSERT WITH CHECK (true);
