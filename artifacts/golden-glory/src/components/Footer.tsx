@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { MapPin, Instagram, Facebook, Mail, Phone, ArrowRight } from 'lucide-react';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { get } = useSiteContent();
 
   return (
     <footer className="bg-[#432c1c] text-white pt-24 pb-8 overflow-hidden relative">
@@ -114,20 +116,23 @@ export default function Footer() {
                   <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
                     <MapPin className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
                   </div>
-                  <span className="pt-1">111, F-Block, Sector-8, <br />Noida-201301, India</span>
+                  <span 
+                    className="pt-1 whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ __html: get('contact_address', '111, F-Block, Sector-8, <br />Noida-201301, India') }}
+                  />
                 </div>
               </li>
               <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
                   <Mail className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
                 </div>
-                <a href="mailto:info@goldenglory.space" className="pt-1">info@goldenglory.space</a>
+                <a href={`mailto:${get('contact_email', 'info@goldenglory.space')}`} className="pt-1">{get('contact_email', 'info@goldenglory.space')}</a>
               </li>
               <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
                   <Phone className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
                 </div>
-                <a href="tel:+919311076106" className="pt-1">+91-99-588-49-645</a>
+                <a href={`tel:${get('contact_phone', '+919311076106')}`} className="pt-1">{get('contact_phone', '+91-99-588-49-645')}</a>
               </li>
             </ul>
           </div>

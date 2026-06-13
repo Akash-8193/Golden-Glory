@@ -9,7 +9,12 @@ export default function Admin() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'inquiries' | 'pricing'>('inquiries');
+  const [activeTab, setActiveTab] = useState<'inquiries' | 'pricing' | 'content'>('content');
+  
+  // Site Content State
+  const [siteContent, setSiteContent] = useState<any[]>([]);
+  const [isLoadingContent, setIsLoadingContent] = useState(false);
+  const [isSavingContent, setIsSavingContent] = useState(false);
   
   // Inquiries State
   const [messages, setMessages] = useState<any[]>([]);
@@ -29,12 +34,75 @@ export default function Admin() {
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       setError('');
+      fetchSiteContent();
       fetchMessages();
       fetchPricingPlans();
     } else {
       setError('Incorrect password');
     }
   };
+
+  // --- SITE CONTENT LOGIC ---
+  const fetchSiteContent = async () => {
+    setIsLoadingContent(true);
+    try {
+      const { data, error } = await supabase.from('site_content').select('*').order('section', { ascending: true });
+      if (error) throw error;
+      setSiteContent(data || []);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoadingContent(false);
+    }
+  };
+
+  const handleContentChange = (key: string, newValue: string) => {
+    setSiteContent(prev => prev.map(item => item.key === key ? { ...item, value: newValue } : item));
+  };
+
+  const handleContentImageUpload = async (key: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    const file = e.target.files[0];
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Math.random()}.${fileExt}`;
+    const filePath = `content_${fileName}`;
+
+    try {
+      const { error: uploadError } = await supabase.storage.from('images').upload(filePath, file);
+      if (uploadError) throw uploadError;
+
+      const { data } = supabase.storage.from('images').getPublicUrl(filePath);
+      handleContentChange(key, data.publicUrl);
+    } catch (error: any) {
+      console.error('Error uploading image:', error);
+      alert('Failed to upload image.');
+    }
+  };
+
+  const handleSaveAllContent = async () => {
+    setIsSavingContent(true);
+    try {
+      // Supabase doesn't have bulk upsert easily accessible via simple js client without multiple requests,
+      // so we map over and update individually. For a small CMS this is perfectly fine.
+      for (const item of siteContent) {
+        await supabase.from('site_content').update({ value: item.value }).eq('key', item.key);
+      }
+      alert('All site content updated successfully! Changes are live.');
+    } catch (err) {
+      console.error(err);
+      alert('Failed to save some content.');
+    } finally {
+      setIsSavingContent(false);
+    }
+  };
+
+  // Group content by section for UI rendering
+  const groupedContent = siteContent.reduce((acc, item) => {
+    if (!acc[item.section]) acc[item.section] = [];
+    acc[item.section].push(item);
+    return acc;
+  }, {} as Record<string, any[]>);
+
 
   // --- INQUIRIES LOGIC ---
   const fetchMessages = async () => {
@@ -192,6 +260,12 @@ export default function Admin() {
             
             <div className="flex bg-white rounded-xl shadow-sm border border-gray-200 p-1">
               <button 
+                onClick={() => setActiveTab('content')}
+                className={`px-6 py-2.5 rounded-lg flex items-center gap-2 font-bold transition-all ${activeTab === 'content' ? 'bg-[#432c1c] text-[#ffa602]' : 'text-gray-500 hover:bg-gray-50'}`}
+              >
+                <LayoutDashboard className="w-4 h-4" /> Site Content
+              </button>
+              <button 
                 onClick={() => setActiveTab('inquiries')}
                 className={`px-6 py-2.5 rounded-lg flex items-center gap-2 font-bold transition-all ${activeTab === 'inquiries' ? 'bg-[#432c1c] text-[#ffa602]' : 'text-gray-500 hover:bg-gray-50'}`}
               >
@@ -205,6 +279,93 @@ export default function Admin() {
               </button>
             </div>
           </div>
+
+          {/* ================= SITE CONTENT TAB ================= */}
+          {activeTab === 'content' && (
+            <div className="space-y-8 fade-up">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex justify-between items-center sticky top-0 z-20">
+                <div>
+                  <h2 className="text-xl font-bold flex items-center gap-2"><LayoutDashboard className="w-5 h-5 text-[#ffa602]" /> Website Content</h2>
+                  <p className="text-sm text-gray-500 mt-1">Change any text or image on the website instantly.</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Button onClick={fetchSiteContent} disabled={isLoadingContent} variant="outline" className="gap-2">
+                    <RefreshCw className={`w-4 h-4 ${isLoadingContent ? 'animate-spin' : ''}`} /> Refresh
+                  </Button>
+                  <Button onClick={handleSaveAllContent} disabled={isSavingContent} className="gap-2 bg-[#ffa602] text-black hover:bg-[#e09612] font-bold">
+                    <Save className={`w-4 h-4 ${isSavingContent ? 'animate-pulse' : ''}`} /> {isSavingContent ? 'Saving...' : 'Publish Changes'}
+                  </Button>
+                </div>
+              </div>
+
+              {isLoadingContent ? (
+                <div className="p-20 text-center"><RefreshCw className="w-10 h-10 animate-spin text-[#ffa602] mx-auto" /></div>
+              ) : Object.keys(groupedContent).length === 0 ? (
+                <div className="bg-white p-12 rounded-[2rem] shadow-sm border border-black/5 text-center">
+                  <p className="text-gray-500 text-lg">No content found. Please run the SQL script in Supabase first.</p>
+                </div>
+              ) : (
+                <div className="space-y-8">
+                  {Object.entries(groupedContent).map(([section, items]) => (
+                    <div key={section} className="bg-white rounded-[2rem] shadow-sm border border-black/5 overflow-hidden">
+                      <div className="bg-gray-50/50 px-8 py-5 border-b border-gray-100">
+                        <h3 className="text-2xl font-bold text-[#111]">{section}</h3>
+                      </div>
+                      <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {items.map((item) => (
+                          <div key={item.key} className={`space-y-2 ${item.content_type === 'textarea' ? 'md:col-span-2' : ''}`}>
+                            <label className="block text-sm font-bold text-gray-700 capitalize">
+                              {item.key.replace(/_/g, ' ')}
+                            </label>
+                            
+                            {item.content_type === 'text' && (
+                              <input 
+                                type="text" 
+                                value={item.value} 
+                                onChange={(e) => handleContentChange(item.key, e.target.value)}
+                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:border-[#ffa602] outline-none transition-colors"
+                              />
+                            )}
+
+                            {item.content_type === 'textarea' && (
+                              <textarea 
+                                value={item.value} 
+                                onChange={(e) => handleContentChange(item.key, e.target.value)}
+                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:border-[#ffa602] outline-none min-h-[120px] transition-colors"
+                              />
+                            )}
+
+                            {item.content_type === 'image_url' && (
+                              <div className="space-y-3">
+                                {item.value && (
+                                  <div className="h-40 rounded-xl overflow-hidden border border-gray-200 relative group">
+                                    <img src={item.value} className="w-full h-full object-cover" alt="CMS Upload" />
+                                  </div>
+                                )}
+                                <div className="flex items-center gap-3">
+                                  <input 
+                                    type="text" 
+                                    value={item.value} 
+                                    onChange={(e) => handleContentChange(item.key, e.target.value)}
+                                    placeholder="Image URL"
+                                    className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-[#ffa602] outline-none"
+                                  />
+                                  <label className="cursor-pointer bg-gray-100 text-gray-700 font-bold py-3 px-4 rounded-xl flex items-center gap-2 hover:bg-gray-200 transition-colors whitespace-nowrap">
+                                    <Upload className="w-4 h-4" /> Upload
+                                    <input type="file" accept="image/*" className="hidden" onChange={(e) => handleContentImageUpload(item.key, e)} />
+                                  </label>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* ================= INQUIRIES TAB ================= */}
           {activeTab === 'inquiries' && (

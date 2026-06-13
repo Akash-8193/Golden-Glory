@@ -24,6 +24,7 @@ import LatestBlogsSection from '@/components/LatestBlogsSection';
 import ContactUsSection from '@/components/ContactUsSection';
 import FAQSection from '@/components/FAQSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,8 @@ export default function Home() {
   const horizontalScrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  
+  const { get, loading } = useSiteContent();
 
   useEffect(() => {
     // Number counters logic has been moved to useGsapAnimations for global access
@@ -42,7 +45,11 @@ export default function Home() {
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-32 lg:pt-36 pb-16">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Premium Coworking Space" />
+          <img 
+            src={get('home_hero_image', '/images/gallery/cover%20image%20of%20golden%20glory.png')} 
+            className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" 
+            alt="Premium Coworking Space" 
+          />
           <div className="absolute inset-0 bg-black/10 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
@@ -57,16 +64,15 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tight text-white leading-[1.05] fade-up" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
-              Comfort Meets <br />
-              <span className="text-[#ffa602] relative" style={{ textShadow: "0 0 20px rgba(255,166,2,0.3)" }}>
-                Productivity
-              </span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tight text-white leading-[1.05] fade-up" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}
+              dangerouslySetInnerHTML={{ __html: get('home_hero_title', 'Comfort Meets <br /><span class="text-[#ffa602] relative" style="text-shadow: 0 0 20px rgba(255,166,2,0.3)">Productivity</span>') }}
+            />
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-4xl mx-auto leading-relaxed typewriter" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
-              A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.
+              {get('home_hero_subtitle', 'A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.')}
             </p>
 
             {/* Buttons */}
