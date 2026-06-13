@@ -34,8 +34,8 @@ export default function Navigation() {
         }`}
       >
         <div 
-          className={`flex items-center justify-between w-[96%] lg:w-[90%] max-w-[1600px] bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-full border border-black/5 transition-all duration-500 ${
-            scrolled ? 'py-2 px-5 md:px-8' : 'py-2.5 px-6 md:px-10'
+          className={`flex items-center justify-between w-[96%] lg:w-[90%] max-w-[1600px] bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-full border border-black/5 transition-all duration-500 overflow-hidden ${
+            scrolled ? 'py-3 px-5 md:px-8' : 'py-4 md:py-5 px-6 md:px-10'
           }`}
         >
           <Link href="/" className="flex items-center group" data-cursor="hover">
@@ -43,7 +43,7 @@ export default function Navigation() {
             <img 
               src="/logo.jpeg" 
               alt="Golden Glory Logo" 
-              className={`object-contain transition-all duration-500 mix-blend-multiply contrast-125 brightness-110 ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
+              className={`object-contain transition-all duration-500 mix-blend-multiply contrast-125 brightness-110 scale-[1.6] md:scale-[1.8] origin-left ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
               onError={(e) => {
                 // Fallback to text if logo image is not found
                 e.currentTarget.style.display = 'none';

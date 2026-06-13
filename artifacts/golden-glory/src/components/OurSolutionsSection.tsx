@@ -86,9 +86,10 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
         {/* Grid */}
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${limit === 3 ? '3' : '4'} gap-6`}>
           {displaySolutions.map((solution, idx) => (
-            <div 
+            <a 
+              href="#pricing"
               key={idx} 
-              className="group bg-white rounded-[2rem] p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#ffa602]/20 flex flex-col h-full fade-up"
+              className="block group bg-white rounded-[2rem] p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#ffa602]/20 flex flex-col h-full fade-up cursor-pointer"
             >
               {/* Large Watermark Number */}
               <div className="absolute -right-4 -bottom-6 text-[8rem] font-sans font-bold text-gray-50 group-hover:text-[#ffa602]/5 transition-colors duration-500 pointer-events-none leading-none">
@@ -111,7 +112,7 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
                 
 
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

@@ -1,18 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { ArrowRight, MapPin, Mail, Phone, CheckCircle2 } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [lastSubmittedMessage, setLastSubmittedMessage] = useState('');
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (window.location.hash === '#map') {
+      const timer = setTimeout(() => {
+        const element = document.getElementById('map');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError('');
+
+    try {
+      const { error } = await supabase.from('contacts').insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        }
+      ]);
+
+      if (error) throw error;
+
       setIsSubmitted(true);
-    }, 1000);
+      setLastSubmittedMessage(formData.message);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      console.log(error);
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,17 +120,29 @@ export default function Contact() {
             {/* Right Form Card */}
             <div className="bg-[#F6F2EB] rounded-[2.5rem] p-10 md:p-14 lg:p-16 min-h-[500px] flex flex-col justify-center">
               {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center text-center space-y-6 fade-up">
-                  <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2 shadow-inner">
-                    <CheckCircle2 className="w-12 h-12" />
+                <div className="flex flex-col items-center justify-center text-center space-y-5 fade-up w-full">
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner">
+                    <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-3xl font-bold text-[#111]">Message Sent Successfully!</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed max-w-[320px]">
-                    Thank you for reaching out. Our team will get back to you shortly.
+                  <h3 className="text-3xl font-bold text-[#111]">Message Sent!</h3>
+                  <p className="text-gray-600 text-base leading-relaxed max-w-[320px]">
+                    Thank you! Your message has been sent successfully.
                   </p>
+                  
+                  {lastSubmittedMessage && (
+                    <div className="w-full bg-white/60 border border-[#ffa602]/30 rounded-2xl p-6 text-left mt-2 shadow-sm relative">
+                      <div className="absolute top-0 left-6 -translate-y-1/2 bg-[#F6F2EB] px-2 text-xs font-bold tracking-widest text-[#ffa602] uppercase">
+                        Your Message
+                      </div>
+                      <p className="text-gray-700 italic text-sm leading-relaxed">
+                        "{lastSubmittedMessage}"
+                      </p>
+                    </div>
+                  )}
+
                   <button 
                     onClick={() => setIsSubmitted(false)}
-                    className="mt-6 px-8 py-3 rounded-full border border-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-all"
+                    className="mt-4 px-8 py-3 rounded-full border border-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-all w-full md:w-auto"
                   >
                     Send Another Message
                   </button>
@@ -93,17 +150,21 @@ export default function Contact() {
               ) : (
                 <form className="space-y-8 fade-up" onSubmit={handleSubmit}>
                   <div>
-                    <input type="text" required placeholder="Name" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                    <input name="name" value={formData.name} onChange={handleChange} type="text" required placeholder="Name" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
                   </div>
                   <div>
-                    <input type="email" required placeholder="Email" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                    <input name="email" value={formData.email} onChange={handleChange} type="email" required placeholder="Email" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
                   </div>
                   <div>
-                    <input type="tel" required placeholder="Phone" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                    <input name="phone" value={formData.phone} onChange={handleChange} type="tel" required placeholder="Phone" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
                   </div>
                   <div>
-                    <input type="text" required placeholder="Write a Message" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
+                    <input name="message" value={formData.message} onChange={handleChange} type="text" required placeholder="Write a Message" className="w-full bg-transparent border-b border-gray-300 pb-4 text-gray-800 focus:outline-none focus:border-[#ffa602] transition-colors placeholder:text-gray-500" />
                   </div>
+
+                  {submitError && (
+                    <p className="text-red-500 text-sm font-medium">{submitError}</p>
+                  )}
   
                   <button disabled={isSubmitting} type="submit" className="group inline-flex items-center gap-4 bg-transparent border border-black rounded-full pl-6 pr-1.5 py-1.5 hover:bg-black hover:text-white transition-all duration-300 mt-8 disabled:opacity-70 disabled:cursor-not-allowed">
                     <span className="font-bold text-sm uppercase tracking-wide">
@@ -131,7 +192,7 @@ export default function Contact() {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div id="map" className="grid lg:grid-cols-2 gap-10 items-start">
             {/* Map */}
             <div className="rounded-[2rem] overflow-hidden h-[480px]">
               <iframe

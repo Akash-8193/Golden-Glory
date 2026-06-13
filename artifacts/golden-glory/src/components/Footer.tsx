@@ -97,11 +97,25 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Get in Touch</h4>
             <ul className="space-y-6">
-              <li className="flex items-start gap-4 text-gray-400 hover:text-white transition-colors group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
-                  <MapPin className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
+              <li 
+                className="text-gray-400 hover:text-white transition-colors group cursor-pointer"
+                onClick={(e) => {
+                  if (window.location.pathname === '/contact-us') {
+                    e.preventDefault();
+                    const el = document.getElementById('map');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    window.history.pushState(null, '', '#map');
+                  } else {
+                    window.location.href = '/contact-us#map';
+                  }
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
+                    <MapPin className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
+                  </div>
+                  <span className="pt-1">111, F-Block, Sector-8, <br />Noida-201301, India</span>
                 </div>
-                <span className="pt-1">111, F-Block, Sector-8, <br />Noida-201301, India</span>
               </li>
               <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
                 <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
