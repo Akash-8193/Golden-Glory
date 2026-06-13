@@ -9,7 +9,10 @@
   },
   "private": true,
   "workspaces": [
-    "artifacts/*"
+    "artifacts/*",
+    "lib/*",
+    "lib/integrations/*",
+    "scripts"
   ],
   "devDependencies": {
     "prettier": "^3.8.3",
