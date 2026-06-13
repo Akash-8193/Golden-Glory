@@ -7,8 +7,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function FAQ() {
+  const { get } = useSiteContent();
   const faqSections = [
     {
       category: "SECTION A — Workspace & Plans",
@@ -81,13 +83,15 @@ export default function FAQ() {
               </div>
 
               {/* Headline */}
-              <h1 className="font-sans text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white mb-4 leading-[1.1]" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-                Frequently Asked <span className="text-[#ffa602]">Questions</span>
-              </h1>
+              <h1 
+                className="font-sans text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white mb-4 leading-[1.1]" 
+                style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+                dangerouslySetInnerHTML={{ __html: get('faq_hero_title', 'Frequently Asked <span class="text-[#ffa602]">Questions</span>') }}
+              />
 
               {/* Subtext */}
               <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-                Explore our FAQ for everything you need to know about coworking space in Noida. Get fast, clear answers to common queries.
+                {get('faq_hero_subtitle', 'Explore our FAQ for everything you need to know about coworking space in Noida. Get fast, clear answers to common queries.')}
               </p>
             </div>
           </div>

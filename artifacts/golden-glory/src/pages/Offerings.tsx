@@ -9,8 +9,10 @@ import { Link } from "wouter";
 import OurSolutionsSection from '@/components/OurSolutionsSection';
 import PricingSection from '@/components/PricingSection';
 import FAQSection from '@/components/FAQSection';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function Offerings() {
+  const { get } = useSiteContent();
 
   return (
     <PageTransition>
@@ -32,13 +34,15 @@ export default function Offerings() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-              Choose What <span className="text-[#ffa602]">Fits You</span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+              dangerouslySetInnerHTML={{ __html: get('offerings_hero_title', 'Choose What <span class="text-[#ffa602]">Fits You</span>') }}
+            />
 
             {/* Subtext */}
             <p className="text-xl md:text-2xl text-gray-100 font-light mb-6" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              Where ambition meets the right environment.
+              {get('offerings_hero_subtitle', 'Where ambition meets the right environment.')}
             </p>
 
 

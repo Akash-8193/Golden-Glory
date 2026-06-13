@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { ArrowRight, MapPin, Mail, Phone, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function Contact() {
+  const { get } = useSiteContent();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -75,11 +77,13 @@ export default function Contact() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
               <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Reach Our Team</span>
             </div>
-            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-              Get In <span className="text-[#ffa602]">Touch</span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+              dangerouslySetInnerHTML={{ __html: get('contact_hero_title', 'Get In <span class="text-[#ffa602]">Touch</span>') }}
+            />
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              Whether you need workspace details, pricing, or a quick tour, our team is here to guide you and answer every question.
+              {get('contact_hero_subtitle', 'Whether you need workspace details, pricing, or a quick tour, our team is here to guide you and answer every question.')}
             </p>
           </div>
         </div>

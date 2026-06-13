@@ -7,8 +7,11 @@ import WhoWeAreSection from '@/components/WhoWeAreSection';
 import AboutSection from '@/components/AboutSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ServicesSection from '@/components/ServicesSection';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function About() {
+  const { get } = useSiteContent();
+
   return (
     <PageTransition>
       {/* Premium Hero Section */}
@@ -29,13 +32,15 @@ export default function About() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-              About <span className="text-[#ffa602]">Golden Glory</span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+              dangerouslySetInnerHTML={{ __html: get('about_hero_title', 'About <span class="text-[#ffa602]">Golden Glory</span>') }}
+            />
 
             {/* Subtext */}
             <p className="text-xl md:text-2xl text-gray-100 font-light mb-6" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              A premium coworking space in Noida offering flexible workstations, private cabins, and modern amenities.
+              {get('about_hero_subtitle', 'A premium coworking space in Noida offering flexible workstations, private cabins, and modern amenities.')}
             </p>
           </div>
         </div>

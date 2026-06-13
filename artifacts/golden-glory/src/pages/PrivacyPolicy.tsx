@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { ShieldCheck, Calendar, MapPin, Mail } from 'lucide-react';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function PrivacyPolicy() {
+  const { get } = useSiteContent();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,9 +30,11 @@ export default function PrivacyPolicy() {
               </div>
 
               {/* Headline */}
-              <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-4 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-                Privacy <span className="text-[#ffa602]">Policy</span>
-              </h1>
+              <h1 
+                className="font-sans text-5xl md:text-7xl font-bold text-white mb-4 leading-tight" 
+                style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+                dangerouslySetInnerHTML={{ __html: get('privacy_hero_title', 'Privacy <span class="text-[#ffa602]">Policy</span>') }}
+              />
 
               {/* Subtext */}
               <div className="flex items-center justify-center gap-2 text-gray-200 text-sm md:text-base font-medium" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
