@@ -12,6 +12,7 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import FAQ from "@/pages/FAQ";
+import Admin from "@/pages/Admin";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -43,6 +44,7 @@ function Router() {
         <Route path="/coworking-space-in-noida-blog/:slug" component={BlogPost} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/faq" component={FAQ} />
+        <Route path="/admin" component={Admin} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

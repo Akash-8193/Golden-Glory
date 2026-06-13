@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { Check, Star, CreditCard } from 'lucide-react';
+import { Check, Star, CreditCard, RefreshCw } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export default function PricingSection() {
-  const plans = [
-    { title: "Dedicated Desk", price: "5,500", suffix: "+GST/Mo", for: "Regular professionals needing consistency & comfort", feats: ["Personal fixed desk", "Secure & stable setup", "Fiber internet + power backup", "Pantry access", "Printing/scanning support", "Access to meeting room (limited)"], image: "/images/gallery/fixed%20desks%20golden%20glory.png", isPremium: false },
-    { title: "Executive Cabin", price: "25,000", suffix: "+GST/Mo", for: "Founders, executives, managers, and decision-makers", feats: ["Private, lockable cabin", "Ergonomic seating", "Noise-free workspace", "Internet & backup power", "Meeting room credits", "Branding/identity options"], image: "/images/gallery/private%20cabin%20golden%20glory%201.png", isPremium: true, highlighted: true },
-    { title: "Meeting Room", price: "3,500", suffix: "+GST/Day", for: "Professional rooms for client discussions & team meetings", feats: ["High-speed Wi-Fi", "Whiteboard & marker", "Smart TV/Projector", "Tea & coffee service", "Air-conditioned", "Reception support"], image: "/images/gallery/private%20cabin%20golden%20glory%202.png", isPremium: false },
-    { title: "Virtual Office", price: "18,000", suffix: "+GST/Yr", for: "Businesses needing a premium address without physical space", feats: ["Premium business address", "Mail & package handling", "Dedicated phone number", "Call forwarding", "Meeting room access (discounted)", "Professional reception"], image: "/images/gallery/cover%20image%20of%20golden%20glory.png", isPremium: false },
-    { title: "Day Pass", price: "500", suffix: "+GST/Day", for: "Instant workspace access for one day", feats: ["Flexible seating access", "High-speed fiber internet", "Access to common areas", "Pantry, tea & coffee", "Power backup", "Community access"], image: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png", isPremium: false }
-  ];
+  const [plans, setPlans] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPlans() {
+      try {
+        const { data, error } = await supabase
+          .from('pricing_plans')
+          .select('*')
+          .order('id', { ascending: true });
+        
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          setPlans(data);
+        } else {
+          // Fallback if empty
+          setPlans([
+            { title: "Dedicated Desk", price: "5,500", suffix: "+GST/Mo", best_for: "Regular professionals needing consistency & comfort", feats: ["Personal fixed desk", "Secure & stable setup", "Fiber internet + power backup", "Pantry access", "Printing/scanning support", "Access to meeting room (limited)"], image: "/images/gallery/fixed%20desks%20golden%20glory.png", is_premium: false },
+            { title: "Executive Cabin", price: "25,000", suffix: "+GST/Mo", best_for: "Founders, executives, managers, and decision-makers", feats: ["Private, lockable cabin", "Ergonomic seating", "Noise-free workspace", "Internet & backup power", "Meeting room credits", "Branding/identity options"], image: "/images/gallery/private%20cabin%20golden%20glory%201.png", is_premium: true, highlighted: true },
+            { title: "Meeting Room", price: "3,500", suffix: "+GST/Day", best_for: "Professional rooms for client discussions & team meetings", feats: ["High-speed Wi-Fi", "Whiteboard & marker", "Smart TV/Projector", "Tea & coffee service", "Air-conditioned", "Reception support"], image: "/images/gallery/private%20cabin%20golden%20glory%202.png", is_premium: false }
+          ]);
+        }
+      } catch (err) {
+        console.error('Error fetching plans:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPlans();
+  }, []);
 
   return (
     <section id="pricing" className="py-16 md:py-20 bg-[#f4f9fd]">
@@ -38,7 +63,7 @@ export default function PricingSection() {
                 : 'bg-white text-[#111] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 hover:border-[#ffa602]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]'
                 }`}
             >
-              {plan.isPremium && (
+              {plan.is_premium && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#ffa602] text-[#111] font-bold text-xs uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg flex items-center gap-1 z-20">
                   <Star className="w-3 h-3 fill-current" /> Premium
                 </div>
@@ -50,23 +75,23 @@ export default function PricingSection() {
               </div>
 
               <div className="p-4 xl:p-5 flex flex-col flex-1">
-                <h3 className={`font-sans text-2xl font-bold mb-4 min-h-[64px] ${plan.isPremium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
+                <h3 className={`font-sans text-2xl font-bold mb-4 min-h-[64px] ${plan.is_premium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
 
-                <div className={`mb-6 pb-6 border-b ${plan.isPremium ? 'border-white/10' : 'border-gray-100'}`}>
+                <div className={`mb-6 pb-6 border-b ${plan.is_premium ? 'border-white/10' : 'border-gray-100'}`}>
                   <div className="flex flex-wrap items-baseline gap-1 mb-1">
                     <span className="text-2xl lg:text-3xl font-bold text-[#ffa602] tracking-tight">₹{plan.price}</span>
-                    <span className={`text-xs xl:text-sm font-medium ${plan.isPremium ? 'text-gray-400' : 'text-gray-500'}`}>{plan.suffix}</span>
+                    <span className={`text-xs xl:text-sm font-medium ${plan.is_premium ? 'text-gray-400' : 'text-gray-500'}`}>{plan.suffix}</span>
                   </div>
                 </div>
 
-                <p className={`text-sm font-medium mb-6 min-h-[60px] leading-relaxed ${plan.isPremium ? 'text-gray-300' : 'text-[#111]/80'}`}>
-                  <span className={plan.isPremium ? 'text-[#ffa602]' : 'text-[#ffa602]'}>Best for: </span>{plan.for}
+                <p className={`text-sm font-medium mb-6 min-h-[60px] leading-relaxed ${plan.is_premium ? 'text-gray-300' : 'text-[#111]/80'}`}>
+                  <span className={plan.is_premium ? 'text-[#ffa602]' : 'text-[#ffa602]'}>Best for: </span>{plan.best_for}
                 </p>
 
                 <ul className="space-y-4 mb-8 flex-1">
-                  {plan.feats.map((feat, j) => (
-                    <li key={j} className={`flex items-start gap-3 text-sm ${plan.isPremium ? 'text-gray-300' : 'text-gray-500'}`}>
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.isPremium ? 'bg-[#ffa602]/20' : 'bg-[#ffa602]/10'} border-zooming`}>
+                  {plan.feats.map((feat: string, j: number) => (
+                    <li key={j} className={`flex items-start gap-3 text-sm ${plan.is_premium ? 'text-gray-300' : 'text-gray-500'}`}>
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.is_premium ? 'bg-[#ffa602]/20' : 'bg-[#ffa602]/10'} border-zooming`}>
                         <Check className="w-3 h-3 text-[#ffa602]" />
                       </div>
                       <span className="leading-tight">{feat}</span>
@@ -74,7 +99,7 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <Button asChild className={`w-full h-14 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 mt-auto shadow-md btn-anime ${plan.isPremium
+                <Button asChild className={`w-full h-14 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 mt-auto shadow-md btn-anime ${plan.is_premium
                   ? 'bg-[#ffa602] text-[#111] hover:bg-[#e09612]'
                   : 'bg-gray-50 text-[#111] hover:bg-[#ffa602] hover:text-[#111] border border-gray-200 hover:border-[#ffa602]'
                   }`}>
