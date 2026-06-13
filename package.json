@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "cd artifacts/golden-glory && npm install && npm run build",
+    "build": "cd artifacts/golden-glory && npm install --include=dev && npm run build",
     "typecheck:libs": "tsc --build",
     "typecheck": "tsc --build"
   },
