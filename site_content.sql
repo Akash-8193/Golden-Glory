@@ -1,18 +1,14 @@
 -- 2. Insert new data (Major Sections)
 INSERT INTO public.site_content (key, section, content_type, value) VALUES
   -- Home Page Hero
-  ('home_hero_title', 'Home Page', 'text', 'Empower Your Future with the Best Mutual Funds'),
-  ('home_hero_subtitle', 'Home Page', 'textarea', 'Take control of your financial destiny with Golden Glory. Discover expert-curated mutual funds tailored for massive growth and unmatched stability.'),
-  ('home_hero_image', 'Home Page', 'image_url', 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'),
+  ('home_hero_title', 'Home Page', 'text', 'Comfort Meets <br /><span class="text-[#ffa602] relative" style="text-shadow: 0 0 20px rgba(255,166,2,0.3)">Productivity</span>'),
+  ('home_hero_subtitle', 'Home Page', 'textarea', 'A vibrant coworking space designed for those who hustle, dream big, and build brands that leave a mark.'),
+  ('home_hero_image', 'Home Page', 'image_url', '/images/gallery/cover%20image%20of%20golden%20glory.png'),
   
   -- Footer Contact Info
-  ('contact_email', 'Footer', 'text', 'info@goldenglory.com'),
-  ('contact_phone', 'Footer', 'text', '+91 98765 43210'),
-  ('contact_address', 'Footer', 'textarea', '123 Finance Street, Wealth District, Mumbai, India'),
-  
-  -- About Us Intro
-  ('about_mission_title', 'About Us', 'text', 'Our Mission to Secure Your Future'),
-  ('about_mission_text', 'About Us', 'textarea', 'At Golden Glory, we believe that financial freedom should be accessible to everyone. We meticulously analyze markets to bring you mutual funds that deliver consistent, risk-adjusted returns.'),
+  ('contact_email', 'Footer', 'text', 'info@goldenglory.space'),
+  ('contact_phone', 'Footer', 'text', '+91-99-588-49-645'),
+  ('contact_address', 'Footer', 'textarea', '111, F-Block, Sector-8, <br />Noida-201301, India'),
 
   -- Other Pages Heroes
   ('about_hero_title', 'About Us', 'text', 'About <span class="text-[#ffa602]">Golden Glory</span>'),
@@ -28,4 +24,4 @@ INSERT INTO public.site_content (key, section, content_type, value) VALUES
   ('gallery_hero_subtitle', 'Gallery Page', 'textarea', 'Explore the sleek interiors, vibrant shared zones, and premium amenities designed for your growth.'),
   ('blog_hero_title', 'Blog Page', 'text', 'Our <span class="text-[#ffa602]">Blog</span>'),
   ('blog_hero_subtitle', 'Blog Page', 'textarea', 'Insights, tips, and news from the Golden Glory community.')
-ON CONFLICT (key) DO NOTHING;
+ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;
