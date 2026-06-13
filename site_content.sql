@@ -31,7 +31,11 @@ INSERT INTO public.site_content (key, section, content_type, value) VALUES
   ('contact_hero_subtitle', 'Contact Page', 'textarea', 'Whether you need workspace details, pricing, or a quick tour, our team is here to guide you and answer every question.'),
   ('faq_hero_title', 'FAQ Page', 'text', 'Frequently Asked <span class="text-[#ffa602]">Questions</span>'),
   ('faq_hero_subtitle', 'FAQ Page', 'textarea', 'Explore our FAQ for everything you need to know about coworking space in Noida. Get fast, clear answers to common queries.'),
-  ('privacy_hero_title', 'Privacy Policy', 'text', 'Privacy <span class="text-[#ffa602]">Policy</span>')
+  ('privacy_hero_title', 'Privacy Policy', 'text', 'Privacy <span class="text-[#ffa602]">Policy</span>'),
+  ('gallery_hero_title', 'Gallery Page', 'text', 'Our <span class="text-[#ffa602]">Gallery</span>'),
+  ('gallery_hero_subtitle', 'Gallery Page', 'textarea', 'Explore the sleek interiors, vibrant shared zones, and premium amenities designed for your growth.'),
+  ('blog_hero_title', 'Blog Page', 'text', 'Our <span class="text-[#ffa602]">Blog</span>'),
+  ('blog_hero_subtitle', 'Blog Page', 'textarea', 'Insights, tips, and news from the Golden Glory community.')
 ON CONFLICT (key) DO NOTHING;
 
 -- 3. Set up Row Level Security (RLS)

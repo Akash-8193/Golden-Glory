@@ -3,8 +3,10 @@ import PageTransition from '@/components/PageTransition';
 import { Link } from 'wouter';
 import { blogs } from '@/data/blogs';
 import { ArrowUpRight } from 'lucide-react';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function Blog() {
+  const { get } = useSiteContent();
   const blogImages = [
     "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png",
     "/images/gallery/cover%20image%20of%20golden%20glory.png",
@@ -36,11 +38,13 @@ export default function Blog() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
               <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Latest Insights</span>
             </div>
-            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-              Our <span className="text-[#ffa602]">Blog</span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+              dangerouslySetInnerHTML={{ __html: get('blog_hero_title', 'Our <span class="text-[#ffa602]">Blog</span>') }}
+            />
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              Insights, tips, and news from the Golden Glory community.
+              {get('blog_hero_subtitle', 'Insights, tips, and news from the Golden Glory community.')}
             </p>
           </div>
         </div>

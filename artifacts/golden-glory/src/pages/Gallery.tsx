@@ -1,8 +1,10 @@
 import React from 'react';
 import PageTransition from '@/components/PageTransition';
 import SplitText from '@/components/SplitText';
+import { useSiteContent } from '@/hooks/useSiteContent';
 
 export default function Gallery() {
+  const { get } = useSiteContent();
   const media = [
     { type: 'image', title: "Golden Glory Workspace", url: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" },
     { type: 'image', title: "Cover Image", url: "/images/gallery/cover%20image%20of%20golden%20glory.png" },
@@ -28,11 +30,13 @@ export default function Gallery() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#dca646]"></span>
               <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Visual Tour</span>
             </div>
-            <h1 className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}>
-              Our <span className="text-[#ffa602]">Gallery</span>
-            </h1>
+            <h1 
+              className="font-sans text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" 
+              style={{ textShadow: "0 4px 20px rgba(0,0,0,0.65)" }}
+              dangerouslySetInnerHTML={{ __html: get('gallery_hero_title', 'Our <span class="text-[#ffa602]">Gallery</span>') }}
+            />
             <p className="text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}>
-              Explore the sleek interiors, vibrant shared zones, and premium amenities designed for your growth.
+              {get('gallery_hero_subtitle', 'Explore the sleek interiors, vibrant shared zones, and premium amenities designed for your growth.')}
             </p>
           </div>
         </div>
