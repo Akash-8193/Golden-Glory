@@ -1,3 +1,9 @@
 {
-  "outputDirectory": "artifacts/golden-glory/dist"
+  "outputDirectory": "artifacts/golden-glory/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
