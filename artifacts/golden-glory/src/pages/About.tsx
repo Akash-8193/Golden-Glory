@@ -66,7 +66,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#f4f9fd] rounded-[3rem] transform -rotate-3 z-0"></div>
               <img
-                src="/images/gallery/cover%20image%20of%20golden%20glory.png"
+                src="/images/gallery/private%20cabin%20golden%20glory%201.png"
                 alt="Why Golden Glory"
                 className="relative z-10 w-full h-[500px] object-cover rounded-[2rem] shadow-2xl"
               />

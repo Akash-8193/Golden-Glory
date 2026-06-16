@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
-import SplitText from '@/components/SplitText';
 import { useSiteContent } from '@/hooks/useSiteContent';
+import { supabase } from '@/lib/supabase';
 
 export default function Gallery() {
   const { get } = useSiteContent();
-  const media = [
-    { type: 'image', title: "Golden Glory Workspace", url: "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png" },
-    { type: 'image', title: "Cover Image", url: "/images/gallery/cover%20image%20of%20golden%20glory.png" },
-    { type: 'image', title: "Workspace Vibe", url: "/images/gallery/ending%20image%20golden%20glory.png" },
-    { type: 'image', title: "Fixed Desks", url: "/images/gallery/fixed%20desks%20golden%20glory.png" },
-    { type: 'video', title: "Cabin Walkthrough", url: "/videos/cabinnnnn%20(1).mp4" },
-    { type: 'image', title: "Private Cabin", url: "/images/gallery/private%20cabin%20golden%20glory%201.png" },
-    { type: 'image', title: "Premium Cabin", url: "/images/gallery/private%20cabin%20golden%20glory%202.png" }
-  ];
+  const [media, setMedia] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function fetchMedia() {
+      const { data } = await supabase.from('gallery_items').select('*').order('order_index', { ascending: true });
+      if (data) setMedia(data);
+    }
+    fetchMedia();
+  }, []);
 
   return (
     <PageTransition>
       {/* Premium Hero Section */}
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src="/images/gallery/cover%20image%20of%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Gallery" />
+          <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Gallery" />
           <div className="absolute inset-0 bg-black/5"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10"></div>
         </div>
@@ -51,21 +51,28 @@ export default function Gallery() {
       {/* Gallery Grid */}
       <section className="py-20 bg-[#f4f9fd]">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {media.map((item, i) => (
-              <div key={i} className={`bg-white rounded-3xl overflow-hidden shadow-lg group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative ${i === 0 ? 'md:col-span-2 lg:col-span-2 aspect-[21/9]' : 'aspect-video'}`}>
-                {item.type === 'video' ? (
-                  <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                ) : (
-                  <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-6 left-6 right-6 z-20 text-left">
-                  <span className="font-sans text-2xl text-white group-hover:text-[#ffa602] transition-colors block mb-1 font-bold">{item.title}</span>
+          {media.length === 0 ? (
+            <div className="text-center py-20 text-gray-500">
+              <div className="animate-spin w-8 h-8 border-4 border-[#ffa602] border-t-transparent rounded-full mx-auto mb-4"></div>
+              Loading gallery... Ensure database setup script is run.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {media.map((item, i) => (
+                <div key={item.id} className={`bg-white rounded-3xl overflow-hidden shadow-lg group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative ${i === 0 ? 'md:col-span-2 lg:col-span-2 aspect-[21/9]' : 'aspect-video'}`}>
+                  {item.type === 'video' ? (
+                    <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  ) : (
+                    <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-6 left-6 right-6 z-20 text-left">
+                    <span className="font-sans text-2xl text-white group-hover:text-[#ffa602] transition-colors block mb-1 font-bold">{item.title}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </PageTransition>

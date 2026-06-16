@@ -24,9 +24,9 @@ export default function PricingSection() {
         } else {
           // Fallback if empty
           setPlans([
-            { title: "Dedicated Desk", price: "5,500", suffix: "+GST/Mo", best_for: "Regular professionals needing consistency & comfort", feats: ["Personal fixed desk", "Secure & stable setup", "Fiber internet + power backup", "Pantry access", "Printing/scanning support", "Access to meeting room (limited)"], image: "/images/gallery/fixed%20desks%20golden%20glory.png", is_premium: false },
-            { title: "Executive Cabin", price: "25,000", suffix: "+GST/Mo", best_for: "Founders, executives, managers, and decision-makers", feats: ["Private, lockable cabin", "Ergonomic seating", "Noise-free workspace", "Internet & backup power", "Meeting room credits", "Branding/identity options"], image: "/images/gallery/private%20cabin%20golden%20glory%201.png", is_premium: true, highlighted: true },
-            { title: "Meeting Room", price: "3,500", suffix: "+GST/Day", best_for: "Professional rooms for client discussions & team meetings", feats: ["High-speed Wi-Fi", "Whiteboard & marker", "Smart TV/Projector", "Tea & coffee service", "Air-conditioned", "Reception support"], image: "/images/gallery/private%20cabin%20golden%20glory%202.png", is_premium: false }
+            { title: "Dedicated Desk", price: "5,500", suffix: "+GST/Mo", best_for: "Regular professionals needing consistency & comfort", feats: ["Personal fixed desk", "Secure & stable setup", "Fiber internet + power backup", "Pantry access", "Printing/scanning support", "Access to meeting room (limited)"], image: "/images/gallery/dedicated%20desk.png", is_premium: false },
+            { title: "Executive Cabin", price: "25,000", suffix: "+GST/Mo", best_for: "Founders, executives, managers, and decision-makers", feats: ["Private, lockable cabin", "Ergonomic seating", "Noise-free workspace", "Internet & backup power", "Meeting room credits", "Branding/identity options"], image: "/images/gallery/private%20cabins.png", is_premium: true, highlighted: true },
+            { title: "Meeting Room", price: "3,500", suffix: "+GST/Day", best_for: "Professional rooms for client discussions & team meetings", feats: ["High-speed Wi-Fi", "Whiteboard & marker", "Smart TV/Projector", "Tea & coffee service", "Air-conditioned", "Reception support"], image: "/images/gallery/meeting%20room.png", is_premium: false }
           ]);
         }
       } catch (err) {

@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, ArrowUpRight } from 'lucide-react';
 import { Link } from 'wouter';
-import { blogs } from '@/data/blogs';
+import { supabase } from '@/lib/supabase';
 
 export default function LatestBlogsSection() {
-  // Display 4 blogs on the home page as requested (1 featured + 3 sidebar)
-  const displayBlogs = blogs.slice(0, 4);
-  
-  // Custom images mapped to the generated thumbnails
-  const uiAssets = [
-    "/images/gallery/ending%20image%20golden%20glory.png",
-    "/images/gallery/cover%20image%20of%20golden%20glory.png",
-    "/images/gallery/private%20cabin%20golden%20glory%201.png",
-    "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png"
-  ];
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const featuredBlog = displayBlogs[0];
-  const sidebarBlogs = displayBlogs.slice(1);
+  useEffect(() => {
+    async function fetchBlogs() {
+      const { data } = await supabase.from('blogs').select('*').order('created_at', { ascending: false }).limit(4);
+      if (data) setBlogs(data);
+      setLoading(false);
+    }
+    fetchBlogs();
+  }, []);
+
+  if (loading) return null; // Or a skeleton loader
+  if (blogs.length === 0) return null;
+
+  const featuredBlog = blogs[0];
+  const sidebarBlogs = blogs.slice(1);
 
   return (
     <section className="py-24 bg-white">
@@ -36,45 +40,47 @@ export default function LatestBlogsSection() {
         {/* Blogs Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <div className="lg:col-span-6 h-[500px] lg:h-auto min-h-[500px] relative group cursor-pointer rounded-[2rem] overflow-hidden image-anime at-animation-image-style-1">
-            <Link href={`/coworking-space-in-noida-blog/${featuredBlog.slug}`}>
-              <div className="absolute inset-0">
-                <img 
-                  src={uiAssets[0]} 
-                  alt={featuredBlog.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              </div>
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="flex items-center gap-2 text-white/80 mb-3 text-sm font-medium">
-                  <Calendar className="w-4 h-4" />
-                  <span>{featuredBlog.date}</span>
+          {featuredBlog && (
+            <div className="lg:col-span-6 h-[500px] lg:h-auto min-h-[500px] relative group cursor-pointer rounded-[2rem] overflow-hidden image-anime at-animation-image-style-1">
+              <Link href={`/coworking-space-in-noida-blog/${featuredBlog.slug}`}>
+                <div className="absolute inset-0">
+                  <img 
+                    src={featuredBlog.image_url} 
+                    alt={featuredBlog.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 bg-gray-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 </div>
-                <h3 className="text-white text-3xl lg:text-[2rem] font-bold leading-tight mb-8 pr-12 group-hover:text-gray-200 transition-colors">
-                  {featuredBlog.title}
-                </h3>
                 
-                <div className="w-12 h-12 rounded-full bg-[#f95b29] text-white flex items-center justify-center transition-transform group-hover:-translate-y-1 group-hover:shadow-lg border-zooming">
-                  <ArrowUpRight className="w-5 h-5" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 text-white/80 mb-3 text-sm font-medium">
+                    <Calendar className="w-4 h-4" />
+                    <span>{featuredBlog.date}</span>
+                  </div>
+                  <h3 className="text-white text-3xl lg:text-[2rem] font-bold leading-tight mb-8 pr-12 group-hover:text-gray-200 transition-colors">
+                    {featuredBlog.title}
+                  </h3>
+                  
+                  <div className="w-12 h-12 rounded-full bg-[#f95b29] text-white flex items-center justify-center transition-transform group-hover:-translate-y-1 group-hover:shadow-lg border-zooming">
+                    <ArrowUpRight className="w-5 h-5" />
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
+              </Link>
+            </div>
+          )}
 
           {/* Sidebar Blogs (Right) */}
           <div className="lg:col-span-6 flex flex-col gap-8">
-            {sidebarBlogs.map((blog, idx) => (
-              <div key={blog.id} className="group cursor-pointer bg-white rounded-[2rem] overflow-hidden flex flex-col sm:flex-row h-full transition-transform hover:-translate-y-1 hover:shadow-lg fade-up">
+            {sidebarBlogs.map((blog) => (
+              <div key={blog.id} className="group cursor-pointer bg-white rounded-[2rem] overflow-hidden flex flex-col sm:flex-row h-full transition-transform hover:-translate-y-1 hover:shadow-lg fade-up border border-gray-100">
                 <Link href={`/coworking-space-in-noida-blog/${blog.slug}`} className="flex flex-col sm:flex-row w-full h-full">
                   
                   {/* Image Block */}
                   <div className="sm:w-[260px] shrink-0 h-[220px] sm:h-auto overflow-hidden sm:rounded-[1.5rem] rounded-t-[1.5rem] image-anime at-animation-image-style-1">
                     <img 
-                      src={uiAssets[idx + 1]} 
+                      src={blog.image_url} 
                       alt={blog.title} 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 bg-gray-100"
                     />
                   </div>
 
@@ -85,7 +91,7 @@ export default function LatestBlogsSection() {
                       <span>{blog.date}</span>
                     </div>
                     
-                    <h3 className="text-[#111] text-xl font-bold leading-tight mb-6 group-hover:text-[#f95b29] transition-colors">
+                    <h3 className="text-[#111] text-xl font-bold leading-tight mb-6 group-hover:text-[#f95b29] transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
                     

@@ -47,10 +47,10 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img 
             src={get('home_hero_image', '/images/gallery/cover%20image%20of%20golden%20glory.png')} 
-            className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" 
+            className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate] will-change-transform [transform:translateZ(0)]" 
             alt="Premium Coworking Space" 
           />
-          <div className="absolute inset-0 bg-black/10 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
         </div>
@@ -296,6 +296,8 @@ export default function Home() {
         }
         .animate-marquee {
           animation: marquee 20s linear infinite;
+          will-change: transform;
+          transform: translateZ(0);
         }
       `}</style>
     </PageTransition>

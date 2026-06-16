@@ -189,13 +189,18 @@ export function useGsapAnimations(dependencies: any[] = []) {
               });
             });
 
-            const handleMouseMove = (e: MouseEvent) => {
+            let mouseX = 0;
+            let mouseY = 0;
+            let isThrottled = false;
+
+            const processMouseMove = () => {
+              isThrottled = false;
               floaters.forEach(function(el) {
                 const rect = el.getBoundingClientRect();
                 const cx = rect.left + rect.width / 2;
                 const cy = rect.top + rect.height / 2;
-                const dx = e.clientX - cx;
-                const dy = e.clientY - cy;
+                const dx = mouseX - cx;
+                const dy = mouseY - cy;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 const threshold = 120; // repel radius in px
 
@@ -219,7 +224,16 @@ export function useGsapAnimations(dependencies: any[] = []) {
               });
             };
 
-            document.addEventListener('mousemove', handleMouseMove);
+            const handleMouseMove = (e: MouseEvent) => {
+              mouseX = e.clientX;
+              mouseY = e.clientY;
+              if (!isThrottled) {
+                isThrottled = true;
+                requestAnimationFrame(processMouseMove);
+              }
+            };
+
+            document.addEventListener('mousemove', handleMouseMove, { passive: true });
             cleanupMouseMove = () => {
               document.removeEventListener('mousemove', handleMouseMove);
             };

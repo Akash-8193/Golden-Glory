@@ -67,7 +67,7 @@ export default function Contact() {
       {/* Premium Hero Section */}
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src="/images/gallery/private%20cabin%20golden%20glory%202.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Contact Us" />
+          <img src="/images/gallery/basement.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Contact Us" />
           <div className="absolute inset-0 bg-[#432c1c]/10 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/30 via-transparent to-[#432c1c]/10"></div>
         </div>

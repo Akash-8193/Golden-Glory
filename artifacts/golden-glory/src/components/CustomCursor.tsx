@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -14,15 +15,20 @@ export default function CustomCursor() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
+    let firstMove = true;
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      cursorX.set(e.clientX - 5);
+      cursorY.set(e.clientY - 5);
+      if (firstMove) {
+        setIsVisible(true);
+        firstMove = false;
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
     document.body.addEventListener('mouseleave', handleMouseLeave);
     document.body.addEventListener('mouseenter', handleMouseEnter);
 
@@ -32,7 +38,7 @@ export default function CustomCursor() {
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       document.body.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [isVisible]);
+  }, [cursorX, cursorY]);
 
   if (isMobile) return null;
 
@@ -40,15 +46,10 @@ export default function CustomCursor() {
     <motion.div
       id="magic-cursor"
       className="fixed top-0 left-0 pointer-events-none z-[1000000]"
-      animate={{
-        x: mousePosition.x - 5, // Center the 10px dot
-        y: mousePosition.y - 5,
+      style={{
+        x: cursorX,
+        y: cursorY,
         opacity: isVisible ? 1 : 0
-      }}
-      transition={{
-        type: "tween",
-        ease: "linear",
-        duration: 0.01 // Minimal lag to feel like cursor, not completely delayed
       }}
     >
       <div id="ball" className="w-[10px] h-[10px] bg-[#ffa602] rounded-full shadow-lg" />

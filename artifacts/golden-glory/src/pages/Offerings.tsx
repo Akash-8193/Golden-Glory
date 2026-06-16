@@ -20,7 +20,7 @@ export default function Offerings() {
       <section className="relative min-h-[95vh] w-full overflow-hidden flex flex-col justify-center pt-40 lg:pt-48 pb-20">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/gallery/fixed%20desks%20golden%20glory.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Coworking Offerings" />
+          <img src="/images/gallery/dedcated%20desk%202.png" className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt="Coworking Offerings" />
           <div className="absolute inset-0 bg-[#432c1c]/10 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#432c1c]/30 via-transparent to-[#432c1c]/10"></div>
         </div>

@@ -22,18 +22,34 @@ export default function ServicesSection() {
     {
       number: "03",
       subtitle: "TAILORED FOR YOU",
-      title: "Choose Your Plan",
-      desc: "Choose a flexible plan that fits your workflow — from day passes and hot desks to dedicated cabins and team offices.",
+      title: "Private Cabins",
+      desc: "Secure, lockable cabins tailored for focused teamwork and confidentiality.",
       quote: "Flexibility meets productivity in a plan designed around your business.",
-      image: "/images/gallery/private%20cabin%20golden%20glory%201.png"
+      image: "/images/gallery/private%20cabins.png"
     },
     {
       number: "04",
       subtitle: "SEAMLESS ONBOARDING",
-      title: "Move In & Start Working",
-      desc: "Get instant access to your workspace with quick onboarding, stable internet, and all essential services ready from day one.",
+      title: "Dedicated Desks",
+      desc: "Your own fixed spot in a shared environment, perfect for consistent productivity.",
       quote: "Plug in, connect, and start doing your best work immediately.",
-      image: "/images/gallery/ending%20image%20golden%20glory.png"
+      image: "/images/gallery/dedicated%20desk.png"
+    },
+    {
+      number: "05",
+      subtitle: "PROFESSIONAL SETTINGS",
+      title: "Meeting Rooms",
+      desc: "High-tech, professional rooms designed for impactful pitches and brainstorming.",
+      quote: "Where ideas transform into successful business outcomes.",
+      image: "/images/gallery/meeting%20room.png"
+    },
+    {
+      number: "06",
+      subtitle: "VIRTUAL PRESENCE",
+      title: "Virtual Office",
+      desc: "Get a prestigious business address and mail handling without the physical space.",
+      quote: "Professional image, flexible footprint, unlimited possibilities.",
+      image: "/images/gallery/basement.png"
     }
   ];
 

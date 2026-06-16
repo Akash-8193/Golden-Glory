@@ -1,22 +1,40 @@
-import React, { useEffect } from 'react';
-import { useRoute } from 'wouter';
+import React, { useState, useEffect } from 'react';
+import { useRoute, Link } from 'wouter';
 import PageTransition from '@/components/PageTransition';
-import { blogs } from '@/data/blogs';
-import { Link } from 'wouter';
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function BlogPost() {
   const [match, params] = useRoute('/coworking-space-in-noida-blog/:slug');
-  const blog = match && params ? blogs.find(b => b.slug === params.slug) : null;
-
-  // We can pick an image based on the ID or just a fixed premium one
-  const headerImage = "/images/gallery/ABOUT%20GOLDEN%20GLORY%20IMAGE.png";
+  const [blog, setBlog] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [match]);
 
+  useEffect(() => {
+    async function fetchBlog() {
+      if (!params?.slug) return;
+      setLoading(true);
+      const { data } = await supabase.from('blogs').select('*').eq('slug', params.slug).single();
+      if (data) setBlog(data);
+      setLoading(false);
+    }
+    if (match) fetchBlog();
+  }, [match, params?.slug]);
+
   if (!match) return null;
+
+  if (loading) {
+    return (
+      <PageTransition>
+        <section className="relative pt-40 pb-20 min-h-screen flex items-center justify-center bg-white">
+          <div className="animate-spin w-10 h-10 border-4 border-[#ffa602] border-t-transparent rounded-full mx-auto"></div>
+        </section>
+      </PageTransition>
+    );
+  }
 
   if (!blog) {
     return (
@@ -24,7 +42,7 @@ export default function BlogPost() {
         <section className="relative pt-40 pb-20 min-h-screen flex items-center justify-center bg-white">
           <div className="container relative mx-auto text-center">
             <h1 className="text-4xl font-serif font-bold text-[#111] mb-4">Blog Post Not Found</h1>
-            <p className="text-gray-500 mb-8">We couldn't find the article you were looking for.</p>
+            <p className="text-gray-500 mb-8">We couldn't find the article you were looking for. Ensure the database script is run.</p>
             <Link href="/coworking-space-in-noida-blog" className="text-[#c08d3e] font-bold tracking-wider uppercase text-sm hover:text-[#a07430] transition-colors inline-flex items-center">
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blogs
             </Link>
@@ -35,7 +53,7 @@ export default function BlogPost() {
   }
 
   // Format content paragraphs
-  const paragraphs = blog.content.split('\\n').filter(p => p.trim() !== '');
+  const paragraphs = blog.content.split('\\n').filter((p: string) => p.trim() !== '');
 
   return (
     <PageTransition>
@@ -44,7 +62,7 @@ export default function BlogPost() {
         {/* Article Hero Header */}
         <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center pt-28 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img src={headerImage} className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt={blog.title} />
+            <img src={blog.image_url} className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt={blog.title} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
           </div>
           
@@ -57,7 +75,7 @@ export default function BlogPost() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm font-medium text-[#e3be4f] uppercase tracking-wider mb-6">
               <span className="flex items-center gap-1.5 bg-[#e3be4f]/20 px-3 py-1 rounded-full border border-[#e3be4f]/30 text-[#f5d77f]"><Calendar className="w-3.5 h-3.5" /> {blog.date}</span>
-              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {blog.readTime}</span>
+              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {blog.read_time}</span>
               <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {blog.author}</span>
             </div>
 
@@ -82,8 +100,7 @@ export default function BlogPost() {
 
               {/* Main Text Content */}
               <div className="prose prose-lg md:prose-xl max-w-none text-gray-700 font-sans leading-[1.8] marker:text-[#c08d3e]">
-                {paragraphs.map((paragraph, idx) => {
-                  // If it's a heading inside the content (e.g., "1. Choose Your Spot Wisely")
+                {paragraphs.map((paragraph: string, idx: number) => {
                   if (paragraph.match(/^[0-9]\\.\\s/) || paragraph.match(/^Why Choose/i) || paragraph.match(/^Conclusion/i) || paragraph.match(/^Benefits of/i)) {
                     return (
                       <h2 key={idx} className="text-2xl md:text-3xl font-serif font-bold text-[#111] mt-16 mb-6">
@@ -92,7 +109,6 @@ export default function BlogPost() {
                     );
                   }
                   
-                  // If it's a bullet point
                   if (paragraph.startsWith('•')) {
                     return (
                       <div key={idx} className="flex gap-4 mb-4 items-start bg-[#fafafa] p-4 rounded-xl border border-gray-100">
@@ -102,7 +118,6 @@ export default function BlogPost() {
                     );
                   }
 
-                  // Standard paragraph with drop cap for the very first paragraph
                   return (
                     <p key={idx} className={`mb-8 text-[17px] md:text-[19px] ${idx === 0 ? 'first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:text-[#c08d3e] first-letter:mr-3 first-letter:float-left' : ''}`}>
                       {paragraph}
