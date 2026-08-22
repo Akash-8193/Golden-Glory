@@ -17,30 +17,34 @@ export function useSiteContent() {
     }
 
     if (!fetchPromise) {
-      fetchPromise = supabase
-        .from('site_content')
-        .select('key, value')
-        .then(({ data, error }) => {
-          if (error) throw error;
-          const contentMap = (data || []).reduce((acc: Record<string, string>, item) => {
-            acc[item.key] = item.value;
-            return acc;
-          }, {});
-          cachedContent = contentMap;
-          return contentMap;
-        });
+      fetchPromise = Promise.resolve(
+        supabase
+          .from('site_content')
+          .select('key, value')
+          .then(({ data, error }) => {
+            if (error) throw error;
+            const contentMap = (data || []).reduce((acc: Record<string, string>, item) => {
+              acc[item.key] = item.value;
+              return acc;
+            }, {});
+            cachedContent = contentMap;
+            return contentMap;
+          })
+      );
     }
 
-    fetchPromise
-      .then((data) => {
-        setContent(data);
-      })
-      .catch((err) => {
-        console.warn('Failed to fetch site content:', err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (fetchPromise) {
+      fetchPromise
+        .then((data) => {
+          setContent(data);
+        })
+        .catch((err) => {
+          console.warn('Failed to fetch site content:', err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, []);
 
   // Helper function to safely get content with a fallback

@@ -20,15 +20,18 @@ export default function Contact() {
   });
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (window.location.hash === '#map') {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         const element = document.getElementById('map');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }, 1200);
-      return () => clearTimeout(timer);
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
