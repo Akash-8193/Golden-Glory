@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import PageTransition from '@/components/PageTransition';
 import SplitText from '@/components/SplitText';

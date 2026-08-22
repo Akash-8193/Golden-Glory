@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import PageTransition from '@/components/PageTransition';
 import SplitText from '@/components/SplitText';
@@ -5,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, Coffee, Rocket, Clock, MapPin } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Link } from "wouter";
+import Link from 'next/link';
 import OurSolutionsSection from '@/components/OurSolutionsSection';
 import PricingSection from '@/components/PricingSection';
 import FAQSection from '@/components/FAQSection';

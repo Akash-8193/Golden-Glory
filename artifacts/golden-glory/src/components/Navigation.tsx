@@ -1,11 +1,13 @@
+"use client";
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'wouter';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Navigation() {
-  const [location] = useLocation();
+  const location = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,7 +25,7 @@ export default function Navigation() {
     { label: 'Our Offerings', href: '/our-offerings' },
     { label: 'Gallery/Tour', href: '/coworking-space-gallery' },
     { label: 'Blog', href: '/coworking-space-in-noida-blog' },
-    { label: 'Contact Us', href: '/contact-us' },
+    { label: 'Contact Us', href: '/contact-us#contact-us-section' },
   ];
 
   return (
@@ -35,15 +37,15 @@ export default function Navigation() {
       >
         <div 
           className={`flex items-center justify-between w-[96%] lg:w-[90%] max-w-[1600px] bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-full border border-black/5 transition-all duration-500 overflow-hidden ${
-            scrolled ? 'py-3 px-5 md:px-8' : 'py-4 md:py-5 px-6 md:px-10'
+            scrolled ? 'py-1.5 px-5 md:px-8' : 'py-2 px-6 md:px-10'
           }`}
         >
           <Link href="/" className="flex items-center group" data-cursor="hover">
             {/* Logo Image */}
             <img 
-              src="/logo.jpeg" 
+              src="/logo.png" 
               alt="Golden Glory Logo" 
-              className={`object-contain transition-all duration-500 mix-blend-multiply contrast-125 brightness-110 scale-[1.6] md:scale-[1.8] origin-left ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
+              className={`object-contain transition-all duration-500 origin-left ${scrolled ? 'h-10 md:h-12 lg:h-14' : 'h-12 md:h-16 lg:h-20'}`}
               onError={(e) => {
                 // Fallback to text if logo image is not found
                 e.currentTarget.style.display = 'none';
@@ -72,8 +74,16 @@ export default function Navigation() {
                     <Link 
                       href={link.href}
                       data-cursor="hover"
+                      onClick={() => {
+                        if (link.href.includes('#contact-us-section')) {
+                          setTimeout(() => {
+                            const el = document.getElementById('contact-us-section');
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                          }, 600);
+                        }
+                      }}
                       className={`text-[8px] md:text-[9px] lg:text-[10px] xl:text-xs 2xl:text-sm font-bold tracking-wide uppercase transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#ffa602] after:transition-all after:duration-300 ${
-                        location === link.href 
+                        location === link.href || (link.href.includes('#') && location === link.href.split('#')[0])
                           ? 'text-[#ffa602] after:w-full' 
                           : 'text-[#432c1c] hover:text-[#ffa602] after:w-0 hover:after:w-full'
                       }`}
@@ -87,7 +97,17 @@ export default function Navigation() {
 
             {/* Always Visible CTA Button */}
             <Button asChild className="rounded-none bg-[#ffa602] text-[#111] hover:bg-[#E09612] px-2 sm:px-3 md:px-4 lg:px-5 2xl:px-6 font-bold text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs 2xl:text-sm h-6 sm:h-7 md:h-8 lg:h-9 xl:h-10" data-cursor="hover">
-              <Link href="/contact-us">GET A QUOTE</Link>
+              <Link 
+                href="/contact-us#contact-us-section"
+                onClick={() => {
+                  setTimeout(() => {
+                    const el = document.getElementById('contact-us-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 600);
+                }}
+              >
+                GET A QUOTE
+              </Link>
             </Button>
 
             {/* Mobile Toggle */}
@@ -136,9 +156,17 @@ export default function Navigation() {
                   >
                     <Link 
                       href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        if (link.href.includes('#contact-us-section')) {
+                          setTimeout(() => {
+                            const el = document.getElementById('contact-us-section');
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                          }, 600);
+                        }
+                      }}
                       className={`font-sans text-3xl md:text-4xl transition-colors ${
-                        location === link.href ? 'text-primary' : 'text-foreground hover:text-primary'
+                        location === link.href || (link.href.includes('#') && location === link.href.split('#')[0]) ? 'text-primary' : 'text-foreground hover:text-primary'
                       }`}
                     >
                       {link.label}
@@ -153,7 +181,18 @@ export default function Navigation() {
                 className="mt-4"
               >
                 <Button asChild size="lg" className="rounded-none bg-[#ffa602] text-[#111] hover:bg-[#E09612] text-lg px-8 font-bold">
-                  <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>GET A QUOTE</Link>
+                  <Link 
+                    href="/contact-us#contact-us-section" 
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setTimeout(() => {
+                        const el = document.getElementById('contact-us-section');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 600);
+                    }}
+                  >
+                    GET A QUOTE
+                  </Link>
                 </Button>
               </motion.div>
             </div>

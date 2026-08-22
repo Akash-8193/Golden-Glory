@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { ShieldCheck, Calendar, MapPin, Mail } from 'lucide-react';

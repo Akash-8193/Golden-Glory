@@ -1,10 +1,11 @@
+"use client";
 import React from 'react';
 import PageTransition from '@/components/PageTransition';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
-import WhoWeAreSection from '@/components/WhoWeAreSection';
-import AboutSection from '@/components/AboutSection';
+import AboutPageWhoWeAre from '@/components/AboutPageWhoWeAre';
+import WorkspaceGallerySection from '@/components/WorkspaceGallerySection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ServicesSection from '@/components/ServicesSection';
 import { useSiteContent } from '@/hooks/useSiteContent';
@@ -52,11 +53,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* 1. New Who We Are Section */}
-      <WhoWeAreSection />
-
-      {/* 2. Original Shared About Section */}
-      <AboutSection />
+      {/* 1. New Trendy Who We Are Section (Replaces old AboutSection) */}
+      <AboutPageWhoWeAre />
 
       {/* 2. Why Golden Glory - Redesigned to look premium */}
       <section className="py-24 bg-white relative overflow-hidden">
@@ -105,6 +103,9 @@ export default function About() {
       {/* 3. How We Work - Timeline */}
       <ServicesSection />
 
+      {/* 3.5 Workspace Gallery (Bento Box Design) */}
+      <WorkspaceGallerySection />
+
       {/* 4. Shared Testimonials Section from Home */}
       <TestimonialsSection />
 
@@ -113,7 +114,15 @@ export default function About() {
         <div className="container mx-auto px-4">
           <h2 className="font-sans text-4xl md:text-5xl font-bold text-[#111] mb-8">Ready to move in?</h2>
           <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#ffa602] text-[#111] hover:bg-[#e09612] font-bold tracking-wider uppercase transition-all shadow-xl group">
-            <Link href="/contact-us">
+            <Link 
+              href="/contact-us#contact-us-section"
+              onClick={() => {
+                setTimeout(() => {
+                  const el = document.getElementById('contact-us-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 600);
+              }}
+            >
               Connect With Us
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>

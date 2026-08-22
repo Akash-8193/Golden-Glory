@@ -1,18 +1,17 @@
+"use client";
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(() => {
-    // Only show if it's the first time visiting in this session
-    if (typeof window !== 'undefined') {
-      const hasVisited = sessionStorage.getItem('hasVisitedBefore');
-      return !hasVisited;
-    }
-    return true;
-  });
+  const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!loading) return;
+    setMounted(true);
+    if (sessionStorage.getItem('hasVisitedBefore')) {
+      setLoading(false);
+      return;
+    }
 
     // Disable scrolling while preloader is active
     document.body.style.overflow = 'hidden';
@@ -27,12 +26,9 @@ export default function Preloader() {
       clearTimeout(timer);
       document.body.style.overflow = '';
     };
-  }, [loading]);
+  }, []);
 
-  // If already visited, render nothing at all (no animation needed)
-  if (typeof window !== 'undefined' && sessionStorage.getItem('hasVisitedBefore') && !loading) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>

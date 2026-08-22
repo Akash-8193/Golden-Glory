@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { MapPin, Instagram, Facebook, Mail, Phone, ArrowRight } from 'lucide-react';
 import { useSiteContent } from '@/hooks/useSiteContent';
 
@@ -8,7 +9,7 @@ export default function Footer() {
   const { get } = useSiteContent();
 
   return (
-    <footer className="bg-[#432c1c] text-white pt-24 pb-8 overflow-hidden relative">
+    <footer className="bg-[#432c1c] text-white pt-12 pb-6 overflow-hidden relative">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-[#ffa602]/10 blur-[120px]"></div>
@@ -17,41 +18,15 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
 
-        {/* Top CTA Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-16 mb-16 gap-8">
-          <div className="max-w-2xl">
-            <h2 className="font-sans text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              Ready to elevate your <span className="text-[#ffa602] relative inline-block">
-                workspace?
-                <span className="absolute bottom-1 left-0 w-full h-2 bg-[#ffa602]/20 -z-10 blur-sm"></span>
-              </span>
-            </h2>
-            <p className="text-gray-300 text-lg font-light">
-              Join a vibrant community of professionals, startups, and growing teams today.
-            </p>
-          </div>
-          <a
-            href="https://wa.me/919311076106"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 bg-[#ffa602] text-[#111] rounded-full pl-8 pr-2 py-2 hover:bg-white transition-all duration-300 shadow-[0_8px_30px_rgba(245,166,35,0.3)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]"
-          >
-            <span className="font-bold tracking-wide uppercase text-sm">Book a Tour</span>
-            <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#111] text-[#ffa602] group-hover:bg-[#432c1c] group-hover:text-white transition-colors duration-300">
-              <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-            </span>
-          </a>
-        </div>
-
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-8">
 
           {/* Column 1: Brand Info (Spans 4 columns) */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 mb-6 group bg-white p-3 rounded-xl border border-white/20 hover:scale-105 transition-all inline-block w-fit shadow-xl">
-              <img src="/logo.jpeg" alt="Golden Glory Logo" className="h-10 md:h-12 object-contain mix-blend-multiply contrast-125 brightness-110" />
+            <Link href="/" className="flex items-center gap-2 mb-6 group hover:scale-105 transition-all inline-block w-fit">
+              <img src="/logo.png" alt="Golden Glory Logo" className="h-16 md:h-24 lg:h-28 object-contain rounded-xl" />
             </Link>
-            <p className="text-gray-400 leading-relaxed mb-8 max-w-sm font-light">
+            <p className="text-gray-400 leading-relaxed mb-6 max-w-sm font-light">
               A premium coworking space in Noida designed to inspire creativity, foster collaboration, and drive your business forward.
             </p>
             <div className="flex items-center gap-4">
@@ -66,25 +41,44 @@ export default function Footer() {
 
           {/* Column 2: Quick Links (Spans 2 columns) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Quick Links</h4>
+            <h4 className="text-lg font-sans font-bold mb-4 text-white tracking-wide">Quick Links</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Home<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
               <li><Link href="/about-coworking-space-in-noida" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">About Us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
               <li><Link href="/our-offerings" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Our Offerings<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
               <li><Link href="/coworking-space-gallery" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Gallery/Tour<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
               <li><Link href="/coworking-space-in-noida-blog" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Blog<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
-              <li><Link href="/contact-us" className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group">Contact Us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span></Link></li>
+              <li>
+                <Link 
+                  href="/contact-us#contact-us-section" 
+                  className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group"
+                  onClick={() => {
+                    setTimeout(() => {
+                      const el = document.getElementById('contact-us-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
+                  }}
+                >
+                  Contact Us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ffa602] transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Column 3: Workspaces (Spans 3 columns) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Workspaces</h4>
+            <h4 className="text-lg font-sans font-bold mb-4 text-white tracking-wide">Workspaces</h4>
             <ul className="space-y-4">
-              {['Flexible Seat', 'Fixed Desk', 'Private Cabins', 'Meeting Rooms', 'Virtual Office'].map((item) => (
+              {['Flexible Desk', 'Dedicated Desk', 'Enclosed Cabin', 'Executive Cabin', 'Day Pass', 'Meeting Room'].map((item) => (
                 <li key={item}>
                   <Link
-                    href="/our-offerings"
+                    href="/our-offerings#pricing"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const el = document.getElementById('pricing');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 600);
+                    }}
                     className="text-gray-400 hover:text-[#ffa602] transition-colors relative inline-block group"
                   >
                     {item}
@@ -97,7 +91,7 @@ export default function Footer() {
 
           {/* Column 4: Contact Info (Spans 3 columns) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xl font-sans font-bold mb-6 text-white tracking-wide">Get in Touch</h4>
+            <h4 className="text-lg font-sans font-bold mb-4 text-white tracking-wide">Get in Touch</h4>
             <ul className="space-y-6">
               <li 
                 className="text-gray-400 hover:text-white transition-colors group cursor-pointer"
@@ -122,17 +116,21 @@ export default function Footer() {
                   />
                 </div>
               </li>
-              <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
-                  <Mail className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
-                </div>
-                <a href={`mailto:${get('contact_email', 'info@goldenglory.space')}`} className="pt-1">{get('contact_email', 'info@goldenglory.space')}</a>
+              <li>
+                <a href={`mailto:${get('contact_email', 'info@goldenglory.space')}`} className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group cursor-pointer">
+                  <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
+                    <Mail className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
+                  </div>
+                  <span className="pt-1">{get('contact_email', 'info@goldenglory.space')}</span>
+                </a>
               </li>
-              <li className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
-                  <Phone className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
-                </div>
-                <a href={`tel:${get('contact_phone', '+919311076106')}`} className="pt-1">{get('contact_phone', '+91-99-588-49-645')}</a>
+              <li>
+                <a href={`tel:${get('contact_phone', '+919311076106')}`} className="flex items-center gap-4 text-gray-400 hover:text-[#ffa602] transition-colors group cursor-pointer">
+                  <div className="bg-white/5 p-2 rounded-lg group-hover:bg-[#ffa602] group-hover:text-[#111] transition-colors">
+                    <Phone className="w-5 h-5 text-[#ffa602] group-hover:text-[#111]" />
+                  </div>
+                  <span className="pt-1">{get('contact_phone', '+91-99-588-49-645')}</span>
+                </a>
               </li>
             </ul>
           </div>

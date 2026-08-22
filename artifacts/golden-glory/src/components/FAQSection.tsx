@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import {
   Accordion,
@@ -53,7 +54,7 @@ export default function FAQSection({
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                 {/* Animated Badge */}
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-xl border-8 border-[#f4f9fd] border-zooming gsap-float">
-                  <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-2 mix-blend-multiply contrast-125 brightness-110 rounded-full" />
+                  <img src="/logo.png" alt="Golden Glory Logo" className="w-full h-full object-contain p-2 rounded-full" />
                 </div>
               </div>
             </div>

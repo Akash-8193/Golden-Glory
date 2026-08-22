@@ -1,11 +1,14 @@
+"use client";
 import React, { useState, useEffect } from 'react';
-import { useRoute, Link } from 'wouter';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import PageTransition from '@/components/PageTransition';
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function BlogPost() {
-  const [match, params] = useRoute('/coworking-space-in-noida-blog/:slug');
+  const params = useParams();
+  const match = true;
   const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 

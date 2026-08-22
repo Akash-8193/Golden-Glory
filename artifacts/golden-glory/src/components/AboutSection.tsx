@@ -1,9 +1,11 @@
+"use client";
 import React from 'react';
 import { ArrowRight, Star, Building2, IndianRupee, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import Link from 'next/link';
 
 export default function AboutSection() {
+
   return (
     <section className="py-16 md:py-20 bg-[#F8F9FA] relative overflow-hidden">
       {/* Decorative background shape */}
@@ -32,7 +34,7 @@ export default function AboutSection() {
               <div className="space-y-6 flex-1 excellence-counter-boxes fade-up">
                 <div className="flex items-center gap-4 excellence-counter-item">
                   <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md border border-border/50 overflow-hidden shrink-0">
-                    <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-full h-full object-contain p-2 mix-blend-multiply contrast-125 brightness-110" />
+                    <img src="/logo.png" alt="Golden Glory Logo" className="w-full h-full object-contain p-2" />
                   </div>
                   <span className="font-bold text-[#432c1c] text-lg">Fully Managed Office</span>
                 </div>
@@ -67,12 +69,24 @@ export default function AboutSection() {
               </div>
             </div>
             
-            <Link href="/contact-us">
-              <Button size="lg" className="h-14 px-8 rounded-full bg-[#432c1c] hover:bg-[#432c1c]/90 text-white text-base font-semibold shadow-[0_10px_30px_rgba(10,37,64,0.3)] transition-all w-full sm:w-auto btn-anime group fade-up">
+            <Button 
+              asChild
+              size="lg" 
+              className="h-14 px-8 rounded-full bg-[#432c1c] hover:bg-[#432c1c]/90 text-white text-base font-semibold shadow-[0_10px_30px_rgba(10,37,64,0.3)] transition-all w-full sm:w-auto btn-anime group fade-up"
+            >
+              <Link 
+                href="/contact-us#contact-us-section"
+                onClick={() => {
+                  setTimeout(() => {
+                    const el = document.getElementById('contact-us-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 600);
+                }}
+              >
                 Book Workspace
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform relative z-10" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
           
           {/* Right Column: Circular Images Grid */}
@@ -98,7 +112,7 @@ export default function AboutSection() {
             
             {/* Center Overlapping Logo Circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-2xl border-[8px] md:border-[12px] border-[#F8F9FA] z-20 overflow-hidden">
-              <img src="/logo.jpeg" alt="Golden Glory Logo" className="w-[85%] h-[85%] object-contain mix-blend-multiply contrast-125 brightness-110" />
+              <img src="/logo.png" alt="Golden Glory Logo" className="w-[85%] h-[85%] object-contain" />
             </div>
           </div>
           

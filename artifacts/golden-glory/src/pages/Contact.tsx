@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { ArrowRight, MapPin, Mail, Phone, CheckCircle2 } from 'lucide-react';
@@ -95,7 +96,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-24 bg-[#FAF9F6]">
+      <section id="contact-us-section" className="py-24 bg-[#FAF9F6]">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
 
           {/* Section 1: Send Message & Form */}

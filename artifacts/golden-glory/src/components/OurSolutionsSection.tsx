@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
 import { Laptop, Monitor, Lock, Users, Mic, Ticket, Mail, BookOpen, Layers, ArrowRight } from 'lucide-react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 interface OurSolutionsSectionProps {
@@ -62,7 +63,7 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
   const displaySolutions = limit ? allSolutions.slice(0, limit) : allSolutions;
 
   return (
-    <section className="py-16 md:py-20 bg-[#f4f9fd] relative overflow-hidden">
+    <section id="our-solutions" className="py-16 md:py-20 bg-[#f4f9fd] relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#ffa602]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#432c1c]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
@@ -120,7 +121,15 @@ export default function OurSolutionsSection({ limit }: OurSolutionsSectionProps)
         {limit && (
           <div className="mt-20 text-center relative z-10 fade-up">
             <Button asChild size="lg" className="h-14 px-10 rounded-full bg-[#432c1c] text-white hover:bg-[#ffa602] hover:text-[#111] font-bold tracking-wider uppercase transition-all shadow-xl group btn-anime">
-              <Link href="/our-offerings">
+              <Link 
+                href="/our-offerings#our-solutions"
+                onClick={() => {
+                  setTimeout(() => {
+                    const el = document.getElementById('our-solutions');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 600);
+                }}
+              >
                 <span className="relative z-10 flex items-center">
                   View All Solutions
                   <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />

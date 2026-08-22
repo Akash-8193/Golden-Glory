@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
 import { ShieldCheck, Expand, Armchair, CheckCircle2, Play } from 'lucide-react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 
 export default function WhoWeAreSection() {
   return (

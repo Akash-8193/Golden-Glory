@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { useSiteContent } from '@/hooks/useSiteContent';
 import { supabase } from '@/lib/supabase';

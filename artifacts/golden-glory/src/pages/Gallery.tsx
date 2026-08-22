@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import { useSiteContent } from '@/hooks/useSiteContent';
@@ -5,15 +6,20 @@ import { supabase } from '@/lib/supabase';
 
 export default function Gallery() {
   const { get } = useSiteContent();
-  const [media, setMedia] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function fetchMedia() {
-      const { data } = await supabase.from('gallery_items').select('*').order('order_index', { ascending: true });
-      if (data) setMedia(data);
-    }
-    fetchMedia();
-  }, []);
+  const media = [
+    { id: 'video1', type: 'video', url: '/videos/cabinnnnn (1).mp4', title: 'Cabin Tour' },
+    { id: 'img1', type: 'image', url: '/images/gallery/ABOUT GOLDEN GLORY IMAGE.png', title: 'About Golden Glory' },
+    { id: 'img2', type: 'image', url: '/images/gallery/basement.png', title: 'Premium Workspace' },
+    { id: 'img3', type: 'image', url: '/images/gallery/cover image of golden glory.png', title: 'Golden Glory Cover' },
+    { id: 'img4', type: 'image', url: '/images/gallery/dedcated desk 2.png', title: 'Dedicated Desk Space' },
+    { id: 'img5', type: 'image', url: '/images/gallery/dedicated desk.png', title: 'Dedicated Desks' },
+    { id: 'img6', type: 'image', url: '/images/gallery/ending image golden glory.png', title: 'Coworking Environment' },
+    { id: 'img7', type: 'image', url: '/images/gallery/fixed desks golden glory.png', title: 'Fixed Desks Area' },
+    { id: 'img8', type: 'image', url: '/images/gallery/meeting room.png', title: 'Meeting Room' },
+    { id: 'img9', type: 'image', url: '/images/gallery/private cabin golden glory 1.png', title: 'Private Cabin Interior' },
+    { id: 'img10', type: 'image', url: '/images/gallery/private cabin golden glory 2.png', title: 'Private Cabin Workspace' },
+    { id: 'img11', type: 'image', url: '/images/gallery/private cabins.png', title: 'Private Cabins Overview' }
+  ];
 
   return (
     <PageTransition>
@@ -61,7 +67,7 @@ export default function Gallery() {
               {media.map((item, i) => (
                 <div key={item.id} className={`bg-white rounded-3xl overflow-hidden shadow-lg group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative ${i === 0 ? 'md:col-span-2 lg:col-span-2 aspect-[21/9]' : 'aspect-video'}`}>
                   {item.type === 'video' ? (
-                    <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-700" />
                   ) : (
                     <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   )}

@@ -36,7 +36,7 @@ export function useSiteContent() {
         setContent(data);
       })
       .catch((err) => {
-        console.error('Failed to fetch site content:', err);
+        console.warn('Failed to fetch site content:', err);
       })
       .finally(() => {
         setLoading(false);

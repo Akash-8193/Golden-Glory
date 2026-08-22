@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Calendar, ArrowUpRight } from 'lucide-react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 
 export default function LatestBlogsSection() {

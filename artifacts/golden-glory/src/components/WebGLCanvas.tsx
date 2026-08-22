@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 

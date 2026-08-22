@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from 'react';
 import PageTransition from '@/components/PageTransition';
 import WebGLCanvas from '@/components/WebGLCanvas';
@@ -5,7 +6,7 @@ import HeroScene from '@/components/HeroScene';
 import ParticleField from '@/components/ParticleField';
 import SplitText from '@/components/SplitText';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Building2, Wifi, Zap, UserCheck, ShieldCheck, MapPin, HandCoins, ArrowRight } from 'lucide-react';
@@ -17,7 +18,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
 import OurSolutionsSection from '@/components/OurSolutionsSection';
 import PricingSection from '@/components/PricingSection';
 import LatestBlogsSection from '@/components/LatestBlogsSection';
@@ -82,10 +82,23 @@ export default function Home() {
                   <span className="relative z-10">Book A Tour</span>
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-16 px-10 text-lg border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-[#111] rounded-full shadow-lg transition-all duration-300 font-bold uppercase tracking-wider group btn-anime">
-                <a href="#pricing">
+              <Button 
+                asChild
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto h-16 px-10 text-lg border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-[#111] rounded-full shadow-lg transition-all duration-300 font-bold uppercase tracking-wider group btn-anime"
+              >
+                <Link 
+                  href="/our-offerings#pricing"
+                  onClick={() => {
+                    setTimeout(() => {
+                      const el = document.getElementById('pricing');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
+                  }}
+                >
                   <span className="relative z-10">Explore Plans</span>
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
@@ -133,7 +146,15 @@ export default function Home() {
                 Our premium coworking space in Noida provides personalized seating, modern amenities, and an environment designed to help you focus, collaborate, and grow your business with confidence.
               </p>
               <Button asChild size="lg" className="h-14 px-8 bg-[#ffa602] hover:bg-[#E09612] text-[#111] font-bold text-base rounded-none transition-transform hover:-translate-y-1">
-                <Link href="/contact-us">
+                <Link 
+                  href="/contact-us#contact-us-section"
+                  onClick={() => {
+                    setTimeout(() => {
+                      const el = document.getElementById('contact-us-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
+                  }}
+                >
                   Contact Us <ArrowRight className="w-5 h-5 ml-2 -rotate-45" />
                 </Link>
               </Button>
@@ -227,8 +248,7 @@ export default function Home() {
       </section>
 
       <OurSolutionsSection limit={3} />
-      <ServicesSection />
-      <PricingSection />
+      <PricingSection limit={3} />
 
       {/* Stats */}
       <section ref={statsRef} className="py-24 bg-primary text-[#432c1c] shadow-inner">

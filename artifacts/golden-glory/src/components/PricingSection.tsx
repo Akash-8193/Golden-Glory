@@ -1,114 +1,209 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+"use client";
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
-import { Check, Star, CreditCard, RefreshCw } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import Link from 'next/link';
+import { Check, Laptop, Monitor, Users, Crown, Ticket, Presentation, ArrowRight } from 'lucide-react';
 
-export default function PricingSection() {
-  const [plans, setPlans] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+interface PricingSectionProps {
+  limit?: number;
+}
 
-  useEffect(() => {
-    async function fetchPlans() {
-      try {
-        const { data, error } = await supabase
-          .from('pricing_plans')
-          .select('*')
-          .order('id', { ascending: true });
-        
-        if (error) throw error;
-        
-        if (data && data.length > 0) {
-          setPlans(data);
-        } else {
-          // Fallback if empty
-          setPlans([
-            { title: "Dedicated Desk", price: "5,500", suffix: "+GST/Mo", best_for: "Regular professionals needing consistency & comfort", feats: ["Personal fixed desk", "Secure & stable setup", "Fiber internet + power backup", "Pantry access", "Printing/scanning support", "Access to meeting room (limited)"], image: "/images/gallery/dedicated%20desk.png", is_premium: false },
-            { title: "Executive Cabin", price: "25,000", suffix: "+GST/Mo", best_for: "Founders, executives, managers, and decision-makers", feats: ["Private, lockable cabin", "Ergonomic seating", "Noise-free workspace", "Internet & backup power", "Meeting room credits", "Branding/identity options"], image: "/images/gallery/private%20cabins.png", is_premium: true, highlighted: true },
-            { title: "Meeting Room", price: "3,500", suffix: "+GST/Day", best_for: "Professional rooms for client discussions & team meetings", feats: ["High-speed Wi-Fi", "Whiteboard & marker", "Smart TV/Projector", "Tea & coffee service", "Air-conditioned", "Reception support"], image: "/images/gallery/meeting%20room.png", is_premium: false }
-          ]);
-        }
-      } catch (err) {
-        console.error('Error fetching plans:', err);
-      } finally {
-        setLoading(false);
-      }
+export default function PricingSection({ limit }: PricingSectionProps = {}) {
+  const plans = [
+    {
+      title: "Flexible Desk",
+      subtitle: "Best For: Freelancers, remote workers, part-time professionals",
+      icon: <Laptop className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹4,500",
+      period: "/Mo",
+      amenities: [
+        "Flexible seating access",
+        "High-speed fiber internet",
+        "Access to common areas",
+        "Tea & coffee",
+        "Reception support",
+        "Power backup & CCTV",
+        "Access to meeting room (limited)"
+      ]
+    },
+    {
+      title: "Dedicated Desk",
+      subtitle: "Best For: Regular professionals needing consistency & comfort",
+      icon: <Monitor className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹5,500",
+      period: "/Mo",
+      amenities: [
+        "Personal fixed desk",
+        "Secure & stable setup",
+        "Fiber internet + power backup",
+        "Tea & coffee",
+        "Printing/scanning support",
+        "Access to meeting room (limited)"
+      ]
+    },
+    {
+      title: "Enclosed Cabin",
+      subtitle: "Best For: Founders, small teams, leadership & client-facing work",
+      icon: <Users className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹5,500",
+      period: "/Mo/seat",
+      amenities: [
+        "Private, lockable cabin",
+        "Ergonomic seating",
+        "Noise-free workspace",
+        "Internet & backup power",
+        "Tea & coffee",
+        "Branding/identity options",
+        "Access to meeting room (limited)"
+      ]
+    },
+    {
+      title: "Executive Cabin",
+      subtitle: "Best For: Founders, executives, managers, and decision-makers.",
+      icon: <Crown className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹20,000",
+      period: "/Mo",
+      amenities: [
+        "Private, lockable cabin",
+        "Ergonomic seating",
+        "Noise-free workspace",
+        "Internet & backup power",
+        "Tea & coffee",
+        "Branding/identity options",
+        "Access to meeting room (limited)"
+      ]
+    },
+    {
+      title: "Day Pass",
+      subtitle: "Best For: Travelers, freelancers, one-day visitors & remote workers",
+      icon: <Ticket className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹500",
+      period: "/Per Day",
+      amenities: [
+        "Flexible seating for 1 day",
+        "High-speed fiber internet",
+        "Access to common areas",
+        "Tea & coffee",
+        "Power backup & CCTV",
+        "Reception support"
+      ]
+    },
+    {
+      title: "Meeting Room",
+      subtitle: "Best For: Client meetings, team huddles, interviews & presentations",
+      icon: <Presentation className="w-10 h-10 text-[#111]" strokeWidth={1.5} />,
+      price: "₹500",
+      period: "/Per Hour",
+      amenities: [
+        "High-speed Wi-Fi",
+        "Projector",
+        "Whiteboard & markers",
+        "Tea & coffee service",
+        "Noise-free environment",
+        "Reception support",
+        "Access to meeting room (limited)"
+      ]
     }
-    fetchPlans();
-  }, []);
+  ];
 
   return (
-    <section id="pricing" className="py-16 md:py-20 bg-[#f4f9fd]">
+    <section id="pricing" className="py-24 bg-[#fafafa]">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-        <div className="text-center mb-20 max-w-3xl mx-auto flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-4 text-[#ffa602] fade-up">
-            <CreditCard className="w-5 h-5" />
-            <span className="font-bold tracking-wider text-sm uppercase">Pricing Plans</span>
+        <div className="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
+          {/* Top Badge matching Rentgo */}
+          <div className="inline-flex items-center gap-2 mb-6 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 fade-up">
+            <span className="w-2 h-2 rounded-full bg-[#ffa602]"></span>
+            <span className="font-bold text-[#111] text-sm">Pricing Plan</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-sans tracking-tight text-[#111] leading-[1.1] mb-6 at-animation-heading-style-3">
-            Flexible Plans for Every Need
+
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-sans text-[#111] leading-[1.1] mb-6 fade-up">
+            Flexible Plans for Everyone
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed typewriter">
-            Choose a workspace plan that suits your workflow. Whether you need a dedicated desk or a private office, we have the perfect space for you.
+          <p className="text-gray-600 text-lg leading-relaxed fade-up">
+            Choose the workspace plan that fits your workflow, budget, and business goals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 xl:gap-5">
-          {plans.map((plan, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {(limit ? plans.slice(0, limit) : plans).map((plan, i) => (
             <div
               key={i}
-              className={`rounded-[2rem] p-6 lg:p-8 relative transition-all duration-500 hover:-translate-y-2 flex flex-col fade-up ${plan.highlighted
-                ? 'bg-[#432c1c] text-white shadow-2xl scale-[1.02] lg:scale-105 z-10'
-                : 'bg-white text-[#111] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 hover:border-[#ffa602]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]'
-                }`}
+              className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col fade-up"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              {plan.is_premium && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#ffa602] text-[#111] font-bold text-xs uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg flex items-center gap-1 z-20">
-                  <Star className="w-3 h-3 fill-current" /> Premium
+              {/* Card Header */}
+              <div className="flex items-start gap-4 mb-8">
+                <div className="shrink-0 pt-1">
+                  {plan.icon}
                 </div>
-              )}
-
-              <div className="h-56 w-full rounded-[2rem] overflow-hidden relative group image-anime at-animation-image-style-1">
-                <img src={plan.image} alt={plan.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div>
+                  <h3 className="text-[1.4rem] font-bold font-sans text-[#111] mb-2">{plan.title}</h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed pr-2">{plan.subtitle}</p>
+                </div>
               </div>
 
-              <div className="p-4 xl:p-5 flex flex-col flex-1">
-                <h3 className={`font-sans text-2xl font-bold mb-4 min-h-[64px] ${plan.is_premium ? 'text-white' : 'text-[#111]'}`}>{plan.title}</h3>
-
-                <div className={`mb-6 pb-6 border-b ${plan.is_premium ? 'border-white/10' : 'border-gray-100'}`}>
-                  <div className="flex flex-wrap items-baseline gap-1 mb-1">
-                    <span className="text-2xl lg:text-3xl font-bold text-[#ffa602] tracking-tight">₹{plan.price}</span>
-                    <span className={`text-xs xl:text-sm font-medium ${plan.is_premium ? 'text-gray-400' : 'text-gray-500'}`}>{plan.suffix}</span>
-                  </div>
+              {/* Price Block */}
+              <div className="bg-[#f8f9fa] rounded-2xl p-6 mb-8 text-center border border-gray-50">
+                <div className="flex items-baseline justify-center gap-1 mb-5">
+                  <span className="text-4xl lg:text-5xl font-bold font-sans text-[#111] tracking-tight">{plan.price}</span>
+                  <span className="text-[#111] font-bold text-sm">{plan.period}</span>
                 </div>
+                <Button 
+                  asChild
+                  className="w-full bg-[#f4a735] hover:bg-[#df9121] text-[#111] font-bold rounded-full h-[3.25rem] text-[15px] shadow-sm transition-colors"
+                >
+                  <Link 
+                    href="/contact-us#contact-us-section"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const el = document.getElementById('contact-us-section');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 600);
+                    }}
+                  >
+                    Get Started With Plan
+                  </Link>
+                </Button>
+              </div>
 
-                <p className={`text-sm font-medium mb-6 min-h-[60px] leading-relaxed ${plan.is_premium ? 'text-gray-300' : 'text-[#111]/80'}`}>
-                  <span className={plan.is_premium ? 'text-[#ffa602]' : 'text-[#ffa602]'}>Best for: </span>{plan.best_for}
-                </p>
-
-                <ul className="space-y-4 mb-8 flex-1">
-                  {plan.feats.map((feat: string, j: number) => (
-                    <li key={j} className={`flex items-start gap-3 text-sm ${plan.is_premium ? 'text-gray-300' : 'text-gray-500'}`}>
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.is_premium ? 'bg-[#ffa602]/20' : 'bg-[#ffa602]/10'} border-zooming`}>
-                        <Check className="w-3 h-3 text-[#ffa602]" />
+              {/* Included Amenities */}
+              <div className="flex-1">
+                <h4 className="text-[1.1rem] font-bold text-[#111] mb-5 font-sans">Key Amenities:</h4>
+                <ul className="space-y-4">
+                  {plan.amenities.map((feat, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <div className="mt-[2px] bg-[#f4a735] rounded-full w-4 h-4 flex items-center justify-center shrink-0">
+                        <Check className="w-3 h-3 text-white" strokeWidth={3} />
                       </div>
-                      <span className="leading-tight">{feat}</span>
+                      <span className="text-gray-600 text-[15px] leading-snug">{feat}</span>
                     </li>
                   ))}
                 </ul>
-
-                <Button asChild className={`w-full h-14 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 mt-auto shadow-md btn-anime ${plan.is_premium
-                  ? 'bg-[#ffa602] text-[#111] hover:bg-[#e09612]'
-                  : 'bg-gray-50 text-[#111] hover:bg-[#ffa602] hover:text-[#111] border border-gray-200 hover:border-[#ffa602]'
-                  }`}>
-                  <Link href="/contact-us"><span className="relative z-10">Select Plan</span></Link>
-                </Button>
               </div>
             </div>
           ))}
         </div>
+
+        {limit && plans.length > limit && (
+          <div className="mt-16 text-center fade-up">
+            <Button 
+              asChild
+              className="rounded-full h-14 px-10 bg-[#f4a735] hover:bg-[#df9121] text-[#111] font-bold text-base shadow-lg transition-all hover:-translate-y-1"
+            >
+              <Link 
+                href="/our-offerings#pricing"
+                onClick={() => {
+                  setTimeout(() => {
+                    const el = document.getElementById('pricing');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 600);
+                }}
+              >
+                Read More Plans <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
