@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,13 +12,6 @@ export function useGsapAnimations(dependencies: any[] = []) {
     let ctx: gsap.Context;
 
     const initAnimations = () => {
-      const SplitType = (window as any).SplitType;
-
-      if (!SplitType) {
-        console.warn("SplitType not loaded yet, retrying in 100ms...");
-        timer = setTimeout(initAnimations, 100);
-        return;
-      }
 
       timer = setTimeout(() => {
         let splits: any[] = [];

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import '../index.css'
 import { Providers } from './providers'
 
@@ -16,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script src="https://unpkg.com/split-type" strategy="beforeInteractive" />
       </head>
       <body className="antialiased">
         <Providers>
