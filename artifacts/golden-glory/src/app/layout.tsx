@@ -15,8 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <head>
         <Script src="https://unpkg.com/split-type" strategy="beforeInteractive" />
+      </head>
+      <body className="antialiased">
         <Providers>
           {children}
         </Providers>

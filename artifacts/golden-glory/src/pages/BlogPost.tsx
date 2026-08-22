@@ -21,8 +21,6 @@ export default function BlogPost() {
     }
   }, [params?.slug]);
 
-  if (!match) return null;
-
 
 
   if (!blog) {
