@@ -1,23 +1,16 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PageTransition from '@/components/PageTransition';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { Calendar, ArrowUpRight } from 'lucide-react';
 import { useSiteContent } from '@/hooks/useSiteContent';
-import { supabase } from '@/lib/supabase';
+import { blogs } from '@/data/blogs';
 
 export default function Blog() {
   const { get } = useSiteContent();
-  const [blogs, setBlogs] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchBlogs() {
-      const { data } = await supabase.from('blogs').select('*').order('created_at', { ascending: false });
-      if (data) setBlogs(data);
-      setLoading(false);
-    }
-    fetchBlogs();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -54,43 +47,44 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className="py-24 bg-white min-h-screen">
+      <section className="py-24 min-h-screen bg-[#FAF8ED]">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-          {loading ? (
-            <div className="text-center py-20 text-gray-500">
-              <div className="animate-spin w-8 h-8 border-4 border-[#ffa602] border-t-transparent rounded-full mx-auto mb-4"></div>
-              Loading blogs... Ensure database setup script is run.
-            </div>
-          ) : blogs.length === 0 ? (
+          {blogs.length === 0 ? (
             <div className="text-center py-20 text-gray-500 font-bold text-xl">No blog posts found.</div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogs.map((blog) => (
-                <Link href={`/coworking-space-in-noida-blog/${blog.slug}`} key={blog.id} className="bg-transparent group block cursor-pointer transition-all duration-300" data-cursor="hover">
+                <Link href={`/coworking-space-in-noida-blog/${blog.slug}`} key={blog.id} className="bg-white rounded-[2rem] overflow-hidden group block cursor-pointer transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1">
                   
-                  {/* Image */}
-                  <div className="w-full aspect-[4/3] rounded-[2rem] overflow-hidden mb-6 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+                  {/* Image with Category Badge */}
+                  <div className="w-full aspect-[4/3] relative overflow-hidden">
                     <img src={blog.image_url} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-gray-100" />
+                    <div className="absolute top-5 left-5 bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-lg">
+                      {blog.category}
+                    </div>
                   </div>
                   
-                  {/* Date */}
-                  <div className="text-xs font-bold text-[#c08d3e] tracking-wider uppercase mb-4">
-                    {blog.date}
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 className="text-2xl md:text-[28px] font-serif text-[#111] font-bold leading-snug mb-4 group-hover:text-[#c08d3e] transition-colors">
-                    {blog.title}
-                  </h3>
-                  
-                  {/* Excerpt */}
-                  <p className="text-gray-500 text-[15px] leading-relaxed mb-6 line-clamp-3">
-                    {blog.excerpt}
-                  </p>
-                  
-                  {/* Read More */}
-                  <div className="text-sm font-bold text-[#111] flex items-center gap-1 group-hover:text-[#c08d3e] transition-colors uppercase tracking-wide">
-                    Read More <ArrowUpRight className="w-4 h-4" />
+                  <div className="p-8">
+                    {/* Date */}
+                    <div className="flex items-center gap-2 text-sm font-semibold text-gray-600 mb-4">
+                      <Calendar className="w-4 h-4 text-[#111]" />
+                      {blog.date}
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-[#111] leading-tight mb-8 group-hover:text-[#ffa602] transition-colors">
+                      {blog.title}
+                    </h3>
+                    
+                    {/* Read More Button */}
+                    <div className="flex items-stretch w-fit rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow">
+                      <div className="bg-[#111] text-white flex items-center justify-center px-4 py-3 group-hover:bg-black transition-colors">
+                        <ArrowUpRight className="w-5 h-5" />
+                      </div>
+                      <div className="bg-[#ffa602] text-white font-bold px-6 py-3 flex items-center group-hover:bg-[#e69500] transition-colors">
+                        Read More
+                      </div>
+                    </div>
                   </div>
 
                 </Link>

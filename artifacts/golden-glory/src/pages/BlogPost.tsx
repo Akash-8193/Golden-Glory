@@ -3,41 +3,27 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import PageTransition from '@/components/PageTransition';
-import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { ArrowLeft, Clock, Calendar, User, Tag, Facebook, Linkedin, MessageCircle } from 'lucide-react';
+import { blogs, BlogPost as BlogPostType } from '@/data/blogs';
 
 export default function BlogPost() {
   const params = useParams();
-  const match = true;
-  const [blog, setBlog] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [blog, setBlog] = useState<BlogPostType | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [match]);
+  }, []);
 
   useEffect(() => {
-    async function fetchBlog() {
-      if (!params?.slug) return;
-      setLoading(true);
-      const { data } = await supabase.from('blogs').select('*').eq('slug', params.slug).single();
-      if (data) setBlog(data);
-      setLoading(false);
+    if (params?.slug) {
+      const foundBlog = blogs.find(b => b.slug === params.slug);
+      setBlog(foundBlog || null);
     }
-    if (match) fetchBlog();
-  }, [match, params?.slug]);
+  }, [params?.slug]);
 
   if (!match) return null;
 
-  if (loading) {
-    return (
-      <PageTransition>
-        <section className="relative pt-40 pb-20 min-h-screen flex items-center justify-center bg-white">
-          <div className="animate-spin w-10 h-10 border-4 border-[#ffa602] border-t-transparent rounded-full mx-auto"></div>
-        </section>
-      </PageTransition>
-    );
-  }
+
 
   if (!blog) {
     return (
@@ -55,101 +41,89 @@ export default function BlogPost() {
     );
   }
 
-  // Format content paragraphs
-  const paragraphs = blog.content.split('\\n').filter((p: string) => p.trim() !== '');
-
   return (
     <PageTransition>
       <div className="bg-white min-h-screen">
         
-        {/* Article Hero Header */}
-        <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center pt-28 overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative h-[60vh] min-h-[500px] w-full flex items-end justify-center pb-20 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img src={blog.image_url} className="w-full h-full object-cover scale-105 animate-[kenburns_20s_ease-in-out_infinite_alternate]" alt={blog.title} />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
           </div>
           
-          <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-5xl text-center">
-            <div className="bg-black/20 backdrop-blur-md border border-white/20 p-8 md:p-16 rounded-[2rem] shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 inline-block w-full">
-            <Link href="/coworking-space-in-noida-blog" className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 mb-8 shadow-lg group hover:bg-white/20 transition-all">
-              <ArrowLeft className="w-4 h-4 text-[#dca646] group-hover:-translate-x-1 transition-transform" />
-              <span className="text-[#dca646] text-xs md:text-[13px] font-bold tracking-[0.15em] uppercase">Back to Articles</span>
-            </Link>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm font-medium text-[#e3be4f] uppercase tracking-wider mb-6">
-              <span className="flex items-center gap-1.5 bg-[#e3be4f]/20 px-3 py-1 rounded-full border border-[#e3be4f]/30 text-[#f5d77f]"><Calendar className="w-3.5 h-3.5" /> {blog.date}</span>
-              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {blog.read_time}</span>
-              <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {blog.author}</span>
-            </div>
-
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-white font-bold leading-[1.1] mb-6 drop-shadow-lg">
+          <div className="container relative z-10 mx-auto px-4 lg:px-8 max-w-5xl text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h1 className="font-sans text-3xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-6 drop-shadow-lg max-w-4xl mx-auto">
               {blog.title}
             </h1>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-white/90 tracking-wide">
+              <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {blog.date}</span>
+              <span className="flex items-center gap-2"><Tag className="w-4 h-4" /> {blog.category}</span>
             </div>
           </div>
         </section>
 
-        {/* Article Content */}
-        <section className="py-20 lg:py-32">
-          <div className="container mx-auto px-4">
-            <article className="max-w-[800px] mx-auto">
+        {/* Content Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-[850px]">
+            
+            {/* HTML Content Rendered with custom styles */}
+            <article 
+              className="[&>p]:text-gray-700 [&>p]:leading-loose [&>p]:mb-6 [&>p]:text-lg [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-[#111] [&>h2]:mb-6 [&>h2]:mt-12 [&>blockquote]:bg-[#ffa602] [&>blockquote]:text-white [&>blockquote]:p-8 md:[&>blockquote]:p-12 [&>blockquote]:rounded-2xl [&>blockquote]:my-10 [&>blockquote]:text-xl md:[&>blockquote]:text-2xl [&>blockquote]:font-medium [&>blockquote]:leading-relaxed [&>blockquote]:relative before:[&>blockquote]:content-[''] before:[&>blockquote]:absolute before:[&>blockquote]:opacity-20 before:[&>blockquote]:top-4 before:[&>blockquote]:left-4 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-4 [&>ul]:mb-8 [&>ul]:mt-4 [&>li]:text-gray-700 [&>li]:text-lg [&>li]:leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
+
+            {/* Tags & Social Share */}
+            <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="flex items-center gap-3">
+                <span className="font-bold text-[#111] text-lg">Tags:</span>
+                {blog.tags.map((tag, idx) => (
+                  <span key={idx} className="bg-[#ffa602] text-white px-4 py-1.5 rounded text-sm font-semibold hover:bg-[#e69500] transition-colors cursor-pointer">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <a href="#" className="w-10 h-10 bg-[#ffa602] text-white flex items-center justify-center rounded hover:bg-[#e69500] transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-[#ffa602] text-white flex items-center justify-center rounded hover:bg-[#e69500] transition-colors">
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-[#ffa602] text-white flex items-center justify-center rounded hover:bg-[#e69500] transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Leave a Reply Section */}
+            <div className="mt-20">
+              <h2 className="text-3xl font-bold text-[#111] mb-2">Leave a Reply</h2>
+              <p className="text-gray-500 mb-8">Your email address will not be published. Required fields are marked *</p>
               
-              {/* Premium Excerpt / Intro */}
-              <div className="mb-16">
-                <p className="text-xl md:text-2xl text-gray-500 font-serif italic leading-relaxed border-l-4 border-[#c08d3e] pl-6 md:pl-8 py-2">
-                  "{blog.excerpt}"
-                </p>
-              </div>
-
-              {/* Main Text Content */}
-              <div className="prose prose-lg md:prose-xl max-w-none text-gray-700 font-sans leading-[1.8] marker:text-[#c08d3e]">
-                {paragraphs.map((paragraph: string, idx: number) => {
-                  if (paragraph.match(/^[0-9]\\.\\s/) || paragraph.match(/^Why Choose/i) || paragraph.match(/^Conclusion/i) || paragraph.match(/^Benefits of/i)) {
-                    return (
-                      <h2 key={idx} className="text-2xl md:text-3xl font-serif font-bold text-[#111] mt-16 mb-6">
-                        {paragraph}
-                      </h2>
-                    );
-                  }
-                  
-                  if (paragraph.startsWith('•')) {
-                    return (
-                      <div key={idx} className="flex gap-4 mb-4 items-start bg-[#fafafa] p-4 rounded-xl border border-gray-100">
-                        <div className="w-2 h-2 rounded-full bg-[#c08d3e] mt-2.5 shrink-0" />
-                        <p className="m-0 text-[17px]">{paragraph.substring(1).trim()}</p>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <p key={idx} className={`mb-8 text-[17px] md:text-[19px] ${idx === 0 ? 'first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:text-[#c08d3e] first-letter:mr-3 first-letter:float-left' : ''}`}>
-                      {paragraph}
-                    </p>
-                  );
-                })}
-              </div>
-
-              {/* Article Footer */}
-              <div className="mt-24 pt-10 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#c08d3e] to-[#8a6327] flex items-center justify-center text-white font-serif text-2xl shadow-lg">
-                    {blog.author.charAt(0).toUpperCase()}
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <input type="text" placeholder="Name *" className="w-full bg-[#FAF8ED] border border-gray-200 px-6 py-4 rounded-xl focus:outline-none focus:border-[#ffa602] transition-colors" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#111] text-lg uppercase tracking-wider">{blog.author}</h4>
-                    <p className="text-gray-500 text-sm">Author & Coworking Expert</p>
+                    <input type="email" placeholder="Email *" className="w-full bg-[#FAF8ED] border border-gray-200 px-6 py-4 rounded-xl focus:outline-none focus:border-[#ffa602] transition-colors" />
                   </div>
                 </div>
-                
-                <Link href="/coworking-space-in-noida-blog" className="px-8 py-3 bg-[#111] text-white text-sm font-bold tracking-wider uppercase rounded-full hover:bg-[#c08d3e] transition-colors shadow-lg shadow-black/10">
-                  Read More Articles
-                </Link>
-              </div>
-
-            </article>
+                <div>
+                  <textarea placeholder="Comment *" rows={6} className="w-full bg-[#FAF8ED] border border-gray-200 px-6 py-4 rounded-xl focus:outline-none focus:border-[#ffa602] transition-colors resize-none"></textarea>
+                </div>
+                <div>
+                  <button type="button" className="bg-[#a4d232] text-[#111] font-bold px-8 py-4 rounded-xl hover:bg-[#91ba2d] transition-colors shadow-lg shadow-[#a4d232]/20 flex items-center gap-2">
+                    Post Comment
+                  </button>
+                </div>
+              </form>
+            </div>
+            
           </div>
         </section>
-
+        
       </div>
     </PageTransition>
   );
